@@ -22,7 +22,7 @@ const BlogDetails = () => {
           <NavbarOne />
 
           {/* Breadcrumb */}
-          <Breadcrumb title={"BLOG DETAILS"} />
+          <Breadcrumb title={"SHIPPER"} text={"BECOME A "} />
 
           {/* Blog Details Inner */}
           <BlogDetailsInner />

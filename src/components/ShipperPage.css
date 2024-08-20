@@ -1,0 +1,35 @@
+.truckload-section {
+  /* background-color: #1b1e26; */
+  color: white;
+}
+
+.section-title {
+  font-weight: bold;
+  color: #fb493d;
+}
+
+.service-card {
+  /* background-color: ; */
+  border: none;
+  box-shadow: 4px 4px 4px white;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+.service-title {
+  color: #fb493d;
+}
+
+.custom-button {
+  background-color: #fb493d;
+  border: none;
+  color: white;
+}
+
+.custom-button:hover {
+  background-color: #e13b32;
+}

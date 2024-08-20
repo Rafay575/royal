@@ -181,7 +181,7 @@ const NavbarOne = () => {
                 <li className=''>
                   <Link to='/service'>Services</Link>
                 </li>
-                {/* <li className='menu-item-has-children'>
+                <li className='menu-item-has-children'>
                   <Link to='#'>Pages</Link>
                   <ul className='sub-menu'>
                     <li>
@@ -209,12 +209,12 @@ const NavbarOne = () => {
                       <Link to='/contact'>Contact</Link>
                     </li>
                   </ul>
-                </li> */}
+                </li>
                 <li className=''>
                   <Link to='/blog'>Carrier</Link>   
                 </li>
                 <li className=''>
-                  <Link to='/blog'>Shipper</Link>   
+                  <Link to='/blog-details'>Shipper</Link>   
                 </li>
                 <li>
                   <Link to='/contact'>Contact Us</Link>

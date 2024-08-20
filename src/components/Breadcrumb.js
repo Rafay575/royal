@@ -1,20 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Breadcrumb = ({ title }) => {
+const Breadcrumb = ({ title,text }) => {
   return (
     <>
       {/* breadcrumb start */}
       <div
         className='breadcrumb-area bg-overlay-2'
-        style={{ backgroundImage: 'url("assets/img/banner/breadcrumb.png")' }}
+        style={{ backgroundImage: 'url("assets/img/banner/bg.png")' }}
       >
         <div className='container'>
           <div className='row'>
             <div className='col-12'>
               <div className='breadcrumb-inner'>
                 <div className='section-title mb-0'>
-                  <h2 className='page-title'>{title}</h2>
+                  <h2 className='page-title'>{text? text:''}  {title}</h2>
                   <ul className='page-list'>
                     <li>
                       <Link to='/'>HOME</Link>
