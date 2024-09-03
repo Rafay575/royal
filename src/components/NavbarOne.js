@@ -211,10 +211,10 @@ const NavbarOne = () => {
                   </ul>
                 </li>
                 <li className=''>
-                  <Link to='/blog'>Carrier</Link>   
+                  <Link to='/blog'>Shipper</Link>   
                 </li>
                 <li className=''>
-                  <Link to='/blog-details'>Shipper</Link>   
+                  <Link to='/blog-details'>Carrier</Link>   
                 </li>
                 <li>
                   <Link to='/contact'>Contact Us</Link>

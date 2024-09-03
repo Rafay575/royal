@@ -54,9 +54,11 @@ const Shipper = () => {
               <Card.Text>
                 Our LTL freight management software gives you greater control over your less-than-truckload freight spend. You manage your preferred LTL carriers while taking advantage of our aggregate, negotiated contract pricing...
               </Card.Text>
-              <Button variant="primary" className="custom-button">Learn More</Button>
             </Card.Body>
           </Card>
+        </Col>
+        <Col className='text-center'>
+              <Button variant="primary" className="custom-button">Learn More</Button>
         </Col>
       </Row>
     </Container>

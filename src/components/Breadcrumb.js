@@ -1,3 +1,4 @@
+import { height } from "@fortawesome/free-solid-svg-icons/fa0";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -6,8 +7,8 @@ const Breadcrumb = ({ title,text }) => {
     <>
       {/* breadcrumb start */}
       <div
-        className='breadcrumb-area bg-overlay-2'
-        style={{ backgroundImage: 'url("assets/img/banner/bg.png")' }}
+        className='breadcrumb-area bg-overlay-2 '
+        style={{ backgroundImage: 'url("assets/img/banner/bg.png")',height:"10vh"  }}
       >
         <div className='container'>
           <div className='row'>
