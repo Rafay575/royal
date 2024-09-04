@@ -1,0 +1,59 @@
+.banner-section {
+   
+   
+  }
+  
+  .banner-container {
+    color: white;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .banner-title {
+    font-size: 3rem; /* Larger, smooth heading */
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  
+  .banner-text {
+    font-size: 1.25rem; /* Smoother font for text */
+    margin-bottom: 40px; /* Space before button */
+    line-height: 1.6;
+    max-width: 90%; /* Limit width for text readability */
+  }
+  
+  .banner-button {
+    background-color: white;
+    color: #fa4318;
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: 12px 36px;
+    border-radius: 50px;
+    border: 2px solid white;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .banner-button:hover {
+    background-color: transparent;
+    color: white;
+    border-color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .banner-title {
+      font-size: 2.5rem;
+    }
+  
+    .banner-text {
+      font-size: 1rem;
+      max-width: 100%;
+    }
+  
+    .banner-button {
+      width: 100%;
+      font-size: 1.1rem;
+      padding: 10px 0;
+    }
+  }
+  

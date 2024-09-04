@@ -5,13 +5,13 @@
 
 .section-title {
   font-weight: bold;
-  color: #fb493d;
+  color: #fa4318;
 }
 
 .service-card {
-  /* background-color: ; */
+  /* background-color: rgb(186, 186, 186); */
   border: none;
-  box-shadow: 4px 4px 4px white;
+  box-shadow: 2px 2px 4px 2px black;
   color: white;
   transition: transform 0.3s ease-in-out;
 }
@@ -21,11 +21,11 @@
 }
 
 .service-title {
-  color: #fb493d;
+  color: #fa4318;
 }
 
 .custom-button {
-  background-color: #fb493d;
+  background-color: #fa4318;
   border: none;
   color: white;
 }

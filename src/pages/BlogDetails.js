@@ -1,5 +1,8 @@
 import React, { Fragment, Suspense } from "react";
 import Preloader from "../elements/Preloader";
+import Carrier from "../components/Carrier";
+import CarrierBenefits from "../components/CarrierBenefits";
+import Tools from "../components/Tools";
 const BlogDetailsInner = React.lazy(() =>
   import("../components/BlogDetailsInner")
 );
@@ -22,10 +25,11 @@ const BlogDetails = () => {
           <NavbarOne />
 
           {/* Breadcrumb */}
-          <Breadcrumb title={"SHIPPER"} text={"BECOME A "} />
+          {/* <Breadcrumb title={"CARRIER"}  /> */}
 
-          {/* Blog Details Inner */}
-          <BlogDetailsInner />
+          <Carrier />
+          <CarrierBenefits />
+          <Tools />
 
           {/* Footer One */}
           <FooterOne />

@@ -14,9 +14,9 @@ import Pricing from "./pages/Pricing";
 import Faq from "./pages/Faq";
 import Contact from "./pages/Contact";
 import RouteScrollToTop from "./elements/RouteScrollToTop";
-import HomeThree from "./pages/HomeThree";
-import HomeFour from "./pages/HomeFour";
-import HomeFive from "./pages/HomeFive";
+
+import Shipperform from "./pages/Shipperform";
+import RegistrationCriteria from "./components/RegistrationCriteria";
 function App() {
   useEffect(() => {
     AOS.init({
@@ -31,15 +31,14 @@ function App() {
       <RouteScrollToTop />
       <Routes>
         <Route exact path='/' element={<HomeOne />} />
-        {/* <Route exact path='/home-2' element={<HomeTwo />} />
-        <Route exact path='/home-3' element={<HomeThree />} />
-        <Route exact path='/home-4' element={<HomeFour />} />
-        <Route exact path='/home-5' element={<HomeFive />} /> */}
         <Route exact path='/about' element={<About />} />
         <Route exact path='/service' element={<Service />} />
         <Route exact path='/service-details' element={<ServiceDetails />} />
-        <Route exact path='/blog' element={<Blog />} />
-        <Route exact path='/blog-details' element={<BlogDetails />} />
+        <Route exact path='/shipper' element={<Blog />} />
+        <Route exact path='/shipperform' element={<Shipperform/>} />
+
+        <Route exact path='/carrier' element={<BlogDetails />} />
+        <Route exact path='/registration-criteria' element={<RegistrationCriteria />} />
         <Route exact path='/pricing' element={<Pricing />} />
         <Route exact path='/faq' element={<Faq />} />
         <Route exact path='/contact' element={<Contact />} />

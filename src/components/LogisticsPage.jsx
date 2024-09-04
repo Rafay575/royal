@@ -6,7 +6,7 @@ const LogisticsPage = () => {
     <Container className="p-4">
       <Row className="mb-4">
         <Col md={6}>
-          <h2>Online Load Tracking</h2>
+          <h2 style={{color:"#fa4318"}}>Online Load Tracking</h2>
           <p>
             Upon activation of your profile with Allen Lund Company, you will
             gain access to your shipments, with multiple options to track
@@ -42,13 +42,7 @@ const LogisticsPage = () => {
         </Col>
       </Row>
 
-      <Row className="mt-4">
-        <Col className="text-center">
-          <Button variant="primary" className="custom-button">
-            Activate Your Profile Today
-          </Button>
-        </Col>
-      </Row>
+     
     </Container>
   );
 };

@@ -1,13 +1,17 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const CarrierResourcesSection = () => {
+  const navigate = useNavigate()
   return (
     <section style={{ padding: '40px 0', backgroundColor: '#f8f9fa' }}>
       <Container>
         <Row className="justify-content-center">
           <Col md={8}>
-            <h2 style={{  fontWeight: 'bold', textAlign: 'center', marginBottom: '20px' }}>
+            <h2 style={{  fontWeight: 'bold', textAlign: 'center', marginBottom: '20px',color:
+              "#fa4318"
+             }}>
               Carrier Resources
             </h2>
             <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '20px' }}>
@@ -25,7 +29,7 @@ const CarrierResourcesSection = () => {
               If you would like to contact our Carrier Resources Department with any further questions you may call this number: <strong>800.811.0083</strong> or you may email <a href="mailto:carrierresources@allenlund.com">carrierresources@allenlund.com</a>.
             </p>
             <div style={{ textAlign: 'center' }}>
-              <Button variant="primary" className='' href="mailto:carrierresources@allenlund.com">Contact Us</Button>
+              <Button  className='btn btn-base' onClick={()=>navigate("/shipperform")} >Get A Rate Quote</Button>
             </div>
           </Col>
         </Row>

@@ -1,0 +1,73 @@
+/* Banner Section */
+.banner-section {
+    text-align: center;
+    color: white;
+  }
+  
+  .banner-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  /* Criteria Section */
+  .criteria-section {
+    padding: 60px 0;
+    background-color: white;
+    color: #333;
+  }
+  
+  .criteria-section h4 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-top: 40px;
+    color: #333;
+  }
+  
+  .criteria-section p, .criteria-section li {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  .criteria-section ul {
+    padding-left: 20px;
+  }
+  
+  .criteria-section ul li {
+    margin-bottom: 15px;
+  }
+  
+  .next-step-button {
+    background-color: #fa4318;
+    border: none;
+   
+    border-radius: 30px;
+    font-size: 1.2rem;
+  }
+  
+  .next-step-button:hover {
+    background-color: #f22c0f;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .banner-title {
+      font-size: 2.5rem;
+    }
+    
+    .criteria-section h4 {
+      font-size: 1.5rem;
+    }
+    
+    .criteria-section p, .criteria-section li {
+      font-size: 1rem;
+    }
+    
+    .next-step-button {
+      font-size: 1rem;
+      padding: 10px 25px;
+    }
+  }
+  

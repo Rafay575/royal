@@ -1,0 +1,68 @@
+.tools-section {
+    background-color: white;
+    padding: 60px 0;
+  }
+  
+  .tools-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+  }
+  
+  .tool-card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  
+  .tool-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .icon-container {
+    background-color: #fa4318; /* Theme color */
+    padding: 15px;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .tool-icon {
+    color: white;
+    font-size: 2rem;
+  }
+  
+  .tool-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .tool-card .card-text {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  @media (max-width: 768px) {
+    .tools-title {
+      font-size: 2rem;
+    }
+  
+    .tool-title {
+      font-size: 1.3rem;
+    }
+  
+    .tool-card .card-text {
+      font-size: 0.9rem;
+    }
+  }
+  

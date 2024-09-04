@@ -26,11 +26,11 @@ const Blog = () => {
           <NavbarOne />
 
           {/* Breadcrumb */}
-          <Breadcrumb title={"SHIPPER"} text={"BECOME A"} />
+          <Breadcrumb title={"SHIPPER"}  />
 
-          <Shipper />
-          <LogisticsPage />
           <CarrierResourcesSection />
+          <LogisticsPage />
+          <Shipper />
 
           {/* Footer One */}
           <FooterOne />

@@ -58,7 +58,7 @@ const Shipper = () => {
           </Card>
         </Col>
         <Col className='text-center'>
-              <Button variant="primary" className="custom-button">Learn More</Button>
+              <Button  className="btn btn-base">Learn More</Button>
         </Col>
       </Row>
     </Container>
