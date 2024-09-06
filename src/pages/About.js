@@ -1,5 +1,7 @@
 import React, { Fragment, Suspense } from "react";
 import Preloader from "../elements/Preloader";
+import AboutPage from "../components/AboutPage";
+import { Container } from "react-bootstrap";
 const AboutOne = React.lazy(() => import("../components/AboutOne"));
 const Breadcrumb = React.lazy(() => import("../components/Breadcrumb"));
 const CounterOne = React.lazy(() => import("../components/CounterOne"));
@@ -19,48 +21,21 @@ const About = () => {
     <>
       <Fragment>
         <Suspense fallback={<Preloader />}>
-          {/* Search Popup */}
-          <SearchPopup />
 
-          {/* Navbar One */}
           <NavbarOne />
-
-          {/* Breadcrumb */}
-          <Breadcrumb title={"ABOUT US"} />
-
-          {/* About One */}
-          <div className='pd-top-120 pd-bottom-120'>
-            <AboutOne />
+          <section className="blog-details-area pd-top-120  " style={{ backgroundImage: 'url("assets/img/banner/bg.png")' }}>
+            <Container fluid className="banner-container  container pd-top-120">
+              <h1 className="text-center" style={{ color: '#fff', fontWeight: '700' }}>
+                Royal Star Logistics
+              </h1>
+            </Container>
+          </section>
+          <div className=' pd-bottom-120'>
+            <AboutPage />
           </div>
-
-          {/* Counter One */}
-
-          <div className='fact-area' style={{ background: "#f9f9f9" }}>
-            <CounterOne />
-          </div>
-
-          {/* Skill One */}
-          <SkillOne />
-
-          {/* Video Area One */}
-          <VideoAreaOne />
-
-          {/* Team One */}
-          <div className='pd-bottom-80'>
-            <TeamOne />
-          </div>
-
-          {/* Testimonial Two */}
-          <TestimonialTwo />
-
-          {/* Partner One */}
-          <PartnerOne />
-
-          {/* Footer One */}
           <FooterOne />
-
-          {/* Footer Bottom One */}
           <FooterBottomOne />
+
         </Suspense>
       </Fragment>
     </>

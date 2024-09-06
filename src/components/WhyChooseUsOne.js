@@ -15,16 +15,7 @@ const WhyChooseUsOne = () => {
         <div className='container'>
           <div className='row justify-content-center'>
             <div className='col-xl-7 col-lg-6 order-lg-2'>
-              <div className='video-thumb-wrap'>
-                <img src='assets/img/wcu/video.png' alt='Transpro' />
-                <span
-                  className='video-play-btn cursor-pointer'
-                  data-effect='mfp-zoom-in'
-                  onClick={() => setOpen(true)}
-                >
-                  <FaPlay />
-                </span>
-              </div>
+             
             </div>
             <div className='col-xl-5 col-lg-6 order-lg-1'>
               <div className='section-title style-white mb-0'>
@@ -75,14 +66,7 @@ const WhyChooseUsOne = () => {
           </div>
         </div>
       </div>
-      {/*wcu-area end*/}
-      <ModalVideo
-        channel='youtube'
-        autoplay
-        isOpen={isOpen}
-        videoId='XM6kTQPzzpQ'
-        onClose={() => setOpen(false)}
-      />
+     
     </>
   );
 };

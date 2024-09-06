@@ -17,6 +17,8 @@ import RouteScrollToTop from "./elements/RouteScrollToTop";
 
 import Shipperform from "./pages/Shipperform";
 import RegistrationCriteria from "./components/RegistrationCriteria";
+import LoginPage from "./components/LoginPage";
+import PortalAccessRequest from "./components/PortalAccessRequest";
 function App() {
   useEffect(() => {
     AOS.init({
@@ -42,6 +44,8 @@ function App() {
         <Route exact path='/pricing' element={<Pricing />} />
         <Route exact path='/faq' element={<Faq />} />
         <Route exact path='/contact' element={<Contact />} />
+        <Route exact path='/login' element={<LoginPage />} />
+        <Route exact path='/access' element={<PortalAccessRequest />} />
       </Routes>
       <ScrollToTop smooth color='#FA4318' />
     </BrowserRouter>

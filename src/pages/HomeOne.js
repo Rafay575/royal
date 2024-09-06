@@ -23,10 +23,7 @@ const HomeOne = () => {
     <>
       <Fragment>
         <Suspense fallback={<Preloader />}>
-          {/* Search Popup */}
-          <SearchPopup />
-
-          {/* Navbar One */}
+        
           <NavbarOne />
 
           {/* Banner One */}
@@ -38,8 +35,7 @@ const HomeOne = () => {
           {/* About One */}
           <AboutOne />
 
-          {/* Service One */}
-          <ServiceOne />
+        
 
           {/* Why Choose Us One */}
           <WhyChooseUsOne />

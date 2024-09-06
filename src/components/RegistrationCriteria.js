@@ -2,8 +2,10 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import './RegistrationCriteria.css';  // Custom CSS for styling
 import NavbarOne from './NavbarOne';
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationCriteria = () => {
+  const navigate = useNavigate()
   return (<>
         <NavbarOne />
     <section>
@@ -45,7 +47,7 @@ const RegistrationCriteria = () => {
               <li>Safety Rating must be Satisfactory or None.</li>
               <li>Companies must have active Common, Contract or Intrastate Authority.</li>
             </ul>
-            <Button variant="primary" className="mt-4 next-step-button" >Go to Next Step</Button>
+            <Button variant="primary" className="mt-4 btn btn-base " onClick={()=>navigate('/login')} >Go to Next Step</Button>
           </Col>
         </Row>
       </Container>
