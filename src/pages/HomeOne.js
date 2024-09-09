@@ -44,10 +44,8 @@ const HomeOne = () => {
 
           <CounterOne />
 
-          {/* Team One */}
           <TeamOne />
 
-          {/* Contact One */}
           <div
             className='call-to-contact-area pd-top-240'
             style={{ background: "#F9F9F9" }}

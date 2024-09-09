@@ -49,7 +49,7 @@ const AboutPage = () => {
         {/* Story Section */}
         <Row className="align-items-center mb-5">
           <Col md={6}>
-            <h2 className="mb-4" style={{ color: '#fa4318', fontWeight: '600' }}>
+            <h2 className="mb-4" >
               Our Story
             </h2>
             <p style={{ fontSize: '16px', lineHeight: '1.6' }}>
@@ -59,64 +59,6 @@ const AboutPage = () => {
           <Col md={6}>
             {/* Replace this with an image or illustration */}
             <img src="./assets/img/about/a5.jpg" alt="Our Fleet" className="img-fluid" style={{ borderRadius: '10px' }} />
-          </Col>
-        </Row>
-
-        {/* What Sets Us Apart Section */}
-        <Row className="mb-5">
-          <Col md={12}>
-            <h2 className="text-center mb-4" style={{ color: '#fa4318', fontWeight: '600' }}>
-              What Sets Us Apart
-            </h2>
-            <Row>
-          {features.map((feature, index) => (
-            <Col md={6} lg={4} className="mb-4" key={index}>
-              <Card style={{ borderRadius: '10px', border: '1px solid #ddd',textAlign:"center" }}>
-                <Card.Body>
-                  <Card.Title style={{ color: '#fa4318', fontWeight: '600' }}>
-                    {feature.title}
-                  </Card.Title>
-                  <Card.Text style={{ fontSize: '16px', lineHeight: '1.6' }}>
-                    {feature.description}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-          </Col>
-        </Row>
-
-        {/* Mission and Vision Section */}
-        <Row className="mb-5">
-          <Col md={6}>
-            <h3 style={{ color: '#fa4318', fontWeight: '600' }}>Mission Statement</h3>
-            <p style={{ fontSize: '16px', lineHeight: '1.6' }}>
-              To deliver exceptional freight brokerage and transportation services by leveraging our extensive industry experience, diverse fleet, and nationwide coverage. We are committed to providing reliable, customized logistics solutions that prioritize customer satisfaction, operational efficiency, and sustainable practices.
-            </p>
-          </Col>
-          <Col md={6}>
-            <h3 style={{ color: '#fa4318', fontWeight: '600' }}>Vision Statement</h3>
-            <p style={{ fontSize: '16px', lineHeight: '1.6' }}>
-              To be the leading logistics partner in the United States, recognized for our innovation, integrity, and unwavering commitment to excellence. We aim to set new standards in the freight industry by continuously evolving to meet the needs of our clients and contributing to a sustainable future.
-            </p>
-          </Col>
-        </Row>
-
-        {/* Call to Action Section */}
-        <Row className="text-center">
-          <Col>
-            <Button
-              href="/contact"
-              style={{
-                backgroundColor: '#fa4318',
-                borderColor: '#fa4318',
-                padding: '0px 20px',
-                fontSize: '18px',
-              }}
-            >
-              Contact Us
-            </Button>
           </Col>
         </Row>
       </Container>

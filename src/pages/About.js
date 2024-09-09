@@ -2,6 +2,8 @@ import React, { Fragment, Suspense } from "react";
 import Preloader from "../elements/Preloader";
 import AboutPage from "../components/AboutPage";
 import { Container } from "react-bootstrap";
+import MissionComponent from "../components/MissionComponent";
+import Services from "./Services";
 const AboutOne = React.lazy(() => import("../components/AboutOne"));
 const Breadcrumb = React.lazy(() => import("../components/Breadcrumb"));
 const CounterOne = React.lazy(() => import("../components/CounterOne"));
@@ -17,6 +19,29 @@ const TestimonialTwo = React.lazy(() => import("../components/TestimonialTwo"));
 const VideoAreaOne = React.lazy(() => import("../components/VideoAreaOne"));
 const SearchPopup = React.lazy(() => import("../elements/SearchPopup"));
 const About = () => {
+  const servicesData = [
+    {
+      title: 'Nationwide Coverage with a Versatile Fleet',
+      description: 'We operate across all states with a fleet that can meet any logistical demand.',
+    },
+    {
+      title: 'Expertise and Experience',
+      description: 'Decades of experience in the industry ensure top-notch service.',
+    },
+    {
+      title: 'Customer-Centric Approach',
+      description: 'We prioritize our clients\' needs to build lasting partnerships.',
+    },
+    {
+      title: 'Innovation and Technology',
+      description: 'Embracing the latest in logistics tech to streamline operations and deliver efficiency.',
+    },
+    {
+      title: 'Sustainability and Reliability',
+      description: 'Committed to environmentally responsible practices while maintaining operational reliability.',
+    }
+  ];
+  
   return (
     <>
       <Fragment>
@@ -30,9 +55,11 @@ const About = () => {
               </h1>
             </Container>
           </section>
-          <div className=' pd-bottom-120'>
+         
             <AboutPage />
-          </div>
+            <Services services={servicesData} />
+          <MissionComponent />
+
           <FooterOne />
           <FooterBottomOne />
 

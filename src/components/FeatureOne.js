@@ -63,7 +63,7 @@ const FeatureOne = () => {
               </div>
             </div>
             <div className="col-lg-6 align-self-center">
-              <div className="section-title">
+              <div className="section-title-1">
                 <p className="content left-line">
                   All Star Company provides exceptional service throughout our
                   nationwide network of offices to meet the needs of shippers
@@ -73,13 +73,13 @@ const FeatureOne = () => {
               </div>
             </div>
           </div>
-          <div className="feature-slider owl-carousel">
+          <div className="feature-slider owl-carousel  mt-4">
             <Slider {...settings}>
-              <div className="item">
+              <div className="item px-lg-2">
                 <div className="feature-wrap bg-pink">
-                  <div className="icon">
+                  {/* <div className="icon">
                     <img src="assets/img/icon/a1.png" alt="Transpro" />
-                  </div>
+                  </div> */}
                   <h5>Become a Shipper</h5>
                   <p>
                     Join us as a shipper and simplify your logistics. We'll
@@ -87,24 +87,23 @@ const FeatureOne = () => {
                   </p>
                 </div>
               </div>
-              <div className="item">
+              <div className="item px-lg-2">
                 <div className="feature-wrap bg-ash">
-                  <div className="icon">
-                    {/* <svg */}
+                  {/* <div className="icon">
                     <img src="assets/img/icon/aaa.svg" alt="Transpro"  height={40} />
-                  </div>
+                  </div> */}
                   <h5>Become a Carrier</h5>
                   <p>
-                    Join us as a carrier and drive your future forward! Partner
-                    with us to unlock new opportunities and grow your business.
+                    Join us as carrier and drive your future forward! Partner
+                    with us to unlock opportunities and grow your business.
                   </p>
                 </div>
               </div>
-              <div className="item">
+              <div className="item px-lg-2">
                 <div className="feature-wrap bg-sky">
-                  <div className="icon">
+                  {/* <div className="icon">
                     <img src="assets/img/icon/a2.png" alt="Transpro" height={40} />
-                  </div>
+                  </div> */}
                   <h5>See all Loads</h5>
                   <p>
                     In just a year, you'll be able to explore and view all loads

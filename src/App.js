@@ -4,7 +4,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import ScrollToTop from "react-scroll-to-top";
-import HomeTwo from "./pages/HomeTwo";
 import About from "./pages/About";
 import Service from "./pages/Service";
 import ServiceDetails from "./pages/ServiceDetails";
@@ -19,6 +18,8 @@ import Shipperform from "./pages/Shipperform";
 import RegistrationCriteria from "./components/RegistrationCriteria";
 import LoginPage from "./components/LoginPage";
 import PortalAccessRequest from "./components/PortalAccessRequest";
+import Dashboard from "./Carrier/Dashboard";
+import CarrierPrequalification from "./Carrier/CarrierPrequalification";
 function App() {
   useEffect(() => {
     AOS.init({
@@ -46,6 +47,9 @@ function App() {
         <Route exact path='/contact' element={<Contact />} />
         <Route exact path='/login' element={<LoginPage />} />
         <Route exact path='/access' element={<PortalAccessRequest />} />
+        <Route exact path='/carrierdashboard' element={<Dashboard /> } >
+          <Route index element={<CarrierPrequalification />}/>
+        </Route>
       </Routes>
       <ScrollToTop smooth color='#FA4318' />
     </BrowserRouter>
