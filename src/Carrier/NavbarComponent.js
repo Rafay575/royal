@@ -1,22 +1,23 @@
 import React from 'react';
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Navbar, Container, Col, Button } from 'react-bootstrap';
 
 const NavbarComponent = ({ toggleSidebar }) => {
   return (
-    <Navbar variant="dark" expand="lg" className="mb-0" style={{background:"#fa4318"}}>
+    <Navbar
+      variant="dark"
+      expand="lg"
+      className="mb-0"
+      style={{ background: "#fa4318", position: "fixed", top: 0, width: "100%", zIndex: 1050 }}
+    >
       <Container fluid>
-        {/* <Button variant="dark" onClick={toggleSidebar} className="me-3">
+        {/* Burger menu to toggle sidebar */}
+        <Col className="me-3" onClick={toggleSidebar} style={{ color:"#fff",cursor: "pointer", fontSize: "24px" }}>
+     
           ☰
-        </Button> */}
-        <Navbar.Brand href="#home" style={{fontWeight:"bold"}}>Carrier portal</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbar-nav" />
-        <Navbar.Collapse id="navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link href="#profile">Profile</Nav.Link>
-            <Nav.Link href="#settings">Settings</Nav.Link>
-            <Nav.Link href="#logout">Logout</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+        </Col>
+        <Navbar.Brand href="#home" style={{ fontWeight: "bold" }}>
+          Carrier Portal
+        </Navbar.Brand>
       </Container>
     </Navbar>
   );

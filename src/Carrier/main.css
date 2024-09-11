@@ -1,0 +1,11 @@
+
+.button-11 {
+    background-color: #fa4318;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 6px 30px;
+    border-radius: 50px;
+    border: 2px solid white;
+    transition: all 0.3s ease-in-out;
+  }
