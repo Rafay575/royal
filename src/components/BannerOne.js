@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button, Carousel } from "react-bootstrap";
 import { useMediaQuery } from 'react-responsive';
 
 const BannerOne = () => {
+  const navigate = useNavigate()
   // Media query to check if screen width is less than 768px (small screens)
   const isSmallScreen = useMediaQuery({ query: '(max-width: 768px)' });
 
@@ -19,7 +20,7 @@ const BannerOne = () => {
                 <div className="carousel-item-unique carriers-section-unique">
                   <h2 className="custom-heading">CARRIERS</h2>
                   <p className="custom-paragraph">Ready to haul some freight?</p>
-                  <button className="btn-1-unique" as={Link} to="/careers">
+                  <button className="btn-1-unique" as={Link}  onClick={()=>navigate("/carrier")}>
                     Become a Carrier
                   </button>
                 </div>
@@ -30,8 +31,8 @@ const BannerOne = () => {
                 <div className="carousel-item-unique shippers-section-unique ">
                   <h2 className="custom-heading">SHIPPERS</h2>
                   <p className="custom-paragraph">We treat your freight like family</p>
-                  <button className="btn-1-unique" as={Link} to="/shippers">
-                    Become a carrier
+                  <button className="btn-1-unique" as={Link} onClick={()=>navigate("/shipper")}>
+                    Become a shipper
                   </button>
                 </div>
               </Carousel.Item>
@@ -54,7 +55,7 @@ const BannerOne = () => {
                 <div className="content-unique">
                   <h2 className="custom-heading">CARRIERS</h2>
                   <p className="custom-paragraph">Ready to haul some freight?</p>
-                  <button className="btn-1-unique" as={Link} to="/careers">
+                  <button className="btn-1-unique" as={Link}  onClick={()=>navigate("/carrier")}>
                     Become a Carrier
                   </button>
                 </div>
@@ -65,8 +66,8 @@ const BannerOne = () => {
                 <div className="content-unique">
                   <h2 className="custom-heading">SHIPPERS</h2>
                   <p className="custom-paragraph">We treat your freight like family</p>
-                  <button className="btn-1-unique" as={Link} to="/shippers">
-                    Become a carrier
+                  <button className="btn-1-unique" as={Link} onClick={()=>navigate("/shipper")}>
+                    Become a shipper
                   </button>
                 </div>
               </Col>

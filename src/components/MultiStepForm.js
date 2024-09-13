@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Form, Container, Row, Col, Table, Nav } from 'react-bootstrap';
 import './stepper.css';  // For custom styles
-import Notification from './Notification';
+import { Button, Form, Container, Row, Col, Table, Nav, Spinner } from 'react-bootstrap';
+import toast, { Toaster } from 'react-hot-toast';  // Import react-hot-toast
+import axios from 'axios';  
+
 function Step1({ register, errors }) {
     return (
         <>
@@ -283,12 +285,13 @@ const Preview = ({ formData }) => {
         </div>
     );
 };
+
+
 function MultiStepForm() {
     const [step, setStep] = useState(1);
     const { register, handleSubmit, formState: { errors }, trigger, getValues, reset } = useForm();
     const [formData, setFormData] = useState({});
-    const [showNotification, setShowNotification] = useState(false);  // Control the notification visibility
-    const [notificationMessage, setNotificationMessage] = useState('');
+    const [loading, setLoading] = useState(false);  // Loading state
 
     const nextStep = async () => {
         const valid = await trigger();
@@ -300,31 +303,34 @@ function MultiStepForm() {
 
     const prevStep = () => setStep(step - 1);
 
-    const onSubmit = (data) => {
-        console.log(data);
-        //   alert('Form Submitted Successfully!');
-        setNotificationMessage('Form submitted successfully!');
-        reset();
-        setShowNotification(true);
+    const onSubmit = async (data) => {
+        setLoading(true);  // Show loading spinner
 
-
+        try {
+            const response = await axios.post('http://localhost:5000/api/submit-truckload-quote', data);
+            if (response.status === 200) {
+                toast.success('Form submitted successfully!');  // Show success toast
+                reset();  // Reset the form
+                setStep(1);  // Go back to the first step
+            }
+        } catch (error) {
+            toast.error('Error submitting the form. Please try again.');  // Show error toast
+            console.error('Error:', error);
+        } finally {
+            setLoading(false);  // Hide loading spinner
+        }
     };
 
     return (
         <section id="tabs">
-            <Notification
-                message={notificationMessage}
-                showNotification={showNotification}
-                setShowNotification={setShowNotification}
-            />
-
+            <Toaster position="top-center" reverseOrder={false} />  {/* Hot toast container */}
+            
             <h2 className='text-center mb-5 ' style={{ color: "#fa4318" }}>Truckload Quote</h2>
             <Container className="form-container">
                 <Nav variant="tabs" className="nav-fill" activeKey={step}>
                     <Nav.Item>
                         <Nav.Link
                             eventKey={1}
-
                             className={step === 1 ? "active" : ""}
                         >
                             Basic info
@@ -333,7 +339,6 @@ function MultiStepForm() {
                     <Nav.Item>
                         <Nav.Link
                             eventKey={2}
-
                             className={step === 2 ? "active" : ""}
                         >
                             Details
@@ -359,7 +364,15 @@ function MultiStepForm() {
                         <div className={`mt-5 d-flex ${step > 1 ? "justify-content-between" : "justify-content-end"} `}>
                             {step > 1 && <Button className='btn btn-border-black ' onClick={prevStep}>Previous</Button>}
                             {step < 3 && <Button className=" btn btn-base " onClick={nextStep}>Next</Button>}
-                            {step === 3 && <Button variant="success" className="ml-2 btn btn-base" type="submit">Submit</Button>}
+                            {step === 3 && (
+                                <Button variant="success" className="ml-2 btn btn-base" type="submit" disabled={loading}>
+                                    {loading ? (
+                                        <Spinner animation="border" size="sm" />  // Show spinner when loading
+                                    ) : (
+                                        'Submit'
+                                    )}
+                                </Button>
+                            )}
                         </div>
                     </Form>
                 </div>

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import {
   FaCalculator,
   FaFileAlt,
@@ -8,50 +8,41 @@ import {
   FaRegEnvelope,
   FaUserAlt,
 } from "react-icons/fa";
-import emailjs from "@emailjs/browser";
+import { useForm } from "react-hook-form"; // Import useForm from react-hook-form
+import axios from "axios"; // Import axios for API calls
 import { toast, Toaster } from "react-hot-toast";
-const ContactInner = () => {
-  const form = useRef();
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    // Please See Documentation for more information
-    emailjs
-      .sendForm(
-        "service_yipk4xg", //YOUR_SERVICE_ID
-        "template_71bgc2q", //YOUR_TEMPLATE_ID
-        form.current,
-        "cwf8kROl5o3__96Ti" //YOUR_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          if (result.text === "OK") {
-            toast.success("Massage Sent Successfully!");
-            form.current[0].value = "";
-            form.current[1].value = "";
-            form.current[2].value = "";
-            form.current[3].value = "";
-          }
-        },
-        (error) => {
-          if (error.text !== "OK") {
-            toast.success("Massage Not Sent!");
-          }
-        }
-      );
+const ContactInner = () => {
+  const { register, handleSubmit, reset } = useForm(); // Initialize react-hook-form
+  const [loading, setLoading] = useState(false); // State to manage loading
+
+  const onSubmit = async (data) => {
+    setLoading(true);
+    try {
+      const response = await axios.post("http://localhost:5000/api/contact", data); // Send form data to API
+      if (response.status === 200) {
+        toast.success("Message Sent Successfully!");
+        reset(); // Reset form after successful submission
+      } else {
+        toast.error("Message Not Sent!");
+      }
+    } catch (error) {
+      toast.error("Error submitting the form!");
+      console.error("Error:", error);
+    }
+    setLoading(false);
   };
+
   return (
     <>
       <Toaster position='bottom-center' reverseOrder={false} />
-      {/* contact area start */}
       <div className='container'>
         <div className='contact-area mg-top-120 mb-120'>
           <div className='row g-0 justify-content-center'>
             <div className='col-lg-7'>
               <form
                 className='contact-form text-center'
-                ref={form}
-                onSubmit={sendEmail}
+                onSubmit={handleSubmit(onSubmit)} // Submit form using react-hook-form
               >
                 <h3>GET A QUOTE</h3>
                 <div className='row'>
@@ -63,7 +54,7 @@ const ContactInner = () => {
                       <input
                         type='text'
                         placeholder='Your name'
-                        name='user_name'
+                        {...register("user_name", { required: true })} // Register input field
                       />
                     </div>
                   </div>
@@ -73,9 +64,9 @@ const ContactInner = () => {
                         <FaRegEnvelope />
                       </label>
                       <input
-                        type='text'
+                        type='email'
                         placeholder='Your email'
-                        name='user_email'
+                        {...register("user_email", { required: true })} // Register input field
                       />
                     </div>
                   </div>
@@ -84,7 +75,11 @@ const ContactInner = () => {
                       <label>
                         <FaCalculator />
                       </label>
-                      <input type='text' placeholder=' Phone number' />
+                      <input
+                        type='text'
+                        placeholder='Phone number'
+                        {...register("phone_number", { required: true })} // Register input field
+                      />
                     </div>
                   </div>
                   <div className='col-md-6'>
@@ -92,10 +87,13 @@ const ContactInner = () => {
                       <label>
                         <FaFileAlt />
                       </label>
-                      <select className='single-select'>
-                        <option>Subject</option>
-                        <option value={1}>Some option</option>
-                        <option value={2}>Another option</option>
+                      <select
+                        className='single-select'
+                        {...register("subject", { required: true })} // Register select field
+                      >
+                        <option value=''>Subject</option>
+                        <option value='option1'>Some option</option>
+                        <option value='option2'>Another option</option>
                       </select>
                     </div>
                   </div>
@@ -105,22 +103,21 @@ const ContactInner = () => {
                         <FaPencilAlt />
                       </label>
                       <textarea
-                        placeholder='Write massage'
-                        defaultValue={""}
-                        id='massage'
+                        placeholder='Write message'
+                        {...register("message", { required: true })} // Register textarea
                       />
                     </div>
                   </div>
                   <div className='col-12'>
-                    <button className='btn btn-base' type='submit'>
-                      {" "}
-                      SEND MESSAGE
+                    <button className='btn btn-base' type='submit' disabled={loading}>
+                      {loading ? "Sending..." : "SEND MESSAGE"} {/* Display loading */}
                     </button>
                   </div>
                 </div>
               </form>
             </div>
             <div className='col-lg-5'>
+              {/* Contact information (same as before) */}
               <div className='contact-information-wrap'>
                 <h3>CONTACT INFORMATION</h3>
                 <div className='single-contact-info-wrap'>
@@ -164,7 +161,6 @@ const ContactInner = () => {
           </div>
         </div>
       </div>
-      {/* contact area end */}
 
       <div className='contact-g-map'>
         <iframe src='https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d29208.601361499546!2d90.3598076!3d23.7803374!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1589109092857!5m2!1sen!2sbd' />

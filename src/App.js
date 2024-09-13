@@ -13,13 +13,14 @@ import Pricing from "./pages/Pricing";
 import Faq from "./pages/Faq";
 import Contact from "./pages/Contact";
 import RouteScrollToTop from "./elements/RouteScrollToTop";
-
 import Shipperform from "./pages/Shipperform";
 import RegistrationCriteria from "./components/RegistrationCriteria";
 import LoginPage from "./components/LoginPage";
 import PortalAccessRequest from "./components/PortalAccessRequest";
 import Dashboard from "./Carrier/Dashboard";
 import CarrierPrequalification from "./Carrier/CarrierPrequalification";
+import PrivateRoute from "./components/PrivateRoute";
+
 function App() {
   useEffect(() => {
     AOS.init({
@@ -29,6 +30,7 @@ function App() {
     });
     AOS.refresh();
   }, []);
+
   return (
     <BrowserRouter>
       <RouteScrollToTop />
@@ -38,8 +40,7 @@ function App() {
         <Route exact path='/service' element={<Service />} />
         <Route exact path='/service-details' element={<ServiceDetails />} />
         <Route exact path='/shipper' element={<Blog />} />
-        <Route exact path='/shipperform' element={<Shipperform/>} />
-
+        <Route exact path='/shipperform' element={<Shipperform />} />
         <Route exact path='/carrier' element={<BlogDetails />} />
         <Route exact path='/registration-criteria' element={<RegistrationCriteria />} />
         <Route exact path='/pricing' element={<Pricing />} />
@@ -47,8 +48,12 @@ function App() {
         <Route exact path='/contact' element={<Contact />} />
         <Route exact path='/login' element={<LoginPage />} />
         <Route exact path='/access' element={<PortalAccessRequest />} />
-        <Route exact path='/carrierdashboard' element={<Dashboard /> } >
-          <Route index element={<CarrierPrequalification />}/>
+
+        {/* Protect the dashboard routes */}
+        <Route element={<PrivateRoute />}>
+          <Route exact path='/carrierdashboard' element={<Dashboard />}>
+            <Route index element={<CarrierPrequalification />} />
+          </Route>
         </Route>
       </Routes>
       <ScrollToTop smooth color='#FA4318' />

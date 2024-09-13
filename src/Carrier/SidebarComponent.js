@@ -5,7 +5,7 @@ const SidebarComponent = ({ showSidebar, toggleSidebar, handlePageChange }) => {
   return (
     <>
       {/* Sidebar for larger screens */}
-      <div className="bg-dark d-lg-block  sidebar" style={{boxShadow:"4px 4px 2px 1px "}}>
+      <div className="bg-dark d-block  sidebar" style={{boxShadow:"4px 4px 2px 1px "}}>
         <Nav className="flex-column p-3">
           <Nav.Link onClick={() => handlePageChange(1)}>Address Information</Nav.Link>
           <Nav.Link onClick={() => handlePageChange(2)}>Contact Information</Nav.Link>
