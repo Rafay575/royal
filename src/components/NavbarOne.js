@@ -90,11 +90,7 @@ const NavbarOne = () => {
                       <FaFacebookF aria-hidden='true' />
                     </Link>
                   </li>
-                  <li>
-                    <Link to='#'>
-                      <FaTwitter aria-hidden='true' />
-                    </Link>
-                  </li>
+                  
                   <li>
                     <Link to='#'>
                       <FaLinkedinIn aria-hidden='true' />
@@ -113,11 +109,12 @@ const NavbarOne = () => {
         <nav
           className={
             active
-              ? "navbar navbar-area-1 navbar-area navbar-expand-lg sticky-active"
+              ? "navbar navbar-area-1 navbar-area navbar-expand-lg sticky-active "
               : "navbar navbar-area-1 navbar-area navbar-expand-lg"
           }
+          
         >
-          <div className='container nav-container'>
+          <div className='container nav-container' >
             <div className='responsive-mobile-menu'>
               <button
                 onClick={() => setOpen(!open)}
@@ -136,7 +133,7 @@ const NavbarOne = () => {
             </div>
             <div className='logo'>
               <Link to='/'>
-                <img src='assets/img/logo-2.png' alt='Transpro' />
+                <img src='assets/img/logo1.png' alt='7 star' style={{height:"75px"}}/>
               </Link>
             </div>
             <div className='nav-left-part'></div>
@@ -158,9 +155,7 @@ const NavbarOne = () => {
                   />
                 </svg>
               </span>
-              <Link className='btn btn-base' to='/contact'>
-                <span></span> Get A Quote
-              </Link>
+              
             </div>
             <div
               className={
@@ -175,14 +170,14 @@ const NavbarOne = () => {
                   <Link to='/'>Home</Link>
                  
                 </li>
-                <li>
-                  <Link to='/about'>About Us</Link>
-                </li>
                 <li className=''>
                   <Link to='/shipper'>Shipper</Link>   
                 </li>
                 <li className=''>
                   <Link to='/carrier'>Carrier</Link>   
+                </li>
+                <li>
+                  <Link to='/about'>About Us</Link>
                 </li>
                 <li>
                   <Link to='/contact'>Contact Us</Link>

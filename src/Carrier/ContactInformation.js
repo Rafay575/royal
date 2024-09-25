@@ -2,11 +2,12 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 
-const ContactInformation = () => {
+const ContactInformation = ({currentPage,  incPage}) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
+    incPage()
   };
 
   return (
@@ -39,13 +40,13 @@ const ContactInformation = () => {
           <Col md={6}>
             <Form.Group>
               <Form.Label>Title</Form.Label>
-              <Form.Control as="select" {...register('corporateTitle', { required: true })}>
-                <option value="">Select Title</option>
-                <option value="CEO">CEO</option>
-                <option value="President">President</option>
-                <option value="Manager">Manager</option>
-                {/* Add more options if needed */}
-              </Form.Control>
+             
+              <Form.Control
+                type="text"
+                placeholder="Enter title"
+                {...register('corporateTitle', { required: true })}
+              />
+            
               {errors.corporateTitle && (
                 <span className="error-text">Title is required</span>
               )}
@@ -115,7 +116,7 @@ const ContactInformation = () => {
               <Form.Control
                 type="text"
                 placeholder="First & Last Name"
-                {...register('accountingFullName', { required: true })}
+                {...register('accountingFullName')}
               />
               {errors.accountingFullName && (
                 <span className="error-text">Full Name is required</span>
@@ -126,10 +127,11 @@ const ContactInformation = () => {
           <Col md={6}>
             <Form.Group>
               <Form.Label>Title</Form.Label>
-              <Form.Control as="select" {...register('accountingTitle', { required: true })}>
-                <option value="Accounting">Accounting</option>
-                {/* Add more options if needed */}
-              </Form.Control>
+              <Form.Control
+                type="text"
+                placeholder="Enter title"
+                {...register('accountingTitle')}
+              />
               {errors.accountingTitle && (
                 <span className="error-text">Title is required</span>
               )}
@@ -144,7 +146,7 @@ const ContactInformation = () => {
               <Form.Control
                 type="text"
                 placeholder="Phone Number"
-                {...register('accountingPhoneNumber', { required: true })}
+                {...register('accountingPhoneNumber')}
               />
               {errors.accountingPhoneNumber && (
                 <span className="error-text">Phone Number is required</span>
@@ -165,7 +167,7 @@ const ContactInformation = () => {
               <Form.Control
                 type="email"
                 placeholder="Email"
-                {...register('accountingEmail', { required: true })}
+                {...register('accountingEmail')}
               />
               {errors.accountingEmail && (
                 <span className="error-text">Email is required</span>
@@ -199,7 +201,7 @@ const ContactInformation = () => {
               <Form.Control
                 type="text"
                 placeholder="First & Last Name"
-                {...register('dispatchFullName', { required: true })}
+                {...register('dispatchFullName')}
               />
               {errors.dispatchFullName && (
                 <span className="error-text">Full Name is required</span>
@@ -210,10 +212,11 @@ const ContactInformation = () => {
           <Col md={6}>
             <Form.Group>
               <Form.Label>Title</Form.Label>
-              <Form.Control as="select" {...register('dispatchTitle', { required: true })}>
-                <option value="Dispatcher">Dispatcher</option>
-                {/* Add more options if needed */}
-              </Form.Control>
+              <Form.Control
+                type="text"
+                placeholder="Enter title"
+                {...register('dispatchTitle')}
+              />
               {errors.dispatchTitle && (
                 <span className="error-text">Title is required</span>
               )}
@@ -228,7 +231,7 @@ const ContactInformation = () => {
               <Form.Control
                 type="text"
                 placeholder="Phone Number"
-                {...register('dispatchPhoneNumber', { required: true })}
+                {...register('dispatchPhoneNumber')}
               />
               {errors.dispatchPhoneNumber && (
                 <span className="error-text">Phone Number is required</span>
@@ -249,7 +252,7 @@ const ContactInformation = () => {
               <Form.Control
                 type="email"
                 placeholder="Email"
-                {...register('dispatchEmail', { required: true })}
+                {...register('dispatchEmail')}
               />
               {errors.dispatchEmail && (
                 <span className="error-text">Email is required</span>
@@ -290,6 +293,12 @@ const ContactInformation = () => {
           max-width: 1100px;
           margin: 0 auto;
         }
+           .form-control{
+            font-size:12px !important
+          }
+             .error-text{
+            font-size:12px !important
+          }
         .form-title {
           font-size: 1.5rem;
           font-weight: 500;

@@ -57,7 +57,7 @@ const TestimonialOne = () => {
           <div className='row justify-content-center'>
             <div className='col-lg-6'>
               <div className='section-title text-center mb-0'>
-                <h4 className='subtitle'>TESTIMONIALS</h4>
+                <h4 className='title-unique'>TESTIMONIALS</h4>
                 <h2 className='title'>OUR CLIENT’S FEEDBACK</h2>
                 <p className='content'>
                   Dramatically enhance interactive metrics for reliable

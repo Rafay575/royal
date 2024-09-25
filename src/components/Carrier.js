@@ -1,9 +1,15 @@
 import React from 'react';
-import { Container, Button, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import './carrier.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 function Carrier() {
-    const navigate = useNavigate()
+    const navigator = useNavigate()
+    const handleNavigate = (e) =>{
+      console.log("first")
+      e.preventDefault();
+      navigator()
+    }
   return (
     <section className="blog-details-area pd-top-120 pd-bottom-120 "  style={{ backgroundImage: 'url("assets/img/banner/bg.png")'  }}>
     <Container fluid className="banner-container  container pd-top-120">
@@ -11,14 +17,16 @@ function Carrier() {
         <Col md={8} xs={12}>
           <h1 className="text-white  banner-title">Ready to Haul Some Freight?</h1>
           <p className=" text-white banner-text">
-            Allen Lund Company is available to assist you in becoming an approved
-            Allen Lund Company contract freight carrier. Whether you are an
+            Royal Star Company is available to assist you in becoming an approved
+            Royal Star Company contract freight carrier. Whether you are an
             independent owner-operator, mid-size, or larger fleet, we are ready
             to work with you.
           </p>
-          <Button className="btn btn-base" onClick={()=>{navigate("/registration-criteria")}}>
+          <Link to={'/registration'}>
+          <button className="button-11" >
             Become a Carrier
-          </Button>
+          </button>
+          </Link>
         </Col>
        
       </Row>

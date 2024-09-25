@@ -64,7 +64,7 @@ const FooterOne = () => {
             <div className='col-xl-4 col-md-6'>
               <div className='widget widget_about'>
                 <div className='thumb'>
-                  <img src='assets/img/logo-white.png' alt='Transpro' />
+                  <img src='assets/img/logo1.png' alt='Transpro' style={{height:"100px"}} />
                 </div>
                 <div className='details'>
                   <p>
@@ -78,16 +78,8 @@ const FooterOne = () => {
                         <FaFacebookF />
                       </a>
                     </li>
-                    <li>
-                      <a href='#'>
-                        <FaTwitter />
-                      </a>
-                    </li>
-                    <li>
-                      <a href='#'>
-                        <FaWhatsapp />
-                      </a>
-                    </li>
+                    
+                    
                     <li>
                       <a href='#'>
                         <FaLinkedinIn />

@@ -112,7 +112,7 @@ const AboutOne = () => {
               <img
                 className="img-fluid rounded"
                 loading="lazy"
-                src="./assets/img/about/a6.png"
+                src="./assets/img/about/about-home.png"
                 alt="About Us"
               />
             </div>
@@ -122,7 +122,7 @@ const AboutOne = () => {
               <div className="row justify-content-xl-center">
                 <div className="col-12 col-xl-11">
                 <div className="section-title mb-2">
-                <h4 className="subtitle">About us</h4>
+                <h4 className="title-unique">About us</h4>
                 <h2 className="title">Who are we</h2>
               </div>
                   <p className="lead fs-4 text-secondary mb-3">

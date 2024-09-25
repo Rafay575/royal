@@ -23,22 +23,27 @@ const About = () => {
     {
       title: 'Nationwide Coverage with a Versatile Fleet',
       description: 'We operate across all states with a fleet that can meet any logistical demand.',
+      icon:"assets/img/about/ruck.png"
     },
     {
       title: 'Expertise and Experience',
       description: 'Decades of experience in the industry ensure top-notch service.',
+      icon:"assets/img/about/ruck (1).png"
     },
     {
       title: 'Customer-Centric Approach',
       description: 'We prioritize our clients\' needs to build lasting partnerships.',
+      icon:"assets/img/about/ruck (2).png"
     },
     {
       title: 'Innovation and Technology',
       description: 'Embracing the latest in logistics tech to streamline operations and deliver efficiency.',
+      icon:"assets/img/about/ruck (3).png"
     },
     {
       title: 'Sustainability and Reliability',
       description: 'Committed to environmentally responsible practices while maintaining operational reliability.',
+      icon:"assets/img/about/ruck (4).png"
     }
   ];
   
@@ -50,7 +55,7 @@ const About = () => {
           <NavbarOne />
           <section className="blog-details-area pd-top-120  " style={{ backgroundImage: 'url("assets/img/banner/bg.png")' }}>
             <Container fluid className="banner-container  container pd-top-120">
-              <h1 className="text-center" style={{ color: '#fff', fontWeight: '700' }}>
+              <h1 className="text-center" style={{ color: '#fff', fontWeight: '700',fontFamily:"Protest Guerrilla" }}>
                 Royal Star Logistics
               </h1>
             </Container>

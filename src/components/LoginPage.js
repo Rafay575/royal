@@ -3,6 +3,7 @@ import { Form,  Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import { Link,  useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
+import { baseUrl } from '../api/url';
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
@@ -17,13 +18,13 @@ const LoginPage = () => {
     setSuccess('');
 
     try {
-      const response = await axios.post('http://localhost:5000/login', {
+      const response = await axios.post(`${baseUrl}/api/auth/login`, {
         email: data.username,  // Assuming the API expects 'email' instead of 'username'
         password: data.password
       });
 
       // Handle successful login
-      const { token } = response.data;
+      const { token ,id } = response.data;
       
       // Store the token in localStorage or state management
       localStorage.setItem('authToken', token);
@@ -32,7 +33,7 @@ const LoginPage = () => {
       setSuccess('Login successful! Redirecting...');
       
       setTimeout(() => {
-        navigate('/carrierdashboard');  // Change this to your protected route
+        navigate('/carrierdashboard', { state: { id: id } });  // Change this to your protected route
       }, 2000);
     } catch (error) {
       // Handle login error

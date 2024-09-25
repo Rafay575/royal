@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Form, Row, Col, Button, Alert } from 'react-bootstrap';
+import { Container, Form, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
+import NavbarComponent from './NavbarComponent';
+import { toast, Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const CarrierPrequalification = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +13,7 @@ const CarrierPrequalification = () => {
   });
 
   const [searchResult, setSearchResult] = useState(null);
-  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -26,111 +29,131 @@ const CarrierPrequalification = () => {
       dotNumber: '',
     });
     setSearchResult(null);
-    setError('');
   };
 
-  const handleSearch = async () => {
-    const { mcNumber, dotNumber } = formData;
-  
-    const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
-    const API_URL = 'https://safer.fmcsa.dot.gov/query.asmx/CarrierSnapshot';
-  
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    const { mcNumber, dotNumber, carrierName } = formData;
+    const API_URL = 'https://mobile.fmcsa.dot.gov/qc/services/';
+    const API_KEY = '79acc181659f1e7514973f115a65e2b1fd1c9e0a';
+
+    let searchEndpoint = '';
+
+    if (dotNumber) {
+      searchEndpoint = `carriers/${dotNumber}`;
+    } else if (mcNumber) {
+      searchEndpoint = `carriers/docket-number/${mcNumber}`;
+    } else if (carrierName) {
+      searchEndpoint = `carriers/name/${carrierName}`;
+    } else {
+      toast.error('Please enter either Carrier Name, MC #, or DOT #.');
+      return;
+    }
+
     try {
-      const response = await axios.get(PROXY_URL + API_URL, {
+      const response = await axios.get(`${API_URL}${searchEndpoint}`, {
         params: {
-          searchstring: dotNumber || mcNumber,
-          searchtype: dotNumber ? 'DOT' : 'MC',
+          webKey: API_KEY,
         },
       });
-  
-      if (response.status === 200) {
-        const carrierData = response.data;
+
+      if (response.status === 200 && response.data) {
+        const carrierData = response.data.content.carrier;
         setSearchResult(carrierData);
-        setError('');
+        toast.success('Carrier found successfully!');
+
+        if (carrierData.allowedToOperate === 'Y') {
+          navigate('/carrierdashboard/form', { state: carrierData });
+        } else {
+          toast.error('Carrier is not allowed to operate.');
+        }
       } else {
-        setError('Carrier not found. Please check the MC # or DOT # and try again.');
+        toast.error('Carrier not found. Please check the information and try again.');
         setSearchResult(null);
       }
     } catch (error) {
       console.error('API Error:', error);
-      setError('Error fetching carrier details. Please try again later.');
+      toast.error('Error fetching carrier details. Please try again later.');
     }
   };
-  
+
   return (
-    <Container className="mt-5">
-      <h3 className="mb-4 bg-light p-3 border rounded">Carrier Prequalification</h3>
+    <>
+      <NavbarComponent toggleSidebar={() => {}} />
+      <Toaster position="top-right" reverseOrder={false} />
+      <Container className="" style={{ marginTop: '130px' }}>
+        <h3 className="mb-4 bg-light p-3 border rounded">Carrier Prequalification</h3>
 
-      <Alert variant="warning" className="mb-4">
-        <strong>Please be advised:</strong> Allen Lund will not be processing applications from carriers with authority that is less than six (6) months. If you choose to submit an application and your authority does not meet this requirement, your application will not be processed at this time.
-      </Alert>
+        <Form onSubmit={handleSearch}>
+          <Row className="mb-4">
+            <Col md={4}>
+              <Form.Group controlId="formCarrierName">
+                <Form.Label>Carrier Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="carrierName"
+                  placeholder="Carrier Name"
+                  value={formData.carrierName}
+                  onChange={handleChange}
+                  className="m-0"
+                />
+              </Form.Group>
+            </Col>
+            <Col md={4}>
+              <Form.Group controlId="formMcNumber">
+                <Form.Label>MC #</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="mcNumber"
+                  placeholder="MC #"
+                  value={formData.mcNumber}
+                  onChange={handleChange}
+                  className="m-0"
+                />
+              </Form.Group>
+            </Col>
+            <Col md={4}>
+              <Form.Group controlId="formDotNumber">
+                <Form.Label>DOT #</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="dotNumber"
+                  required
+                  placeholder="DOT #"
+                  value={formData.dotNumber}
+                  onChange={handleChange}
+                  className="m-0"
+                />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col className='text-center'>
+              <button type="submit" className="button-11 ms-3">
+                Search
+              </button>
+            </Col>
+          </Row>
+        </Form>
 
-      <Form>
-        <Row className="mb-4">
-          <Col md={4}>
-            <Form.Group controlId="formCarrierName">
-              <Form.Label>Carrier Name</Form.Label>
-              <Form.Control
-                type="text"
-                name="carrierName"
-                placeholder="Carrier Name"
-                value={formData.carrierName}
-                onChange={handleChange}
-                className="m-0"
-              />
-            </Form.Group>
-          </Col>
-          <Col md={4}>
-            <Form.Group controlId="formMcNumber">
-              <Form.Label>MC #</Form.Label>
-              <Form.Control
-                type="text"
-                name="mcNumber"
-                placeholder="MC #"
-                value={formData.mcNumber}
-                onChange={handleChange}
-                className="m-0"
-              />
-            </Form.Group>
-          </Col>
-          <Col md={4}>
-            <Form.Group controlId="formDotNumber">
-              <Form.Label>DOT #</Form.Label>
-              <Form.Control
-                type="text"
-                name="dotNumber"
-                placeholder="DOT #"
-                value={formData.dotNumber}
-                onChange={handleChange}
-                className="m-0"
-              />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Button variant="secondary" onClick={handleClear}>
-              Clear
-            </Button>
-            <Button variant="primary" onClick={handleSearch} className="ms-3">
-              Search
-            </Button>
-          </Col>
-        </Row>
-      </Form>
-
-      {error && <Alert variant="danger" className="mt-4">{error}</Alert>}
-
-      {searchResult && (
-        <Alert variant="success" className="mt-4">
-          <h5>Carrier Found</h5>
-          <p><strong>Carrier Name:</strong> {searchResult.carrierName}</p>
-          <p><strong>MC #:</strong> {searchResult.mcNumber}</p>
-          <p><strong>DOT #:</strong> {searchResult.dotNumber}</p>
-          <p><strong>Status:</strong> {searchResult.status}</p>
-        </Alert>
-      )}
-    </Container>
+        {searchResult && (
+          <div className="mt-4">
+            <h5>Carrier Found</h5>
+            <p><strong>Allowed To Operate:</strong> {searchResult.allowedToOperate || 'N/A'}</p>
+            <p><strong>DOT #:</strong> {searchResult.dotNumber || 'N/A'}</p>
+            <p><strong>MC #:</strong> {searchResult.mcNumber || 'N/A'}</p>
+            <p><strong>Legal Name:</strong> {searchResult.legalName || 'N/A'}</p>
+            <p><strong>DBA Name:</strong> {searchResult.dbaName || 'N/A'}</p>
+            <p><strong>Street:</strong> {searchResult.phyStreet || 'N/A'}</p>
+            <p><strong>City:</strong> {searchResult.phyCity || 'N/A'}</p>
+            <p><strong>State:</strong> {searchResult.phyState || 'N/A'}</p>
+            <p><strong>Zip Code:</strong> {searchResult.phyZipcode || 'N/A'}</p>
+            <p><strong>Country:</strong> {searchResult.phyCountry || 'N/A'}</p>
+            <p><strong>Phone:</strong> {searchResult.telephone || 'N/A'}</p>
+          </div>
+        )}
+      </Container>
+    </>
   );
 };
 

@@ -20,18 +20,24 @@ const Dashboard = () => {
 
   const toggleSidebar = () => setShowSidebar(!showSidebar); // Toggle sidebar function
 
+  const incPage = () =>{
+    setCurrentPage(currentPage+1) 
+  }
   const handlePageChange = (page) => {
     setCurrentPage(page); // Change the page content based on the sidebar link clicked
   };
+
+
+
   console.log(toggleSidebar)
   return (
     <>
-      {/* Navbar fixed at the top */}
+    
       <NavbarComponent toggleSidebar={toggleSidebar} />
 
       <div className="d-flex">
         <Row className="flex-fill">
-          {/* Sidebar: toggles visibility based on the state */}
+        
           {
             showSidebar &&
             (
@@ -43,9 +49,9 @@ const Dashboard = () => {
           }
           <Col lg={{ span: 10, offset: 2 }} style={{ overflowY: "auto", marginTop: "60px" }}>
             {/* Form content for the current page */}
-            {currentPage === 1 && <AddressInformation />}
-            {currentPage === 2 && <ContactInformation  />}
-            {currentPage === 3 && <CarrierPolicies  />}
+            {currentPage === 1 && <AddressInformation currentPage={currentPage} incPage={incPage}/>}
+            {currentPage === 2 && <ContactInformation currentPage={currentPage} incPage={incPage}/>}
+            {currentPage === 3 && <CarrierPolicies    currentPage={currentPage} incPage={incPage}/>}
             {currentPage === 4 && <CompanyAgreement  />}
             {currentPage === 5 && <InsuranceInstructions  />}
             {currentPage === 6 && <CarrierEquipmentProfile  />}

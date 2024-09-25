@@ -37,9 +37,7 @@ const AboutPage = () => {
         {/* Introduction Section */}
         <Row className="justify-content-center mb-5">
           <Col md={10}>
-            {/* <h1 className="text-center" style={{ color: '#fa4318', fontWeight: '700' }}>
-              Royal Star Logistics
-            </h1> */}
+          
             <p className="text-center" style={{ fontSize: '18px', lineHeight: '1.6' }}>
               At Royal Star Logistics, we’ve been a cornerstone of transportation for over two decades. Our journey began with a simple mission: to provide reliable, efficient movement of freight to shippers across the United States. Today, we proudly operate a diverse fleet of trucks in every state, ensuring that your freight is handled with the utmost care, from origin to destination.
             </p>

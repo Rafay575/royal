@@ -10,20 +10,13 @@ const FooterBottomOne = () => {
             <div className='col-lg-6 text-lg-start text-center'>
               <div className='copyright-area'>
                 <p>
-                  © Copyright 2022 By <a href='#'>TransPro</a>, All right
+                  © Copyright 2022 By <a href='#'>Royal Star Logistics</a>, All right
                   reserved.
                 </p>
               </div>
             </div>
             <div className='col-lg-6 text-lg-end text-center'>
-              <ul>
-                <li>
-                  <a href='#'>Terms &amp; Condition</a>
-                </li>
-                <li>
-                  <a href='#'>Privacy &amp; Policy</a>
-                </li>
-              </ul>
+             
             </div>
           </div>
         </div>

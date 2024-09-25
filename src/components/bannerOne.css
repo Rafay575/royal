@@ -1,0 +1,126 @@
+.btn-1-unique {
+    padding: 10px 30px;
+    background-color: #fa4318;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none; /* Add this to remove link underline */
+    display: inline-block;
+  }
+
+  /* Scoped banner styles */
+  .banner-area-unique {
+    padding: 0;
+    background-color: #002b5b;
+  }
+
+  .banner-section-unique {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .banner-item-unique, .carousel-item-unique {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    transition: transform 0.5s ease, background-color 0.5s ease;
+  }
+
+  .carriers-section-unique {
+    background-image: url('../../public/assets/img/banner/a2.png');
+  }
+  
+  .shippers-section-unique {
+    background-image: url('../../public/assets/img/banner/a3.png');
+  }
+  
+  .team-section-unique {
+    background-image: url('../../public/assets/img/banner/a4.png');
+  }
+  
+  
+  .content-unique {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.5s ease;
+  }
+
+  /* Custom scoped styles for h2 and p */
+  .custom-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .custom-paragraph {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+
+  button {
+    margin: 5px;
+  }
+
+  /* Adding dark overlay effect */
+  .banner-item-unique::before, .carousel-item-unique::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  /* Hover effect: Darken background and add transform */
+  .banner-item-unique:hover .content-unique, .carousel-item-unique:hover .content-unique {
+    transform: translateY(-10px) scale(1.05);
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .carousel-item-unique {
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .custom-heading {
+      font-size: 2rem;
+    }
+
+    .custom-paragraph {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .carousel-item-unique {
+      padding: 10px;
+    }
+
+    .custom-heading {
+      font-size: 1.5rem;
+    }
+
+    .custom-paragraph {
+      font-size: 0.9rem;
+    }
+
+    button {
+      font-size: 0.8rem;
+    }
+  }

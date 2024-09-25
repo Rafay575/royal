@@ -11,6 +11,7 @@ import {
 import { useForm } from "react-hook-form"; // Import useForm from react-hook-form
 import axios from "axios"; // Import axios for API calls
 import { toast, Toaster } from "react-hot-toast";
+import { baseUrl } from "../api/url";
 
 const ContactInner = () => {
   const { register, handleSubmit, reset } = useForm(); // Initialize react-hook-form
@@ -19,7 +20,7 @@ const ContactInner = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/contact", data); // Send form data to API
+      const response = await axios.post(`${baseUrl}/api/contact`, data); // Send form data to API
       if (response.status === 200) {
         toast.success("Message Sent Successfully!");
         reset(); // Reset form after successful submission
@@ -44,7 +45,7 @@ const ContactInner = () => {
                 className='contact-form text-center'
                 onSubmit={handleSubmit(onSubmit)} // Submit form using react-hook-form
               >
-                <h3>GET A QUOTE</h3>
+                <h3>Contact Us</h3>
                 <div className='row'>
                   <div className='col-md-6'>
                     <div className='single-input-inner'>
@@ -83,18 +84,16 @@ const ContactInner = () => {
                     </div>
                   </div>
                   <div className='col-md-6'>
-                    <div className='single-select-inner'>
+                    <div className='single-input-inner'>
                       <label>
                         <FaFileAlt />
                       </label>
-                      <select
-                        className='single-select'
-                        {...register("subject", { required: true })} // Register select field
-                      >
-                        <option value=''>Subject</option>
-                        <option value='option1'>Some option</option>
-                        <option value='option2'>Another option</option>
-                      </select>
+                      <input
+                        type='text'
+                        placeholder='subject'
+                        {...register("subject", { required: true })} // Register input field
+                      />
+                      
                     </div>
                   </div>
                   <div className='col-12'>

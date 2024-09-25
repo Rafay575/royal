@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomeOne from "./pages/HomeOne";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -18,8 +18,8 @@ import RegistrationCriteria from "./components/RegistrationCriteria";
 import LoginPage from "./components/LoginPage";
 import PortalAccessRequest from "./components/PortalAccessRequest";
 import Dashboard from "./Carrier/Dashboard";
-import CarrierPrequalification from "./Carrier/CarrierPrequalification";
 import PrivateRoute from "./components/PrivateRoute";
+import CarrierPrequalification from './Carrier/CarrierPrequalification'
 
 function App() {
   useEffect(() => {
@@ -32,32 +32,34 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <Router>
       <RouteScrollToTop />
       <Routes>
-        <Route exact path='/' element={<HomeOne />} />
-        <Route exact path='/about' element={<About />} />
-        <Route exact path='/service' element={<Service />} />
-        <Route exact path='/service-details' element={<ServiceDetails />} />
-        <Route exact path='/shipper' element={<Blog />} />
-        <Route exact path='/shipperform' element={<Shipperform />} />
-        <Route exact path='/carrier' element={<BlogDetails />} />
-        <Route exact path='/registration-criteria' element={<RegistrationCriteria />} />
-        <Route exact path='/pricing' element={<Pricing />} />
-        <Route exact path='/faq' element={<Faq />} />
-        <Route exact path='/contact' element={<Contact />} />
-        <Route exact path='/login' element={<LoginPage />} />
-        <Route exact path='/access' element={<PortalAccessRequest />} />
+        <Route  path="/" element={<HomeOne />} />
+        <Route  path="/about" element={<About />} />
+        <Route  path="/service" element={<Service />} />
+        <Route  path="/service-details" element={<ServiceDetails />} />
+        <Route  path="/shipper" element={<Blog />} />
+        <Route  path="/shipperform" element={<Shipperform />} />
+        <Route  path="/carrier" element={<BlogDetails />} />
+        <Route  path="/registration" element={<RegistrationCriteria />}/>
+        <Route  path="/pricing" element={<Pricing />} />
+        <Route  path="/faq" element={<Faq />} />
+        <Route  path="/contact" element={<Contact />} />
+        <Route  path="/login" element={<LoginPage />} />
+        <Route  path="/access" element={<PortalAccessRequest />} />
 
-        {/* Protect the dashboard routes */}
         <Route element={<PrivateRoute />}>
-          <Route exact path='/carrierdashboard' element={<Dashboard />}>
+          <Route path="/carrierdashboard" >
             <Route index element={<CarrierPrequalification />} />
+            <Route path="form" element={<Dashboard/>} />
           </Route>
         </Route>
+
       </Routes>
-      <ScrollToTop smooth color='#FA4318' />
-    </BrowserRouter>
+
+      <ScrollToTop smooth color="#FA4318" />
+    </Router>
   );
 }
 

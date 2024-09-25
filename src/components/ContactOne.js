@@ -6,14 +6,14 @@ const ContactOne = () => {
   return (
     <>
       {/*contact-area start*/}
-      <div>
-        <img src='assets/img/contact/a.png' alt='Transpro' />
-        <div className='container'>
+      <div className="container">
+        <img src='assets/img/about/a7.png' alt='Transpro' />
+        <div className=''>
           <div className='row justify-content-end'>
             <div className='col-xl-6 col-lg-7'>
               <div className='cta-inner-wrap'>
                 <div className='section-title style-white mb-0'>
-                  <h4 className='subtitle style-2'>LET’S TALK</h4>
+                  <h4 className='title-unique '>LET’S TALK</h4>
                   <h2 className='title'>
                     YOU NEED ANY HELP? GET FREE CONSULTATION
                   </h2>

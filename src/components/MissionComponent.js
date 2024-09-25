@@ -31,10 +31,10 @@ const MissionComponent = () => {
         </Col>
 
         {/* Right column for image and heading */}
-        <Col lg={6} className="text-center image-section">
-          <h1 className="mission-heading">mission</h1>
+        <Col lg={6} className="text-center image-sectio">
+          <h1 className="mission-heading" style={{fontFamily:"Protest Guerrilla"}}>mission</h1>
           <img
-            src="./assets/img/about/vission.jpeg"
+            src="./assets/img/about/ruck (5).png"
             alt="Mission"
             className="img-fluid mission-image"
           />

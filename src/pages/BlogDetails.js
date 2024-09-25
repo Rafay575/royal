@@ -3,10 +3,7 @@ import Preloader from "../elements/Preloader";
 import Carrier from "../components/Carrier";
 import CarrierBenefits from "../components/CarrierBenefits";
 import Tools from "../components/Tools";
-const BlogDetailsInner = React.lazy(() =>
-  import("../components/BlogDetailsInner")
-);
-const Breadcrumb = React.lazy(() => import("../components/Breadcrumb"));
+
 const FooterBottomOne = React.lazy(() =>
   import("../components/FooterBottomOne")
 );

@@ -58,7 +58,7 @@ const FeatureOne = () => {
           <div className="row">
             <div className="col-lg-4">
               <div className="section-title mb-0">
-                <h4 className="subtitle">FEATURES</h4>
+                <h4 className="title-unique" >FEATURES</h4>
                 <h2 className="title">WHAT WE OFFER</h2>
               </div>
             </div>

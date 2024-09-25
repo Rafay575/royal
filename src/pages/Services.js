@@ -1,40 +1,42 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const ServiceCard = ({ title, description }) => {
+const ServiceCard = ({ icon, title, description }) => {
   return (
-    <Col xs={11} sm={6} lg={3} className="mb-5">
-      <h4 className="mb-3">{title}</h4>
-      <p className="mb-3 text-secondary">{description}</p>
+    <Col xs={12} sm={12} lg={2} className="mb-4 card mx-2 py-2">
+      <div className="text-center ">
+        <img src={icon} alt={title} className="mb-3" style={{ width: '50px', height: '50px' }} />
+        <h5 className="mb-2">{title}</h5>
+        <p className="text-secondary">{description}</p>
+      </div>
     </Col>
   );
 };
 
 const Services = ({ services }) => {
   return (
-    <section className="py-5 py-xl-8">
+    <section className="py-4 py-lg-4">
       <Container>
-        <Row className="justify-content-md-center">
-          <Col xs={12} md={10} lg={8} xl={7} xxl={6} className="text-center">
-          <h2 className="text-center mb-4" style={{ fontWeight: '600' }}>What Sets Us Apart</h2>
-            <p className="text-secondary mb-5">
+        <Row className="justify-content-center">
+          <Col xs={12} md={10} lg={8} xl={7} className="text-center">
+            <h2 className="text-center mb-4" style={{ fontWeight: '600' }}>What Sets Us Apart</h2>
+            <p className="text-secondary mb-4">
               We are dedicated to delivering exceptional services that drive success and transform your business. With a commitment to excellence, we take pride in offering a comprehensive range of services.
             </p>
-            <hr className="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle" />
+            <hr className="w-50 mx-auto mb-4 border-dark-subtle" />
           </Col>
         </Row>
       </Container>
 
       <Container className="overflow-hidden">
-        <Row className="gy-5 gx-md-4 gy-lg-0 gx-xxl-5 justify-content-left">
+        <Row className="gy-4 gx-2 gx-md-3 gx-xl-4 justify-content-center">
           {services.map((service, index) => (
-            <ServiceCard key={index} title={service.title} description={service.description} />
+            <ServiceCard key={index} icon={service.icon} title={service.title} description={service.description} />
           ))}
         </Row>
       </Container>
     </section>
   );
 };
-
 
 export default Services;

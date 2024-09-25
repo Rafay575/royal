@@ -1,64 +1,74 @@
 import React, { useState } from "react";
-import { FaPlay } from "react-icons/fa";
-import ModalVideo from "react-modal-video";
+import "./WhyChooseUsOne.css"; // External CSS for additional styling
+
 const WhyChooseUsOne = () => {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
-      {/*wcu-area start*/}
+      {/* wcu-area start */}
       <div
-        className='wcu-area bg-overlay'
-        style={{ background: "url(assets/img/wcu/bg.png) " }}
+        className=' wcu-area-1 bg-overlay'
+        style={{
+          background: "url(assets/img/wcu/bg.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          padding: "100px 0",
+        }}
       >
-        <img className='img-1' src='assets/img/wcu/1.png' alt='Transpro' />
-        <img className='img-2' src='assets/img/wcu/2.png' alt='Transpro' />
         <div className='container'>
-          <div className='row justify-content-center'>
-            <div className='col-xl-7 col-lg-6 order-lg-2'>
-             
-            </div>
-            <div className='col-xl-5 col-lg-6 order-lg-1'>
-              <div className='section-title style-white mb-0'>
-                <h4 className='subtitle style-2'>WHY CHOOSE US</h4>
-                <h2 className='title'>WHY CHOOSE FOR US</h2>
+          <div className='row justify-content-center text-center'>
+            <div className='col-xl-6 col-lg-8'>
+              <div className='section-title style-white mb-5'>
+                <h4 className='title-unique mb-3'>WHY CHOOSE US</h4>
+                <h2 className='title mb-4'>Why You Should Choose Us</h2>
                 <p className='content'>
-                  Dramatically enhance interactive metrics for reliable
-                  services. Proactively unleash fully researched e-commerce.
+                  We dramatically enhance interactive metrics for reliable
+                  services. Proactively unleashing fully researched
+                  e-commerce solutions that cater to all your needs.
                 </p>
               </div>
-              <div className='single-wcu-wrap'>
-                <div className='icon'>
-                  <img src='assets/img/wcu/icon-1.png' alt='Transpro' />
+            </div>
+          </div>
+          <div className='row justify-content-center mb-5'>
+            <div className='col-md-4 mb-4'>
+              <div className='single-wcu-wrap h-100 text-center'>
+                <div className='icon mb-3'>
+                  <img src='assets/img/wcu/icon-1.png' alt='Fast Transport' />
                 </div>
                 <div className='details'>
-                  <h6>FAST TRANSPORTION SERVICE</h6>
+                  <h6 className='mb-2'>FAST TRANSPORTATION SERVICE</h6>
                   <p>
                     Enhance interactive metrics for reliable services.
-                    Proactively unleash fully researched.
+                    Proactively unleash fully researched transportation
+                    solutions.
                   </p>
                 </div>
               </div>
-              <div className='single-wcu-wrap'>
-                <div className='icon'>
-                  <img src='assets/img/wcu/icon-2.png' alt='Transpro' />
+            </div>
+            <div className='col-md-4 mb-4'>
+              <div className='single-wcu-wrap h-100 text-center'>
+                <div className='icon mb-3'>
+                  <img src='assets/img/wcu/icon-2.png' alt='Online Support' />
                 </div>
                 <div className='details'>
-                  <h6>24/7 ONLINE SUPPORT</h6>
+                  <h6 className='mb-2'>24/7 ONLINE SUPPORT</h6>
                   <p>
-                    Enhance interactive metrics for reliable services.
-                    Proactively unleash fully researched.
+                    We offer 24/7 online support to assist you whenever needed,
+                    ensuring seamless operations for your business.
                   </p>
                 </div>
               </div>
-              <div className='single-wcu-wrap'>
-                <div className='icon'>
-                  <img src='assets/img/wcu/icon-3.png' alt='Transpro' />
+            </div>
+            <div className='col-md-4 mb-4'>
+              <div className='single-wcu-wrap  h-100 text-center'>
+                <div className='icon mb-3'>
+                  <img src='assets/img/wcu/icon-3.png' alt='Safety and Reliability' />
                 </div>
                 <div className='details'>
-                  <h6>SAFETY AND RELIABILITY</h6>
+                  <h6 className='mb-2'>SAFETY AND RELIABILITY</h6>
                   <p>
-                    Enhance interactive metrics for reliable services.
-                    Proactively unleash fully researched.
+                    Your safety is our priority, offering highly reliable
+                    services backed by years of experience in the field.
                   </p>
                 </div>
               </div>
@@ -66,7 +76,7 @@ const WhyChooseUsOne = () => {
           </div>
         </div>
       </div>
-     
+      {/* wcu-area end */}
     </>
   );
 };

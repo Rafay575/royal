@@ -1,0 +1,58 @@
+.wcu-area-1 {
+    position: relative;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .section-title h4.title-unique {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fa4318;
+  }
+  
+  .section-title h2.title {
+    font-size: 36px;
+    font-weight: 700;
+  }
+  
+  .single-wcu-wrap {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .single-wcu-wrap:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .single-wcu-wrap .icon img {
+    width: 80px;
+  }
+  
+  .single-wcu-wrap h6 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .single-wcu-wrap p {
+    font-size: 16px;
+    color: #ddd;
+  }
+  
+  .bg-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  

@@ -44,7 +44,7 @@ const HomeOne = () => {
 
           <CounterOne />
 
-          <TeamOne />
+          {/* <TeamOne /> */}
 
           <div
             className='call-to-contact-area pd-top-240'
@@ -59,8 +59,8 @@ const HomeOne = () => {
           {/* Portfolio One */}
           {/* <PortfolioOne /> */}
 
-          {/* Blog One */}
-          <BlogOne />
+          {/* Blog One
+          <BlogOne /> */}
 
           {/* Partner One */}
           <PartnerOne />

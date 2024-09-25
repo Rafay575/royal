@@ -2,19 +2,20 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 
-const CarrierPolicies = () => {
+const CarrierPolicies = ({currentPage,  incPage}) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
+    incPage()
   };
 
   return (
     <>
-      <h1 className="text-center form-title">Allen Lund Company - Carrier Policies</h1>
+      <h1 className="text-center form-title">Royal Star Trucking - Carrier Policies</h1>
     <div className="carrier-policies-form-container">
       <p className="form-description">
-        The following contains information and policies for new carriers loading with the Allen Lund Company.
+        The following contains information and policies for new carriers loading with the Royal Star Trucking Company.
       </p>
 
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -86,8 +87,8 @@ const CarrierPolicies = () => {
           <ul>
             <li>1. Fee for advance is 2% of the rate or $25.00, whichever is higher.</li>
             <li>2. Fee for an advance settlement (quick-pay) on 2nd delivery is 2% of the settlement amount or $25.00, whichever is higher.</li>
-            <li>3. The Allen Lund Company must receive all required information before final payment will be released.</li>
-            <li>4. Payment Type: Direct deposit (ACH) is Allen Lund Company's preferred method of payment.</li>
+            <li>3. The Royal Star Trucking Company must receive all required information before final payment will be released.</li>
+            <li>4. Payment Type: Direct deposit (ACH) is Royal Star Trucking Company's preferred method of payment.</li>
             <li>5. Every effort will be made to pay carrier invoices within 14 days of invoice receipt, provided the following:</li>
           </ul>
           <ol>
@@ -95,7 +96,7 @@ const CarrierPolicies = () => {
             <li>2. All copies are legible.</li>
             <li>3. Proof of claim has been given.</li>
             <li>4. A signed confirmation has been received.</li>
-            <li>5. Invoice is mailed, faxed, or e-mailed to the appropriate Allen Lund Company Inc office.</li>
+            <li>5. Invoice is mailed, faxed, or e-mailed to the appropriate Royal Star Trucking Company Inc office.</li>
           </ol>
         </div>
 
@@ -116,6 +117,12 @@ const CarrierPolicies = () => {
           max-width: 1200px;
           margin: 0 auto;
         }
+           .form-control{
+            font-size:12px !important
+          }
+             .error-text{
+            font-size:12px !important
+          }
         .form-title {
           font-size: 1.5rem;
           font-weight: 500;

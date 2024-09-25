@@ -11,20 +11,15 @@ const Breadcrumb = ({ title,text }) => {
         style={{ backgroundImage: 'url("assets/img/banner/bg.png")',height:"10vh"  }}
       >
         <div className='container'>
-          <div className='row'>
-            <div className='col-12'>
-              <div className='breadcrumb-inner'>
-                <div className='section-title mb-0'>
-                  <h2 className='page-title'>{text? text:''}  {title}</h2>
+          <div className='d-flex justify-content-between' style={{width:"65%"}}>
                   <ul className='page-list'>
                     <li>
                       <Link to='/'>HOME</Link>
                     </li>{" "}
                     /<li className='ps-0'>{title}</li>
                   </ul>
-                </div>
-              </div>
-            </div>
+                  <h2 className='page-title  mr-4' style={{display:"flex",justifyContent:"center",textAlign:"center",marginRight:"50px"}}>  {title}</h2>
+          
           </div>
         </div>
       </div>
