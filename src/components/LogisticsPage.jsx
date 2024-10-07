@@ -8,7 +8,7 @@ const LogisticsPage = () => {
         <Col md={6}>
           <h2 style={{color:"#fa4318"}}>Online Load Tracking</h2>
           <p>
-            Upon activation of your profile with Allen Lund Company, you will
+            Upon activation of your profile with Royal Star Logistics, you will
             gain access to your shipments, with multiple options to track
             activity...
           </p>

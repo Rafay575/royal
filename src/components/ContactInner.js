@@ -126,8 +126,8 @@ const ContactInner = () => {
                       <FaPhoneAlt />
                     </div>
                     <div className='media-body'>
-                      <p>+1 952-435-7106</p>
-                      <p>+1 932-654-9874</p>
+                      <p>772 501 2777</p>
+                      {/* <p>+1 932-654-9874</p> */}
                     </div>
                   </div>
                 </div>
@@ -138,8 +138,8 @@ const ContactInner = () => {
                       <FaRegEnvelope />
                     </div>
                     <div className='media-body'>
-                      <p>info@transpro.com</p>
-                      <p>info.example@gmail.com</p>
+                      <p>Contact@royalstarlogistics.us</p>
+                      <p>Royalstarlogistics7@gmail.com</p>
                     </div>
                   </div>
                 </div>
@@ -150,8 +150,8 @@ const ContactInner = () => {
                       <FaMapMarkerAlt />
                     </div>
                     <div className='media-body'>
-                      <p>2245 Gilbert Ave, Cincinnati, OH</p>
-                      <p>45206, United States</p>
+                      <p>2314 1st PL SW, Vero Beach, FL</p>
+                      <p>32962, United States</p>
                     </div>
                   </div>
                 </div>

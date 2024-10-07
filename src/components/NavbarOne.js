@@ -56,7 +56,7 @@ const NavbarOne = () => {
           </Link>
           <div className='nav-phone-wrap'>
             <FaPhoneAlt />
-            +18882079275
+            772 501 2777
           </div>
           <div className='container p-lg-0'>
             <div className='row'>
@@ -75,7 +75,7 @@ const NavbarOne = () => {
                         fill='#FA4318'
                       />
                     </svg>
-                    2500 Southbranch Blvd A, United States
+                    2314 1st PL SW Vero Beach, FL United States
                   </li>
                   <li>
                     <FaRegClock />

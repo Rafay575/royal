@@ -27,7 +27,7 @@ const FooterOne = () => {
                   </div>
                   <div className='details'>
                     <h6>OFFICE ADDRESS:</h6>
-                    <p>2314 1st PL SW VERO BEACH,</p>
+                    <p>2314 1st PL SW Vero Beach,</p>
                     <p>FL 32962, United States</p>
                   </div>
                 </div>
@@ -39,7 +39,7 @@ const FooterOne = () => {
                   </div>
                   <div className='details'>
                     <h6>CONTACT US:</h6>
-                    <p>CONTACT@ROYALSTARLOGISTICS.US</p>
+                    <p>Contact@royalstarlogistics.us</p>
                     <p>772-501-2777</p>
                   </div>
                 </div>
@@ -52,7 +52,7 @@ const FooterOne = () => {
                   <div className='details'>
                     <h6>WORKING HOURS:</h6>
                     <p>Weekdays - Mon-Fri: 8am-5pm</p>
-                    <p>Weekend - Sta &amp; Sun: Closed</p>
+                    <p>Weekend - Sat &amp; Sun: Closed</p>
                   </div>
                 </div>
               </div>
@@ -68,9 +68,7 @@ const FooterOne = () => {
                 </div>
                 <div className='details'>
                   <p>
-                    Quickly supply alternative strategic theme areas vis-a-vis
-                    B2C mindshare. Objectively repurpose stand-alone synergy via
-                    user-centric architectures.
+                   WITH YOU ON EVERY MILE OF THE WAY
                   </p>
                   <ul className='social-media style-border'>
                     <li>
