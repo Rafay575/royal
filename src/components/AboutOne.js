@@ -1,104 +1,4 @@
-// import React from "react";
-// import TrackVisibility from "react-on-screen";
-// import CountUp from "react-countup";
-// import { Link } from "react-router-dom";
 
-// const AboutOne = () => {
-//   return (
-//     <>
-//       {/* about area start */}
-//       <div className="about-area pd-bottom-120">
-//         <div className="container">
-//           <div className="about-area-inner">
-//             <div className="row">
-//               {/* Single Image Section */}
-//               <div className="col-lg-6">
-//                 <div className="about-thumb-wrap">
-//                   <img
-//                     className="img-main"
-//                     src="./assets/img/about/a6.png"
-//                     alt="Company"
-//                     style={{
-//                       borderRadius: "10px",
-//                       width: "100%",
-//                       objectFit: "cover",
-//                       boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)"
-//                     }}
-//                   />
-//                   {/* Experience Badge */}
-//                   <div className="experience-badge">
-//                     <div className="details">
-//                       <TrackVisibility once>
-//                         {({ isVisible }) =>
-//                           isVisible && (
-//                             <h1 className="experience-number">
-//                               <CountUp delay={0} start={0} end={22} />+
-//                             </h1>
-//                           )
-//                         }
-//                       </TrackVisibility>
-//                       <p>Years of Experience</p>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-
-//               {/* Text Content Section */}
-//               <div className="col-lg-6 align-self-center">
-//                 <div className="about-inner-wrap">
-//                   <div className="section-title">
-//                     <h4 className="subtitle">About Us</h4>
-//                     <h2 className="title">
-//                       Welcome to the Leading Transport Company
-//                     </h2>
-//                     <p className="content">
-//                       A leading brokerage firm based in the USA, committed to
-//                       connecting businesses with reliable transportation
-//                       solutions.
-//                     </p>
-//                     <div className="row">
-//                       <div className="col-lg-12">
-//                         <ul className="list-inner-wrap mb-3">
-//                           <li>
-//                             <i className="fa fa-check-circle"></i> Reliability
-//                           </li>
-//                           <li>
-//                             <i className="fa fa-check-circle"></i> Expertise
-//                           </li>
-//                           <li>
-//                             <i className="fa fa-check-circle"></i> Transparency
-//                           </li>
-//                           <li>
-//                             <i className="fa fa-check-circle"></i> Efficiency
-//                           </li>
-//                         </ul>
-//                       </div>
-//                     </div>
-//                     <div className="btn-wrap">
-//                       <Link className="btn btn-base" to="/about">
-//                         Learn More
-//                       </Link>
-//                       <div className="author-wrap">
-//                         <div className="details">
-//                           <img
-//                             src="./assets/img/about/signature.png"
-//                             alt="CEO Signature"
-//                             height={40}
-//                           />
-//                           <p>CEO, Of Company</p>
-//                         </div>
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//
-
-// export default AboutOne;
 import React from "react";
 
 const AboutOne = () => {
@@ -118,7 +18,7 @@ const AboutOne = () => {
             </div>
 
             {/* Text Section */}
-            <div className="col-12 col-lg-6 col-xl-7">
+            <div className="col-12 col-lg-6 col-xl-7" >
               <div className="row justify-content-xl-center">
                 <div className="col-12 col-xl-11">
                 <div className="section-title mb-2">
@@ -140,8 +40,8 @@ const AboutOne = () => {
               </div>
             </div>
           </div>
-          <div className="row gy-4 gy-md-4 gx-xxl-5 mt-5">
-            <div className="col-12 col-md-6 col-lg-3">
+          <div className="row gy-4 gy-md-4 gx-xxl-5 my-5" >
+            <div className="col-12 col-md-6 col-lg-3 h-100  p-4 " style={{background:'#fff'}}>
               <div className="d-flex">
                 <div className="me-4 text-">
                   <svg
@@ -166,7 +66,7 @@ const AboutOne = () => {
             </div>
 
             {/* Expertise */}
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3 mb-5 h-100  p-4 " style={{background:'#fff'}}>
               <div className="d-flex">
                 <div className="me-4 text-">
                   <svg
@@ -191,7 +91,7 @@ const AboutOne = () => {
             </div>
 
             {/* Transparency */}
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3 h-100  p-4 " style={{background:'#fff'}}>
               <div className="d-flex">
                 <div className="me-4 text-">
                   <svg
@@ -216,7 +116,7 @@ const AboutOne = () => {
             </div>
 
             {/* Efficiency */}
-            <div className="col-12 col-md-6 col-lg-3">
+            <div className="col-12 col-md-6 col-lg-3 h-100  p-4 " style={{background:'#fff'}}>
               <div className="d-flex">
                 <div className="me-4 text-">
                   <svg

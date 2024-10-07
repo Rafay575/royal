@@ -20,7 +20,7 @@ const WhyChooseUsOne = React.lazy(() => import("../components/WhyChooseUsOne"));
 const SearchPopup = React.lazy(() => import("../elements/SearchPopup"));
 const HomeOne = () => {
   return (
-    <>
+    <div style={{background:'#E8E6CA'}}>
       <Fragment>
         <Suspense fallback={<Preloader />}>
         
@@ -72,7 +72,7 @@ const HomeOne = () => {
           <FooterBottomOne />
         </Suspense>
       </Fragment>
-    </>
+    </div>
   );
 };
 

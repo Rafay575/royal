@@ -1,6 +1,6 @@
 .btn-1-unique {
     padding: 10px 30px;
-    background-color: #fa4318;
+    background-color: #E64833;
     color: #fff;
     outline: none;
     border: none;
@@ -37,15 +37,24 @@
   }
 
   .carriers-section-unique {
-    background-image: url('../../public/assets/img/banner/a2.png');
+    background-image: url('../../public/assets/img/banner/1.png');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
   }
   
   .shippers-section-unique {
-    background-image: url('../../public/assets/img/banner/a3.png');
+    background-image: url('../../public/assets/img/banner/2.png');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
   }
   
   .team-section-unique {
-    background-image: url('../../public/assets/img/banner/a4.png');
+    background-image: url('../../public/assets/img/banner/3.png');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
   }
   
   
@@ -124,3 +133,7 @@
       font-size: 0.8rem;
     }
   }
+
+.bg-custon-unique{
+  background-color: rgba(144, 174, 173, 0.2);
+}

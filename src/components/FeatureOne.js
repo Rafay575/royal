@@ -76,7 +76,7 @@ const FeatureOne = () => {
           <div className="feature-slider owl-carousel  mt-4">
             <Slider {...settings}>
               <div className="item px-lg-2">
-                <div className="feature-wrap bg-pink">
+                <div className="feature-wrap bg-custon-unique">
                   {/* <div className="icon">
                     <img src="assets/img/icon/a1.png" alt="Transpro" />
                   </div> */}
@@ -88,7 +88,7 @@ const FeatureOne = () => {
                 </div>
               </div>
               <div className="item px-lg-2">
-                <div className="feature-wrap bg-ash">
+                <div className="feature-wrap bg-custon-unique">
                   {/* <div className="icon">
                     <img src="assets/img/icon/aaa.svg" alt="Transpro"  height={40} />
                   </div> */}
@@ -100,7 +100,7 @@ const FeatureOne = () => {
                 </div>
               </div>
               <div className="item px-lg-2">
-                <div className="feature-wrap bg-sky">
+                <div className="feature-wrap bg-custon-unique">
                   {/* <div className="icon">
                     <img src="assets/img/icon/a2.png" alt="Transpro" height={40} />
                   </div> */}

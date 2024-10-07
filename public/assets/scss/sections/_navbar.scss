@@ -2,7 +2,7 @@
     # Nav bar
 ----------------------------------------------*/
 .navbar-top {
-  background: #080c24;
+  background: #244855;
   position: relative;
   margin-bottom: 68px;
   padding: 16.5px 0;
@@ -106,7 +106,7 @@
             font-size: 16px;
           }
           &:hover a {
-            color: #fb493d;
+            color: #E64833;
           }
           + li {
             margin-left: 15px;
@@ -196,7 +196,7 @@
                   position: relative;
                 }
                 &:hover {
-                  background: #fb493d;
+                  background: #E64833;
                   a {
                     color: #fff;
                     &:before {
@@ -309,7 +309,10 @@
   .nav-container {
     padding: 29px 0px 20px;
   }
-  &.sticky-active .nav-container .logo {
+  &.sticky-active  {
+    &:after {
+      background-image: url("~/public/assets/img/shape/nav-bar-3.png"); // Change this to your new image path
+    }
     position: initial;
     .logo-1 {
       display: none;
@@ -398,7 +401,7 @@
   z-index: 999;
   -webkit-box-shadow: 0 10px 20px 0 rgb(46 56 220 / 5%);
   box-shadow: 0 10px 20px 0 rgb(46 56 220 / 5%);
-  background: #fff;
+  background: #244855;
   margin: 0;
   .nav-container {
     padding: 12px 12px;
@@ -483,7 +486,7 @@
       height: 22px;
       width: 22px;
       border-radius: 50%;
-      background: #fb493d;
+      background: #E64833;
       text-align: center;
       font-size: 13px;
       line-height: 22px;
