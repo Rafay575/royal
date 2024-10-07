@@ -19,7 +19,7 @@ const Tools = () => {
               <Card.Body>
                 <Card.Title className="tool-title">Royal Load Board</Card.Title>
                 <Card.Text>
-                  As an Royal carrier, you will have access to view our posted loads with the potential of covering them via the website.
+                  As a Royal carrier, you will have access to view our posted loads with the potential of covering them via the website.
                 </Card.Text>
               </Card.Body>
             </Card>

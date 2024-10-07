@@ -24,7 +24,7 @@ const ContactOne = () => {
                   </div>
                   <div className='details'>
                     <h6>Have Any Question</h6>
-                    <h3>-3114-1-371</h3>
+                    <h3>772 501 2777</h3>
                   </div>
                 </div>
                 <Link className='btn btn-base' to='/contact'>
