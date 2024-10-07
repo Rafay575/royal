@@ -14,12 +14,61 @@ import CARBTruckBusCompliance from './CARBTruckBusCompliance';
 import StatusReport from './StatusReport';
 import CarrierOperatingAreas from './CarrierOperatingAreas';
 import CompanyAgreement from './CompanyAgreement';
+import { useForm } from 'react-hook-form';
+
 const Dashboard = () => {
   const [showSidebar, setShowSidebar] = useState(true); // Toggle sidebar visibility
   const [currentPage, setCurrentPage] = useState(1); // Track the current page
-
+  const { register, handleSubmit, setValue, formState: { errors },watch } = useForm();
   const toggleSidebar = () => setShowSidebar(!showSidebar); // Toggle sidebar function
-
+  const [formData1, setFormData1] = useState({
+    dotnum:'',
+    companyName: '',
+    dba: '',
+    address: '',
+    suite: '',
+    city: '',
+    state: '',
+    zip: '',
+    country: 'USA',
+    factoringCompany: '',
+    sameAddress: false,
+    payToCompanyName: '',
+    payToAddress: '',
+    payToAddress2: '',
+    payToCity: '',
+    payToState: '',
+    payToZip: '',
+    payToCountry: 'USA',
+    payToEmail: '',
+    dunsNumber: '',
+    w9Name: '',
+    federalId: '',
+    w9File: ''
+  });
+  const [formData2, setFormData2] = useState({
+    corporateFullName: '',
+    corporateTitle: '',
+    corporatePhoneNumber: '',
+    corporatePhoneExt: '',
+    corporateEmail: '',
+    corporateCellPhone: '',
+    corporateFax: '',
+    accountingFullName: '',
+    accountingTitle: '',
+    accountingPhoneNumber: '',
+    accountingPhoneExt: '',
+    accountingEmail: '',
+    accountingCellPhone: '',
+    accountingFax: '',
+    dispatchFullName: '',
+    dispatchTitle: '',
+    dispatchPhoneNumber: '',
+    dispatchPhoneExt: '',
+    dispatchEmail: '',
+    dispatchCellPhone: '',
+    dispatchFax: '',
+  });
   const incPage = () =>{
     setCurrentPage(currentPage+1) 
   }
@@ -27,13 +76,10 @@ const Dashboard = () => {
     setCurrentPage(page); // Change the page content based on the sidebar link clicked
   };
 
-
-
-  console.log(toggleSidebar)
   return (
     <>
     
-      <NavbarComponent toggleSidebar={toggleSidebar} />
+      <NavbarComponent  />
 
       <div className="d-flex">
         <Row className="flex-fill">
@@ -49,16 +95,17 @@ const Dashboard = () => {
           }
           <Col lg={{ span: 10, offset: 2 }} style={{ overflowY: "auto", marginTop: "60px" }}>
             {/* Form content for the current page */}
-            {currentPage === 1 && <AddressInformation currentPage={currentPage} incPage={incPage}/>}
-            {currentPage === 2 && <ContactInformation currentPage={currentPage} incPage={incPage}/>}
-            {currentPage === 3 && <CarrierPolicies    currentPage={currentPage} incPage={incPage}/>}
-            {currentPage === 4 && <CompanyAgreement  />}
-            {currentPage === 5 && <InsuranceInstructions  />}
-            {currentPage === 6 && <CarrierEquipmentProfile  />}
-            {currentPage === 7 && <ELDLoadTracking  />}
-            {currentPage === 8 && <CarrierOperatingAreas  />}
-            {currentPage === 9 && <SupplierDiversityInformation  />}
-            {currentPage === 10 && <CARBTruckBusCompliance  />}
+            {currentPage === 1 && <AddressInformation  incPage={incPage} formData={formData1} setFormData={setFormData1}/>}
+            {currentPage === 2 && <ContactInformation incPage={incPage} formData={formData2} setFormData={setFormData2}/>}
+            {currentPage === 3 && <CarrierPolicies currentPage={currentPage} incPage={incPage} register={register} 
+            handleSubmit={handleSubmit} setValue={setValue} watch={watch} errors={errors}/>}
+            {currentPage === 4 && <CompanyAgreement  formData1={formData1} incPage={incPage}  formData2={formData2}/>}
+            {currentPage === 5 && <InsuranceInstructions incPage={incPage} />}
+            {currentPage === 6 && <CarrierEquipmentProfile   incPage={incPage} />}
+            {currentPage === 7 && <ELDLoadTracking  incPage={incPage}/>}
+            {currentPage === 8 && <CarrierOperatingAreas incPage={incPage} />}
+            {currentPage === 9 && <SupplierDiversityInformation incPage={incPage} />}
+            {currentPage === 10 && <CARBTruckBusCompliance incPage={incPage} />}
             {currentPage === 11 && <StatusReport  />}
           </Col>
         </Row>

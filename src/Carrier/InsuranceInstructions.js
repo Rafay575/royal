@@ -1,13 +1,34 @@
-import React from 'react';
+import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Row, Col } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { baseUrl } from '../api/url';
 
-const InsuranceInstructions = () => {
+const InsuranceInstructions = ({ incPage }) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const reg_id = useSelector((state) => state.user.id); // Get reg_id from Redux store
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append('insuranceFile', data.insuranceFile[0]); // Append file to formData
+    formData.append('reg_id', reg_id); // Append reg_id to formData
+
+    try {
+      const response = await axios.post(`${baseUrl}/api/insurance/upload-insurance`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      if (response.status === 200) {
+        console.log('File uploaded successfully', response.data);
+        incPage(); // Proceed to the next page
+      }
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
   };
+
 
   return (
     <>
@@ -70,45 +91,8 @@ const InsuranceInstructions = () => {
           max-width: 900px;
           margin: 0 auto;
         }
-        .form-title {
-          font-size: 1.5rem;
-          font-weight: 500;
-          margin-bottom: 20px;
-        }
-        .form-description {
-          font-size: 1.1rem;
-          color: #6c757d;
-          margin-bottom: 20px;
-        }
-        .form-details {
-          font-size: 1rem;
-          color: #333;
-          margin-bottom: 20px;
-        }
-        .insurance-requirements {
-          font-size: 1rem;
-          margin-bottom: 20px;
-        }
-        .insurance-requirements ul {
-          list-style-type: none;
-          padding-left: 0;
-        }
-        .insurance-requirements ul li {
-          margin-bottom: 10px;
-        }
-        .error-text {
-          color: red;
-          font-size: 0.875rem;
-        }
-        .form-actions {
-          display: flex;
-          justify-content: flex-end;
-        }
-        @media (max-width: 768px) {
-          .form-actions {
-            justify-content: center;
-          }
-        }
+        
+        
       `}</style>
     </div>
     </>

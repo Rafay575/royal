@@ -1,114 +1,128 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+
 import { Form, Button, Row, Col } from 'react-bootstrap';
+import { baseUrl } from '../api/url';
 
-const CarrierPolicies = ({currentPage,  incPage}) => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+const CarrierPolicies = ({ incPage, register, handleSubmit, setValue, errors }) => {
 
-  const onSubmit = (data) => {
-    console.log(data);
-    incPage()
+ 
+  const userId = useSelector((state) => state.user.id); // Get the reg_id (userId)
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post(`${baseUrl}/api/carrier-policies/submit-policies`, {
+        paymentType: data.paymentType,
+        reg_id: userId // Send the reg_id (userId) with the paymentType
+      });
+
+      if (response.status === 200) {
+        console.log('Carrier policies submitted successfully');
+        incPage(); // Move to the next page
+      }
+    } catch (error) {
+      console.error('Error submitting carrier policies:', error);
+    }
   };
-
   return (
     <>
       <h1 className="text-center form-title">Royal Star Trucking - Carrier Policies</h1>
-    <div className="carrier-policies-form-container">
-      <p className="form-description">
-        The following contains information and policies for new carriers loading with the Royal Star Trucking Company.
-      </p>
+      <div className="carrier-policies-form-container">
+        <p className="form-description">
+          The following contains information and policies for new carriers loading with the Royal Star Trucking Company.
+        </p>
 
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        {/* Policy Information */}
-        <div className="policy-section">
-          <p><strong>Carrier Payments:</strong> New carriers are not eligible for com-check settlements for the first 90 days. During this trial period, the first payment must be paid by check to the address provided by the carrier. The payment for subsequent loads can be paid via ACH, regular mailed check, or if factoring, payment will be sent directly to your factor. After 90 days carriers will be able to request com-check settlements and advances.</p>
-          
-          <p><strong>Carrier Advances:</strong> During the initial 90-day period, carriers will be able to receive up to 40% in full advances. If the carrier is factoring a release form from the factor will be required.</p>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          {/* Policy Information */}
+          <div className="policy-section">
+            <p><strong>Carrier Payments:</strong> New carriers are not eligible for com-check settlements for the first 90 days. During this trial period, the first payment must be paid by check to the address provided by the carrier. The payment for subsequent loads can be paid via ACH, regular mailed check, or if factoring, payment will be sent directly to your factor. After 90 days carriers will be able to request com-check settlements and advances.</p>
 
-          <p><strong>Load Tracking:</strong> The ALC manager agrees to track all loads when requested by the ALC load manager. Tracking Apps may include Macro Point, Four Kites, or the ALC App. This is mandatory.</p>
+            <p><strong>Carrier Advances:</strong> During the initial 90-day period, carriers will be able to receive up to 40% in full advances. If the carrier is factoring a release form from the factor will be required.</p>
 
-          <p><strong>Driver Communications:</strong> The ALC load manager must be able to communicate directly with the driver until the load is delivered. This is mandatory.</p>
+            <p><strong>Load Tracking:</strong> The ALC manager agrees to track all loads when requested by the ALC load manager. Tracking Apps may include Macro Point, Four Kites, or the ALC App. This is mandatory.</p>
 
-          <p><strong>Double-Brokering:</strong> The Broker/Carrier agreement specifically addresses double-brokering. ALC strongly recommends that this be read and understood before considering any such action. ALC has zero tolerance in such matters and will terminate any carrier that breaches our contract.</p>
+            <p><strong>Driver Communications:</strong> The ALC load manager must be able to communicate directly with the driver until the load is delivered. This is mandatory.</p>
 
-          <p><strong>The following is from the broker/carrier contract:</strong> That I will not re-broker, co-broker, subcontract, assign, or transfer the transportation of shipments hereunder to any other person or entity conducting business under a different operating authority without prior written consent of BROKER. If CARRIER breaches this provision, among all other remedies (whether at equity or in law), BROKER shall have the right to pay the monies it owes CARRIER directly to the delivering carrier, in lieu of payment to CARRIER. Upon BROKER’s payment to delivering carrier, CARRIER shall not be released from any liability to BROKER under this Agreement or otherwise, including but not limited to any claims under 49 U.S.C. § 13902.</p>
+            <p><strong>Double-Brokering:</strong> The Broker/Carrier agreement specifically addresses double-brokering. ALC strongly recommends that this be read and understood before considering any such action. ALC has zero tolerance in such matters and will terminate any carrier that breaches our contract.</p>
 
-          <p><strong>Potential Fines for Breach of Contract:</strong> A carrier that willfully re-brokers, co-brokers, subcontracts, assigns, or transfers the transportation of shipments to any other person or entity conducting business under a different operating authority without the prior written consent of the ALC broker will be in breach of contract and potentially fined up to $2500 per occurrence.</p>
-        </div>
+            <p><strong>The following is from the broker/carrier contract:</strong> That I will not re-broker, co-broker, subcontract, assign, or transfer the transportation of shipments hereunder to any other person or entity conducting business under a different operating authority without prior written consent of BROKER. If CARRIER breaches this provision, among all other remedies (whether at equity or in law), BROKER shall have the right to pay the monies it owes CARRIER directly to the delivering carrier, in lieu of payment to CARRIER. Upon BROKER’s payment to delivering carrier, CARRIER shall not be released from any liability to BROKER under this Agreement or otherwise, including but not limited to any claims under 49 U.S.C. § 13902.</p>
 
-        {/* Payment Type Selection */}
-        <h4>Please choose from one of the payment types:</h4>
-        <Row className="mb-3">
-          <Col md={6}>
-            <Form.Group>
-              <Form.Check
-                type="radio"
-                label="Quick Pay"
-                value="quickPay"
-                {...register('paymentType', { required: true })}
-              />
-              <Form.Check
-                type="radio"
-                label="Standard Check"
-                value="standardCheck"
-                {...register('paymentType')}
-              />
-              <Form.Check
-                type="radio"
-                label="Standard Check with Fuel Advance"
-                value="standardCheckFuelAdvance"
-                {...register('paymentType')}
-              />
-              <Form.Check
-                type="radio"
-                label="ACH - 14 days"
-                value="ach14Days"
-                {...register('paymentType')}
-              />
-              <Form.Check
-                type="radio"
-                label="ACH - 14 days with Fuel Advance"
-                value="ach14DaysFuelAdvance"
-                {...register('paymentType')}
-              />
-              {errors.paymentType && (
-                <span className="error-text">Payment type selection is required</span>
-              )}
-            </Form.Group>
-          </Col>
-        </Row>
+            <p><strong>Potential Fines for Breach of Contract:</strong> A carrier that willfully re-brokers, co-brokers, subcontracts, assigns, or transfers the transportation of shipments to any other person or entity conducting business under a different operating authority without the prior written consent of the ALC broker will be in breach of contract and potentially fined up to $2500 per occurrence.</p>
+          </div>
 
-        {/* Policy Statement */}
-        <div className="policy-statement">
-          <h4>Policy Statement</h4>
-          <p>
-            <strong>Quick Pay/Advance Policy:</strong> There will be no charge for all advances and/or advance settlements (quick-pay) as follows:
-          </p>
-          <ul>
-            <li>1. Fee for advance is 2% of the rate or $25.00, whichever is higher.</li>
-            <li>2. Fee for an advance settlement (quick-pay) on 2nd delivery is 2% of the settlement amount or $25.00, whichever is higher.</li>
-            <li>3. The Royal Star Trucking Company must receive all required information before final payment will be released.</li>
-            <li>4. Payment Type: Direct deposit (ACH) is Royal Star Trucking Company's preferred method of payment.</li>
-            <li>5. Every effort will be made to pay carrier invoices within 14 days of invoice receipt, provided the following:</li>
-          </ul>
-          <ol>
-            <li>1. The rate and delivery agreement has been signed.</li>
-            <li>2. All copies are legible.</li>
-            <li>3. Proof of claim has been given.</li>
-            <li>4. A signed confirmation has been received.</li>
-            <li>5. Invoice is mailed, faxed, or e-mailed to the appropriate Royal Star Trucking Company Inc office.</li>
-          </ol>
-        </div>
+          {/* Payment Type Selection */}
+          <h4>Please choose from one of the payment types:</h4>
+          <Row className="mb-3">
+            <Col md={6}>
+              <Form.Group>
+                <Form.Check
+                  type="radio"
+                  label="Quick Pay"
+                  value="quickPay"
+                  {...register('paymentType', { required: true })}
+                />
+                <Form.Check
+                  type="radio"
+                  label="Standard Check"
+                  value="standardCheck"
+                  {...register('paymentType')}
+                />
+                <Form.Check
+                  type="radio"
+                  label="Standard Check with Fuel Advance"
+                  value="standardCheckFuelAdvance"
+                  {...register('paymentType')}
+                />
+                <Form.Check
+                  type="radio"
+                  label="ACH - 14 days"
+                  value="ach14Days"
+                  {...register('paymentType')}
+                />
+                <Form.Check
+                  type="radio"
+                  label="ACH - 14 days with Fuel Advance"
+                  value="ach14DaysFuelAdvance"
+                  {...register('paymentType')}
+                />
+                {errors.paymentType && (
+                  <span className="error-text">Payment type selection is required</span>
+                )}
+              </Form.Group>
+            </Col>
+          </Row>
 
-        {/* Form Actions */}
-        <div className="form-actions mt-4">
-          <button type="submit" className=" button-11">
-            Next 
-          </button>
-        </div>
-      </Form>
+          {/* Policy Statement */}
+          <div className="policy-statement">
+            <h4>Policy Statement</h4>
+            <p>
+              <strong>Quick Pay/Advance Policy:</strong> There will be no charge for all advances and/or advance settlements (quick-pay) as follows:
+            </p>
+            <ul>
+              <li>1. Fee for advance is 2% of the rate or $25.00, whichever is higher.</li>
+              <li>2. Fee for an advance settlement (quick-pay) on 2nd delivery is 2% of the settlement amount or $25.00, whichever is higher.</li>
+              <li>3. The Royal Star Trucking Company must receive all required information before final payment will be released.</li>
+              <li>4. Payment Type: Direct deposit (ACH) is Royal Star Trucking Company's preferred method of payment.</li>
+              <li>5. Every effort will be made to pay carrier invoices within 14 days of invoice receipt, provided the following:</li>
+            </ul>
+            <ol>
+              <li>1. The rate and delivery agreement has been signed.</li>
+              <li>2. All copies are legible.</li>
+              <li>3. Proof of claim has been given.</li>
+              <li>4. A signed confirmation has been received.</li>
+              <li>5. Invoice is mailed, faxed, or e-mailed to the appropriate Royal Star Trucking Company Inc office.</li>
+            </ol>
+          </div>
 
-      <style jsx>{`
+          {/* Form Actions */}
+          <div className="form-actions mt-4">
+            <button type="submit" className=" button-11">
+              Next
+            </button>
+          </div>
+        </Form>
+
+        <style jsx>{`
         .carrier-policies-form-container {
           background-color: #fff;
           padding: 20px;
@@ -156,7 +170,7 @@ const CarrierPolicies = ({currentPage,  incPage}) => {
           }
         }
       `}</style>
-    </div>
+      </div>
     </>
 
   );

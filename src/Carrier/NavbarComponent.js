@@ -3,7 +3,7 @@ import { Navbar, Container, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const NavbarComponent = ({ toggleSidebar }) => {
+const NavbarComponent = () => {
   const [user, setUser] = useState(null);  // State to store user info
   const location = useLocation();
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ const NavbarComponent = ({ toggleSidebar }) => {
 
         {/* Spacer to push the avatar to the right */}
         <div className="ms-auto">
-          <Col className="me-3 d-md-none" onClick={toggleSidebar} style={{ color: "#fff", cursor: "pointer", fontSize: "24px" }}>
+          <Col className="me-3 d-md-none"  style={{ color: "#fff", cursor: "pointer", fontSize: "24px" }}>
             ☰
           </Col>
           {/* User avatar with Bootstrap dropdown */}

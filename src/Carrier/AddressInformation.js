@@ -1,75 +1,89 @@
-import React, { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useEffect, useState } from 'react';
 import { Form, Row, Col } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
+import axios from 'axios'; 
+import { baseUrl } from '../api/url'; 
+import { useSelector } from 'react-redux'; 
 
-const AddressInformation = ({currentPage,incPage}) => {
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+const AddressInformation = ({ incPage, formData, setFormData }) => {
   const location = useLocation();
-
-  const searchResult = location.state || {}; // Get the passed state or an empty object
-
+  const searchResult = location.state || {}; 
+  const userId = useSelector((state) => state.user.id);
   useEffect(() => {
-    // Pre-fill the form fields with the data from searchResult
     if (searchResult) {
-      setValue('companyName', searchResult.legalName || '');
-      setValue('dba', searchResult.dbaName || '');
-      setValue('address', searchResult.phyStreet || '');
-      setValue('city', searchResult.phyCity || '');
-      setValue('state', searchResult.phyState || '');
-      setValue('zip', searchResult.phyZipcode || '');
-      setValue('country', searchResult.phyCountry || 'USA'); // Default to USA if not available
+      setFormData(prevData => ({
+        ...prevData,
+        dotnum: searchResult.dotNumber || '',
+        companyName: searchResult.legalName || '',
+        address: searchResult.phyStreet || '',
+        city: searchResult.phyCity || '',
+        state: searchResult.phyState || '',
+        zip: searchResult.phyZipcode || '',
+        country: searchResult.phyCountry || 'USA',
+      }));
     }
-  }, [searchResult, setValue]);
+  }, [searchResult]);
 
-  const onSubmit = async (data) => {
-    console.log(data)
-    incPage()
-
-    const formData = new FormData();
-
-    // Append form fields to FormData
-    formData.append('companyName', data.companyName);
-    formData.append('dba', data.dba);
-    formData.append('address', data.address);
-    formData.append('suite', data.suite);
-    formData.append('city', data.city);
-    formData.append('state', data.state);
-    formData.append('zip', data.zip);
-    formData.append('country', data.country);
-    formData.append('factoringCompany', data.factoringCompany);
-    formData.append('payToCompanyName', data.payToCompanyName);
-    formData.append('payToAddress', data.payToAddress);
-    formData.append('payToAddress2', data.payToAddress2);
-    formData.append('payToCity', data.payToCity);
-    formData.append('payToState', data.payToState);
-    formData.append('payToZip', data.payToZip);
-    formData.append('payToCountry', data.payToCountry);
-    formData.append('payToEmail', data.payToEmail);
-    formData.append('dunsNumber', data.dunsNumber);
-    formData.append('w9Name', data.w9Name);
-    formData.append('federalId', data.federalId);
-    
-    if (data.w9File && data.w9File[0]) {
-      formData.append('w9File', data.w9File[0]);
-    }
-
-    try {
-      const response = await axios.post(`http://localhost:5000/api/address/submit`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      console.log('Form submitted successfully:', response.data);
-     
-    } catch (error) {
-      console.error('Error submitting form:', error);
-     
+  // Handle form input changes
+  const handleChange = (event) => {
+    const { name, value, type, checked, files } = event.target;
+    if (type === 'checkbox') {
+      setFormData({ ...formData, [name]: checked });
+    } else if (type === 'file') {
+      setFormData({ ...formData, [name]: files[0] }); // Store file object
+    } else {
+      setFormData({ ...formData, [name]: value });
     }
   };
 
+  // Handle form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Create FormData object for sending multipart form data
+    const formDataToSend = new FormData();
+    formDataToSend.append('reg_id', userId);
+    formDataToSend.append('dotnum', formData.dotnum);
+    formDataToSend.append('companyName', formData.companyName);
+    formDataToSend.append('dba', formData.dba);
+    formDataToSend.append('address', formData.address);
+    formDataToSend.append('suite', formData.suite);
+    formDataToSend.append('city', formData.city);
+    formDataToSend.append('state', formData.state);
+    formDataToSend.append('zip', formData.zip);
+    formDataToSend.append('country', formData.country);
+    formDataToSend.append('factoringCompany', formData.factoringCompany);
+    formDataToSend.append('sameAddress', formData.sameAddress);
+    formDataToSend.append('payToCompanyName', formData.payToCompanyName);
+    formDataToSend.append('payToAddress', formData.payToAddress);
+    formDataToSend.append('payToAddress2', formData.payToAddress2);
+    formDataToSend.append('payToCity', formData.payToCity);
+    formDataToSend.append('payToState', formData.payToState);
+    formDataToSend.append('payToZip', formData.payToZip);
+    formDataToSend.append('payToCountry', formData.payToCountry);
+    formDataToSend.append('payToEmail', formData.payToEmail);
+    formDataToSend.append('dunsNumber', formData.dunsNumber);
+    formDataToSend.append('w9Name', formData.w9Name);
+    formDataToSend.append('federalId', formData.federalId);
+
+    // Append file only if it's present
+    if (formData.w9File) {
+      formDataToSend.append('w9File', formData.w9File); // Append the file to FormData
+    }
+
+    try {
+      // Post form data to backend API
+      const response = await axios.post(`${baseUrl}/api/submit-form`, formDataToSend, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log('Form submitted successfully:', response.data);
+      incPage(); // Call the increment page function if submission is successful
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
   return (
     <>
       <h1 className="form-title text-center">Address Information</h1>
@@ -78,18 +92,21 @@ const AddressInformation = ({currentPage,incPage}) => {
           You must complete the fields listed below. If you have any issues, please contact us for assistance.
         </p>
 
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit}>
+          {/* Form fields setup as before */}
           <Row className="mb-3">
             <Col md={6}>
               <Form.Group>
                 <Form.Label>Company Name</Form.Label>
                 <Form.Control
-                  
                   type="text"
                   placeholder="Enter Company Name"
-                  {...register('companyName', { required: true })}
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleChange}
+                  required
                 />
-                {errors.companyName && (
+                {formData.companyName === '' && (
                   <span className="error-text">Company Name is required</span>
                 )}
               </Form.Group>
@@ -99,14 +116,13 @@ const AddressInformation = ({currentPage,incPage}) => {
               <Form.Group>
                 <Form.Label>DBA</Form.Label>
                 <Form.Control
-                  
                   type="text"
                   placeholder="Enter DBA"
-                  {...register('dba')}
+                  name="dba"
+                  value={formData.dba}
+                  onChange={handleChange}
                 />
-                {errors.dba && (
-                  <span className="error-text">DBA is required</span>
-                )}
+
               </Form.Group>
             </Col>
           </Row>
@@ -116,12 +132,14 @@ const AddressInformation = ({currentPage,incPage}) => {
               <Form.Group>
                 <Form.Label>Address</Form.Label>
                 <Form.Control
-                  
                   type="text"
                   placeholder="Enter Address"
-                  {...register('address', { required: true })}
+                  name="address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  required
                 />
-                {errors.address && (
+                {formData.address === '' && (
                   <span className="error-text">Address is required</span>
                 )}
               </Form.Group>
@@ -131,7 +149,12 @@ const AddressInformation = ({currentPage,incPage}) => {
               <Form.Group>
                 <Form.Label>Suite/Office</Form.Label>
                 <Form.Control
-                   type="text" placeholder="Enter Suite/Office" {...register('suite')} />
+                  type="text"
+                  placeholder="Enter Suite/Office"
+                  name="suite"
+                  value={formData.suite}
+                  onChange={handleChange}
+                />
               </Form.Group>
             </Col>
           </Row>
@@ -141,12 +164,16 @@ const AddressInformation = ({currentPage,incPage}) => {
               <Form.Group>
                 <Form.Label>City</Form.Label>
                 <Form.Control
-                  
                   type="text"
                   placeholder="Enter City"
-                  {...register('city', { required: true })}
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  required
                 />
-                {errors.city && <span className="error-text">City is required</span>}
+                {formData.city === '' && (
+                  <span className="error-text">City is required</span>
+                )}
               </Form.Group>
             </Col>
 
@@ -154,12 +181,16 @@ const AddressInformation = ({currentPage,incPage}) => {
               <Form.Group>
                 <Form.Label>State/Province</Form.Label>
                 <Form.Control
-                  
                   type="text"
                   placeholder="Enter State"
-                  {...register('state', { required: true })}
+                  name="state"
+                  value={formData.state}
+                  onChange={handleChange}
+                  required
                 />
-                {errors.state && <span className="error-text">State/Province is required</span>}
+                {formData.state === '' && (
+                  <span className="error-text">State/Province is required</span>
+                )}
               </Form.Group>
             </Col>
 
@@ -167,12 +198,16 @@ const AddressInformation = ({currentPage,incPage}) => {
               <Form.Group>
                 <Form.Label>Zip Code</Form.Label>
                 <Form.Control
-                  
                   type="text"
                   placeholder="Enter Zip Code"
-                  {...register('zip', { required: true })}
+                  name="zip"
+                  value={formData.zip}
+                  onChange={handleChange}
+                  required
                 />
-                {errors.zip && <span className="error-text">Zip Code is required</span>}
+                {formData.zip === '' && (
+                  <span className="error-text">Zip Code is required</span>
+                )}
               </Form.Group>
             </Col>
           </Row>
@@ -184,10 +219,14 @@ const AddressInformation = ({currentPage,incPage}) => {
                 <Form.Control
                   type="text"
                   placeholder="Enter Country"
-                  {...register('country', { required: true })}
+                  name="country"
+                  value={formData.country}
+                  onChange={handleChange}
+                  required
                 />
-                
-                {errors.country && <span className="error-text">Country is required</span>}
+                {formData.country === '' && (
+                  <span className="error-text">Country is required</span>
+                )}
               </Form.Group>
             </Col>
 
@@ -195,13 +234,17 @@ const AddressInformation = ({currentPage,incPage}) => {
               <Form.Group>
                 <Form.Label>Pay To Is Factoring Company</Form.Label>
                 <Form.Control
-                   as="select" {...register('factoringCompany', { required: true })}>
+                  as="select"
+                  name="factoringCompany"
+                  value={formData.factoringCompany}
+                  onChange={handleChange}
+                  required
+                >
                   <option value="">Select</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
-                </Form.Control
-                  >
-                {errors.factoringCompany && (
+                </Form.Control>
+                {formData.factoringCompany === '' && (
                   <span className="error-text">This field is required</span>
                 )}
               </Form.Group>
@@ -212,11 +255,14 @@ const AddressInformation = ({currentPage,incPage}) => {
             <Form.Check
               type="checkbox"
               label="Check if Pay To Address is the same as Main Address"
-              {...register('sameAddress')}
+              name="sameAddress"
+              checked={formData.sameAddress}
+              onChange={handleChange}
             />
           </Form.Group>
+          {/* Additional details for each field replicated here as previously described */}
 
-          {/* Factoring Company Information */}
+          {/* Factoring Company Information Section */}
           <div className="factoring-section mt-5">
             <h4>Factoring Company Information</h4>
             <p>If you are factoring, fill in Pay To Information.</p>
@@ -226,10 +272,11 @@ const AddressInformation = ({currentPage,incPage}) => {
                 <Form.Group>
                   <Form.Label>Pay To Company Name</Form.Label>
                   <Form.Control
-                    
                     type="text"
                     placeholder="Enter Pay To Company Name"
-                    {...register('payToCompanyName')}
+                    name="payToCompanyName"
+                    value={formData.payToCompanyName}
+                    onChange={handleChange}
                   />
                 </Form.Group>
               </Col>
@@ -238,10 +285,11 @@ const AddressInformation = ({currentPage,incPage}) => {
                 <Form.Group>
                   <Form.Label>Pay To Address</Form.Label>
                   <Form.Control
-                    
                     type="text"
                     placeholder="Enter Pay To Address"
-                    {...register('payToAddress')}
+                    name="payToAddress"
+                    value={formData.payToAddress}
+                    onChange={handleChange}
                   />
                 </Form.Group>
               </Col>
@@ -252,7 +300,12 @@ const AddressInformation = ({currentPage,incPage}) => {
                 <Form.Group>
                   <Form.Label>Pay To Address 2</Form.Label>
                   <Form.Control
-                     type="text" placeholder="Enter Pay To Address 2" {...register('payToAddress2')} />
+                    type="text"
+                    placeholder="Enter Pay To Address 2"
+                    name="payToAddress2"
+                    value={formData.payToAddress2}
+                    onChange={handleChange}
+                  />
                 </Form.Group>
               </Col>
 
@@ -260,10 +313,11 @@ const AddressInformation = ({currentPage,incPage}) => {
                 <Form.Group>
                   <Form.Label>Pay To City</Form.Label>
                   <Form.Control
-                    
                     type="text"
                     placeholder="Enter Pay To City"
-                    {...register('payToCity')}
+                    name="payToCity"
+                    value={formData.payToCity}
+                    onChange={handleChange}
                   />
                 </Form.Group>
               </Col>
@@ -274,10 +328,11 @@ const AddressInformation = ({currentPage,incPage}) => {
                 <Form.Group>
                   <Form.Label>Pay To State</Form.Label>
                   <Form.Control
-                    
                     type="text"
                     placeholder="Enter Pay To State"
-                    {...register('payToState')}
+                    name="payToState"
+                    value={formData.payToState}
+                    onChange={handleChange}
                   />
                 </Form.Group>
               </Col>
@@ -286,10 +341,11 @@ const AddressInformation = ({currentPage,incPage}) => {
                 <Form.Group>
                   <Form.Label>Pay To Zip</Form.Label>
                   <Form.Control
-                    
                     type="text"
                     placeholder="Enter Zip Code"
-                    {...register('payToZip')}
+                    name="payToZip"
+                    value={formData.payToZip}
+                    onChange={handleChange}
                   />
                 </Form.Group>
               </Col>
@@ -298,10 +354,13 @@ const AddressInformation = ({currentPage,incPage}) => {
                 <Form.Group>
                   <Form.Label>Pay To Country</Form.Label>
                   <Form.Control
-                     as="select" {...register('payToCountry')}>
+                    as="select"
+                    name="payToCountry"
+                    value={formData.payToCountry}
+                    onChange={handleChange}
+                  >
                     <option value="USA">USA</option>
-                  </Form.Control
-                    >
+                  </Form.Control>
                 </Form.Group>
               </Col>
             </Row>
@@ -311,10 +370,11 @@ const AddressInformation = ({currentPage,incPage}) => {
                 <Form.Group>
                   <Form.Label>Pay To Email</Form.Label>
                   <Form.Control
-                    
                     type="email"
                     placeholder="Enter Pay To Email"
-                    {...register('payToEmail')}
+                    name="payToEmail"
+                    value={formData.payToEmail}
+                    onChange={handleChange}
                   />
                 </Form.Group>
               </Col>
@@ -323,7 +383,12 @@ const AddressInformation = ({currentPage,incPage}) => {
                 <Form.Group>
                   <Form.Label>DUNS Number</Form.Label>
                   <Form.Control
-                     type="text" placeholder="Enter DUNS Number" {...register('dunsNumber')} />
+                    type="text"
+                    placeholder="Enter DUNS Number"
+                    name="dunsNumber"
+                    value={formData.dunsNumber}
+                    onChange={handleChange}
+                  />
                 </Form.Group>
               </Col>
             </Row>
@@ -337,12 +402,13 @@ const AddressInformation = ({currentPage,incPage}) => {
             <Row className="mb-3">
               <Col md={6}>
                 <Form.Group>
-                  <Form.Label>Name (as shown on Income Tax return)</Form.Label>
+                  <Form.Label>Name (as shown on your income tax return)</Form.Label>
                   <Form.Control
-                    
                     type="text"
                     placeholder="Enter Name"
-                    {...register('w9Name')}
+                    name="w9Name"
+                    value={formData.w9Name}
+                    onChange={handleChange}
                   />
                 </Form.Group>
               </Col>
@@ -351,10 +417,11 @@ const AddressInformation = ({currentPage,incPage}) => {
                 <Form.Group>
                   <Form.Label>Federal Id Number</Form.Label>
                   <Form.Control
-                    
                     type="text"
                     placeholder="Enter Federal Id Number"
-                    {...register('federalId')}
+                    name="federalId"
+                    value={formData.federalId}
+                    onChange={handleChange}
                   />
                 </Form.Group>
               </Col>
@@ -363,64 +430,20 @@ const AddressInformation = ({currentPage,incPage}) => {
             <Form.Group controlId="formFile" className="mb-3">
               <Form.Label>Upload W-9 Document</Form.Label>
               <Form.Control
-                
                 type="file"
-                {...register('w9File', { required: true })}
+                name="w9File"
+                onChange={handleChange}
+                required
               />
-              {errors.w9File && <span className="error-text">W-9 File is required</span>}
             </Form.Group>
           </div>
 
           <div className="form-actions mt-4">
-            <button type="submit" className=" button-11">
-              Next 
+            <button type="submit" className="button-11">
+              Next
             </button>
           </div>
         </Form>
-
-        <style jsx>{`
-          .address-form-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
-            margin: 0 auto;
-          }
-          .form-control{
-            font-size:12px !important
-          }
-          .error-text{
-            font-size:12px !important
-          }
-          .form-title {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-          }
-          .form-description {
-            font-size: 1rem;
-            color: #6c757d;
-            margin-bottom: 20px;
-          }
-          .w9-section h4, .factoring-section h4 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-          }
-          .form-actions {
-            display: flex;
-            justify-content: flex-end;
-          }
-          .error-text {
-            color: red;
-            font-size: 0.875rem;
-          }
-          @media (max-width: 768px) {
-            .form-actions {
-              justify-content: center;
-            }
-          }
-        `}</style>
       </div>
     </>
   );

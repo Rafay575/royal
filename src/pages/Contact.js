@@ -10,7 +10,7 @@ const NavbarOne = React.lazy(() => import("../components/NavbarOne"));
 const SearchPopup = React.lazy(() => import("../elements/SearchPopup"));
 const Contact = () => {
   return (
-    <>
+    <div  style={{background:'#000'}}>
       <Fragment>
         <Suspense fallback={<Preloader />}>
           {/* Search Popup */}
@@ -32,7 +32,7 @@ const Contact = () => {
           <FooterBottomOne />
         </Suspense>
       </Fragment>
-    </>
+    </div>
   );
 };
 

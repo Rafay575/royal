@@ -108,21 +108,21 @@ const ContactInner = () => {
                     </div>
                   </div>
                   <div className='col-12'>
-                    <button className='btn btn-base' type='submit' disabled={loading}>
+                    <button className='button-11' style={{background:'#ff5f09'  }} type='submit' disabled={loading}>
                       {loading ? "Sending..." : "SEND MESSAGE"} {/* Display loading */}
                     </button>
                   </div>
                 </div>
               </form>
             </div>
-            <div className='col-lg-5'>
+            <div className='col-lg-5' >
               {/* Contact information (same as before) */}
-              <div className='contact-information-wrap'>
+              <div className='contact-information-wrap' style={{background:'#ff5f09'  }}>
                 <h3>CONTACT INFORMATION</h3>
                 <div className='single-contact-info-wrap'>
                   <h6>Contact Number:</h6>
                   <div className='media'>
-                    <div className='icon'>
+                    <div className='icon' style={{background:'#ff5f09'  }}>
                       <FaPhoneAlt />
                     </div>
                     <div className='media-body'>
@@ -134,7 +134,7 @@ const ContactInner = () => {
                 <div className='single-contact-info-wrap'>
                   <h6>Mail Address:</h6>
                   <div className='media'>
-                    <div className='icon' style={{ background: "#080C24" }}>
+                    <div className='icon' style={{background:'#ff5f09'  }}>
                       <FaRegEnvelope />
                     </div>
                     <div className='media-body'>
@@ -146,7 +146,7 @@ const ContactInner = () => {
                 <div className='single-contact-info-wrap mb-0'>
                   <h6>Office Location:</h6>
                   <div className='media'>
-                    <div className='icon' style={{ background: "#565969" }}>
+                    <div className='icon' style={{background:'#ff5f09'  }}>
                       <FaMapMarkerAlt />
                     </div>
                     <div className='media-body'>

@@ -4,13 +4,15 @@ import { Link,  useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { baseUrl } from '../api/url';
-
+import { useDispatch } from 'react-redux';
+import { setUserId } from '../redux/stateSlice/userSlice';
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch(); 
   // Handle form submission
   const onSubmit = async (data) => {
     setLoading(true); // Start loading
@@ -25,7 +27,7 @@ const LoginPage = () => {
 
       // Handle successful login
       const { token ,id } = response.data;
-      
+      dispatch(setUserId(id));
       // Store the token in localStorage or state management
       localStorage.setItem('authToken', token);
 

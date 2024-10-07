@@ -1,12 +1,28 @@
-import React from 'react';
+import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Row, Col } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { baseUrl } from '../api/url';
 
-const ELDLoadTracking = () => {
+const ELDLoadTracking = ({incPage}) => {
+
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const userId = useSelector((state) => state.user.id); // Get reg_id from Redux store
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post(`${baseUrl}/api/eld-load-tracking/submit-eld-load-tracking`, {
+        reg_id: userId, // Send reg_id along with form data
+        ...data
+      });
+
+      if (response.status === 200) {
+        console.log('ELD Load Tracking data submitted successfully');
+        incPage(); // Proceed to the next page
+      }
+    } catch (error) {
+      console.error('Error submitting ELD Load Tracking data:', error);
+    }
   };
 
   return (
