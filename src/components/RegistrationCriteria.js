@@ -21,7 +21,7 @@ const RegistrationCriteria = () => {
         <Row>
           <Col>
             <p>
-              Thank you for your interest in becoming an approved carrier for Allen Lund Company.
+              Thank you for your interest in becoming an approved carrier for Royal Star Logistics.
               Below are some of our key requirements in order for your company to qualify as an
               approved carrier. All elements identified as 'required' must be finalized in order
               for the qualification process to be completed. If your company is not compliant to one or
