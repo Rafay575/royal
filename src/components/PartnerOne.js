@@ -51,7 +51,7 @@ const PartnerOne = () => {
             <div className='col-lg-7'>
               <div className='section-title text-center'>
                 <h4 className='title-unique'>HAPPY CLIENTS</h4>
-                <h2 className='title'>TRUSTED BY OUR 365,000 CLIENTS</h2>
+                <h2 className='title'>TRUSTED BY OUR 400+ CLIENTS</h2>
                 <p className='content'>
                   Dramatically enhance interactive metrics for reliable
                   services. Proactively unleash fully researched e-commerce.

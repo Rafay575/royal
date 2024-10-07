@@ -77,17 +77,19 @@ const TestimonialOne = () => {
                     />
                   </div>
                   <p>
-                    “Progressively strategize intermandated manufactured
-                    products after multidisci plinary sources. Conveniently
-                    iterate value-added systems with.”
+                  "Working with Royal Star Logistics has been a game changer for us. They handled all our fresh produce loads 
+                  with efficiency and professionalism, ensuring on-time deliveries every time. 
+                  The communication has been seamless,
+                  and their team truly understands the time-sensitive nature of our shipments.
+                   We couldn’t be happier with their service."
                   </p>
                   <div className='client-wrap'>
-                    <div className='thumb'>
+                    {/* <div className='thumb'>
                       <img src='assets/img/testimonial/a1.jpg' alt='Transpro' height={60}/>
-                    </div>
+                    </div> */}
                     <div className='details'>
-                      <h5>ANJELINA MATHEUS</h5>
-                      <p>Co-Founder</p>
+                      <h5>ANGELINA MATHEW</h5>
+                      <p>Logistics Manager at Greenfield Produce</p>
                     </div>
                   </div>
                 </div>
@@ -101,17 +103,15 @@ const TestimonialOne = () => {
                     />
                   </div>
                   <p>
-                    “Progressively strategize intermandated manufactured
-                    products after multidisci plinary sources. Conveniently
-                    iterate value-added systems with.”
+                  "Royal Star Logistics is hands down the best brokerage service we’ve worked with. Their attention to detail, customer service, and ability to adapt to our changing needs is second to none. They handled our LTL loads flawlessly, saving us both time and money. I highly recommend their services."
                   </p>
                   <div className='client-wrap'>
-                    <div className='thumb'>
+                    {/* <div className='thumb'>
                       <img src='assets/img/testimonial/a1.jpg' alt='Transpro' height={60}/>
-                    </div>
+                    </div> */}
                     <div className='details'>
-                      <h5>MONISH POUL</h5>
-                      <p>Co-Founder</p>
+                      <h5>MANISH PAUL</h5>
+                      <p>Operations Director at Premier Foods USA </p>
                     </div>
                   </div>
                 </div>
@@ -125,17 +125,18 @@ const TestimonialOne = () => {
                     />
                   </div>
                   <p>
-                    “Progressively strategize intermandated manufactured
-                    products after multidisci plinary sources. Conveniently
-                    iterate value-added systems with.”
-                  </p>
+                  "We’ve been using Royal Star Logistics for over a year now,
+                  and their commitment to excellence has never faltered. 
+                  They consistently find us the best carriers, and our loads are always delivered on time.
+                   The transparency and communication they offer give us peace of mind knowing our shipments are in
+                    good hands." </p>
                   <div className='client-wrap'>
-                    <div className='thumb'>
+                    {/* <div className='thumb'>
                       <img src='assets/img/testimonial/a1.png' alt='TransproZ' height={60}/>
-                    </div>
+                    </div> */}
                     <div className='details'>
                       <h5>MICHEL CLACRK</h5>
-                      <p>Co-Founder</p>
+                      <p>Supply Chain Manager at Northwind Agriculture</p>
                     </div>
                   </div>
                 </div>
@@ -149,17 +150,18 @@ const TestimonialOne = () => {
                     />
                   </div>
                   <p>
-                    “Progressively strategize intermandated manufactured
-                    products after multidisci plinary sources. Conveniently
-                    iterate value-added systems with.”
-                  </p>
+                  "From the moment we started working with Royal Star Logistics,
+                   we knew we were in good hands. Their team went above and beyond to handle our complex 
+                   shipping needs with ease. They’ve become our go-to broker, 
+                   and I can’t recommend them enough for their top-notch service and
+                    reliability." </p>
                   <div className='client-wrap'>
-                    <div className='thumb'>
+                    {/* <div className='thumb'>
                       <img src='assets/img/testimonial/a1.jpg' alt='Transpro' height={60} />
-                    </div>
+                    </div> */}
                     <div className='details'>
                       <h5>MONISH POUL</h5>
-                      <p>Co-Founder</p>
+                      <p>Senior Buyer at Maple Grove Farms</p>
                     </div>
                   </div>
                 </div>

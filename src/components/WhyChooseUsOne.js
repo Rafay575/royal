@@ -20,7 +20,7 @@ const WhyChooseUsOne = () => {
             <div className='col-xl-6 col-lg-8'>
               <div className='section-title style-white mb-5'>
                 <h4 className='title-unique mb-3'>WHY CHOOSE US</h4>
-                <h2 className='title mb-4'>Why You Should Choose Us</h2>
+                {/* <h className='title mb-4'>Why You Should Choose Us</h */}
                 <p className='content'>
                   We dramatically enhance interactive metrics for reliable
                   services. Proactively unleashing fully researched

@@ -27,8 +27,8 @@ const FooterOne = () => {
                   </div>
                   <div className='details'>
                     <h6>OFFICE ADDRESS:</h6>
-                    <p>2245 Gilbert Ave, Cincinnati,</p>
-                    <p>OH 45206, United States</p>
+                    <p>2314 1st PL SW VERO BEACH,</p>
+                    <p>FL 32962, United States</p>
                   </div>
                 </div>
               </div>
@@ -39,8 +39,8 @@ const FooterOne = () => {
                   </div>
                   <div className='details'>
                     <h6>CONTACT US:</h6>
-                    <p>info.logic@transpro.com</p>
-                    <p>+1 800-226-4054</p>
+                    <p>CONTACT@ROYALSTARLOGISTICS.US</p>
+                    <p>772-501-2777</p>
                   </div>
                 </div>
               </div>
@@ -51,7 +51,7 @@ const FooterOne = () => {
                   </div>
                   <div className='details'>
                     <h6>WORKING HOURS:</h6>
-                    <p>Weekdays - Mon-Fri: 8am-21pm</p>
+                    <p>Weekdays - Mon-Fri: 8am-5pm</p>
                     <p>Weekend - Sta &amp; Sun: Closed</p>
                   </div>
                 </div>

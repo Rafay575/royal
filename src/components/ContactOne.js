@@ -15,7 +15,7 @@ const ContactOne = () => {
                 <div className='section-title style-white mb-0'>
                   <h4 className='title-unique '>LET’S TALK</h4>
                   <h2 className='title'>
-                    YOU NEED ANY HELP? GET FREE CONSULTATION
+                    CALL US NOW FOR FREE CONSULTATION
                   </h2>
                 </div>
                 <div className='single-cta-wrap'>
@@ -24,7 +24,7 @@ const ContactOne = () => {
                   </div>
                   <div className='details'>
                     <h6>Have Any Question</h6>
-                    <h3>+19524357106</h3>
+                    <h3>-3114-1-371</h3>
                   </div>
                 </div>
                 <Link className='btn btn-base' to='/contact'>
