@@ -375,10 +375,10 @@
     height: 140px;
     width: 4px;
     transform: translate(0, -50%);
-    background: var(--main-color);
+    background: #E8E6CA;
   }
   h2 {
-    color: var(--main-color);
+    color: #E8E6CA;
     font-weight: 700;
     font-size: 44px;
     line-height: 57px;
@@ -623,7 +623,7 @@
   }
 }
 .cta-inner-wrap {
-  background: url("~/public/assets/img/contact/bg.png");
+  background:#244855;
   padding: 40px 50px;
 }
 .single-cta-wrap {
@@ -1225,7 +1225,7 @@
     color: #E8E6CA;
   }
   .single-contact-info-wrap {
-    background: #E8E6CA;
+    background: #fff;
     border-radius: 5px;
     padding: 23px 30px 27px;
     margin-bottom: 24px;
@@ -1245,7 +1245,7 @@
         background: var(--main-color);
         border-radius: 5px;
         text-align: center;
-        color: #E8E6CA;
+        color: #fff;
         margin-right: 10px;
         font-size: 20px;
       }

@@ -1,5 +1,5 @@
 .carrier-benefits-section {
-    background-color: white;
+    /* background-color: white; */
     padding: 60px 0;
   }
   
@@ -19,6 +19,8 @@
   
   .benefit-item {
     margin-bottom: 40px;
+    border: 2px solid #E68433;
+    padding: 25px 0;
   }
   
   .benefit-icon {

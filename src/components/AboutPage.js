@@ -28,7 +28,7 @@ const AboutPage = () => {
     <div
       className="about-page"
       style={{
-        backgroundColor: '#ffffff',
+        // backgroundColor: '#ffffff',
         padding: '60px 0',
         color: '#333',
       }}

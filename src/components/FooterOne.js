@@ -122,31 +122,31 @@ const FooterOne = () => {
             </div>
             <div className='col-xl-2 col-md-6'>
               <div className='widget widget_nav_menu'>
-                <h4 className='widget-title'>OUR SERVICES</h4>
+                <h4 style={{marginTop:'70px'}}>{' '}</h4>
                 <ul>
                   <li>
                     <a href='#'>
-                      <FaArrowRight /> Air Freight
+                      <FaArrowRight /> Home
                     </a>
                   </li>
                   <li>
                     <a href='#'>
-                      <FaArrowRight /> Ocean Freight
+                      <FaArrowRight /> Carrier
                     </a>
                   </li>
                   <li>
                     <a href='#'>
-                      <FaArrowRight /> Railway Freight
+                      <FaArrowRight /> Shipper
                     </a>
                   </li>
                   <li>
                     <a href='#'>
-                      <FaArrowRight /> Warehousing
+                      <FaArrowRight /> Contact us
                     </a>
                   </li>
                   <li>
                     <a href='#'>
-                      <FaArrowRight /> Distribution
+                      <FaArrowRight /> About us
                     </a>
                   </li>
                 </ul>

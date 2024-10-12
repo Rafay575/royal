@@ -37,25 +37,29 @@
   }
 
   .carriers-section-unique {
-    background-image: url('../../public/assets/img/banner/1.png');
+    background-image: url('../../public/assets/img/banner/1.svg');
     background-position: center;
-    background-size: cover;
+    background-size: cover;  /* Ensures full coverage */
     background-attachment: fixed;
+    background-repeat: no-repeat;  /* Prevents repetition */
   }
   
   .shippers-section-unique {
-    background-image: url('../../public/assets/img/banner/2.png');
+    background-image: url('../../public/assets/img/banner/2.svg');
     background-position: center;
-    background-size: cover;
+    background-size: cover;  /* Ensures full coverage */
     background-attachment: fixed;
+    background-repeat: no-repeat;  /* Prevents repetition */
   }
   
   .team-section-unique {
-    background-image: url('../../public/assets/img/banner/3.png');
-    background-position: center;
-    background-size: cover;
+    background-image: url('../../public/assets/img/banner/3.svg');
+    background-position:center;
+    background-size: cover;  /* Ensures full coverage */
     background-attachment: fixed;
+    background-repeat: no-repeat;  /* Prevents repetition */
   }
+  
   
   
   .content-unique {
@@ -97,6 +101,7 @@
   /* Hover effect: Darken background and add transform */
   .banner-item-unique:hover .content-unique, .carousel-item-unique:hover .content-unique {
     transform: translateY(-10px) scale(1.05);
+   
   }
 
   /* Responsive styles */

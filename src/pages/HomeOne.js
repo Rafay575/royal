@@ -48,7 +48,7 @@ const HomeOne = () => {
 
           <div
             className='call-to-contact-area pd-top-240'
-            style={{ background: "#F9F9F9" }}
+          
           >
             <ContactOne />
           </div>
@@ -63,7 +63,7 @@ const HomeOne = () => {
           <BlogOne /> */}
 
           {/* Partner One */}
-          <PartnerOne />
+          {/* <PartnerOne /> */}
 
           {/* Footer One */}
           <FooterOne />

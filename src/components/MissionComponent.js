@@ -6,38 +6,44 @@ const MissionComponent = () => {
     <Container className="mission-container pb-5">
       <Row className="align-items-center">
         {/* Left column for text */}
+          <div className='text-center'>
+          <h1 className="mission-heading text-center" style={{ fontFamily: "Protest Guerrilla" }}>mission</h1>
+
+          </div>
         <Col lg={6} className="text-section">
           <div className="section mb-5">
-            <h2 className="custom-heading">Our Mission</h2>
+            <h2 className="custom-heading" style={{color:'#333'}}>Our Mission</h2>
             <p className="custom-paragraph">
-            To deliver exceptional freight brokerage and transportation services by leveraging
-             our extensive industry experience, diverse fleet, and nationwide coverage. 
-             We are committed to providing reliable, customized logistics solutions that prioritize customer satisfaction, 
-             operational efficiency, and sustainable practices
+              To deliver exceptional freight brokerage and transportation services by leveraging
+              our extensive industry experience, diverse fleet, and nationwide coverage.
+              We are committed to providing reliable, customized logistics solutions that prioritize customer satisfaction,
+              operational efficiency, and sustainable practices
             </p>
             <hr className="custom-divider" />
           </div>
           <div className="section">
-            <h2 className="custom-heading">Our Vision</h2>
+            <h2 className="custom-heading" style={{color:'#333'}}>Our Vision</h2>
             <p className="custom-paragraph">
-            To be the leading logistics partner in the United States, 
-            recognized for our innovation, integrity, and unwavering 
-            commitment to excellence. We aim to set new standards in the
-             freight industry by continuously evolving to meet the needs of 
-             our clients and contributing to a sustainable future.
+              To be the leading logistics partner in the United States,
+              recognized for our innovation, integrity, and unwavering
+              commitment to excellence. We aim to set new standards in the
+              freight industry by continuously evolving to meet the needs of
+              our clients and contributing to a sustainable future.
             </p>
             <hr className="custom-divider" />
           </div>
         </Col>
 
         {/* Right column for image and heading */}
-        <Col lg={6} className="text-center image-sectio">
-          <h1 className="mission-heading" style={{fontFamily:"Protest Guerrilla"}}>mission</h1>
-          <img
-            src="./assets/img/about/ruck (5).png"
-            alt="Mission"
-            className="img-fluid mission-image"
-          />
+        <Col lg={6} className="text-center image-section">
+          <div className='w-100 text-end'>
+
+            <img
+              src="./assets/img/about/ruck (5).png"
+              alt="Mission"
+              className="img-fluid mission-image"
+            />
+          </div>
         </Col>
       </Row>
 

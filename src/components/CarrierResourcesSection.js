@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const CarrierResourcesSection = () => {
   const navigate = useNavigate()
   return (
-    <section style={{ padding: '40px 0', backgroundColor: '#f8f9fa' }}>
+    <section style={{ padding: '40px 0',  }}>
       <Container>
         <Row className="justify-content-center">
           <Col md={8}>

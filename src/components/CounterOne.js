@@ -1,6 +1,7 @@
 import React from "react";
 import CountUp from "react-countup";
 import TrackVisibility from "react-on-screen";
+import './main.css'
 
 const CounterOne = () => {
   return (
@@ -8,11 +9,11 @@ const CounterOne = () => {
       {/*fact-area start*/}
       <div className='container'>
         <div
-          className='fact-counter-area'
-          style={{ background: "url(assets/img/fact/bg.png)" }}
+          className='fact-counter-area gradient'
+          // style={{background: 'linear-gradient(270deg, #D79169, #000)'}}
         >
           <div className='row justify-content-center'>
-            <div className='col-lg-3 col-md-6'>
+            <div className='col-lg-4 col-md-6'>
               <div className='single-fact-wrap'>
                 <h2>
                   <TrackVisibility once>
@@ -29,7 +30,7 @@ const CounterOne = () => {
                 {/* <p>Conveniently impact front-end niches via maintainable.</p> */}
               </div>
             </div>
-            <div className='col-lg-3 col-md-6'>
+            <div className='col-lg-4 col-md-6'>
               <div className='single-fact-wrap'>
                 <h2>
                   <TrackVisibility once>
@@ -46,8 +47,8 @@ const CounterOne = () => {
                 {/* <p>Conveniently impact front-end niches via maintainable.</p> */}
               </div>
             </div>
-            <div className='col-lg-3 col-md-6'>
-              <div className='single-fact-wrap'>
+            <div className='col-lg-4 col-md-6'>
+              <div className='single-fact-wrap after-none'>
                 <h2>
                   <TrackVisibility once>
                     {({ isVisible }) =>
@@ -63,7 +64,7 @@ const CounterOne = () => {
                 {/* <p>Conveniently impact front-end niches via maintainable.</p> */}
               </div>
             </div>
-            {/* <div className='col-lg-3 col-md-6'>
+            {/* <div className='col-lg-4 col-md-6'>
               <div className='single-fact-wrap after-none'>
                 <h2>
                   <TrackVisibility once>

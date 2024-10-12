@@ -3,11 +3,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const ServiceCard = ({ icon, title, description }) => {
   return (
-    <Col xs={12} sm={12} lg={2} className="mb-4 card mx-2 py-2">
+    <Col xs={12} sm={12} lg={2} className="mb-4 card mx-2 py-2" style={{border:'6px solid #244855',background:'#244855',color:'rgb(36, 72, 85,0.5)'}}>
       <div className="text-center ">
         <img src={icon} alt={title} className="mb-3" style={{ width: '50px', height: '50px' }} />
-        <h5 className="mb-2">{title}</h5>
-        <p className="text-secondary">{description}</p>
+        <h5 className="mb-2" style={{color:'#ffffff'}}>{title}</h5>
+        <p className="" style={{color:'#fff '}}>{description}</p>
       </div>
     </Col>
   );

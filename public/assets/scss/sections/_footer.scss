@@ -3,7 +3,8 @@
 ---------------------------------------------------*/
 .footer-area {
   position: relative;
-  background-color: #080c24;
+    background: linear-gradient(45deg, #244855, #E8E6CA);
+    background: linear-gradient(45deg, #244855 0%, #2E5964 50%, #E8E6CA 100%);
   padding-bottom: 50px;
   &.style-2 {
     .footer-top {
