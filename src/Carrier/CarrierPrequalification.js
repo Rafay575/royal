@@ -24,13 +24,7 @@ const CarrierPrequalification = () => {
     });
   };
 
-  const handleClear = () => {
-    setFormData({
-      mcNumber: '',
-      dotNumber: '',
-    });
-    setSearchResult(null);
-  };
+  
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -70,6 +64,7 @@ const CarrierPrequalification = () => {
           try {
             const submitResponse = await axios.post(`${baseUrl}/api/submit-carrier`, submissionData);
             if (submitResponse.status === 200) {
+              localStorage.setItem("rslmc",formData.mcNumber);
               toast.success('Carrier data submitted successfully!');
               navigate('/carrierdashboard/form', { state: carrierData });
             }

@@ -35,7 +35,7 @@ const CarrierResourcesSection = () => {
             </p>
             <hr />
             <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '30px' }}>
-              To learn more about how we can assist with your shipping needs, contact our Shipper Solutions team at 772 501 2777 or email us at contact@royalstarlogistics.us.
+              To learn more about how we can assist with your shipping needs, contact our Shipper Solutions team at +1 (319) 576 3111 or email us at contact@royalstarlogistics.us.
             </p>
             <div style={{ textAlign: 'center' }}>
               <Button className='btn btn-base' onClick={() => navigate("/shipperform")} >Get A Rate Quote</Button>

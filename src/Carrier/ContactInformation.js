@@ -39,11 +39,11 @@ const ContactInformation = ({ incPage,formData, setFormData,toggleMainLoading })
         };
         const response = await axios.post(`${baseUrl}/api/contact-carrier/submit`, formDataWithRegId);
         console.log('Form data submitted successfully:', response.data);
-        toggleMainLoading();
+       
 
         incPage();
       } catch (error) {
-        toggleMainLoading();
+       
         console.error('Error submitting form data:', error);
       }
     } else {

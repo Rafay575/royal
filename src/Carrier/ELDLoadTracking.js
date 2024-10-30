@@ -37,7 +37,8 @@ const ELDLoadTracking = ({incPage}) => {
           <Form.Check className='form-title' 
             type="checkbox"
             
-            label="By checking this box, you are consenting to receive communications from the Allen Lund Company, which may include phone calls, text messages and/or emails for the purpose of providing load details or information related only to specific loads assigned to your company. You may revoke this consent at any time by texting 'STOP' to (888) 521-5863."
+            label="By checking this box, you are consenting to receive communications from the Royal Star Logistics LLC, which may include phone calls, text messages and/or
+             emails for the purpose of providing load details or information related only to specific loads assigned to your company. You may revoke this consent at any time by texting 'STOP' to (319)576-3111."
             {...register('consent', { required: true })}
           />
           {errors.consent && <span className="error-text">Consent is required.</span>}
@@ -69,7 +70,7 @@ const ELDLoadTracking = ({incPage}) => {
         <Row className="mb-3">
           <Col md={6}>
             <Form.Group>
-              <Form.Label className='form-title' >ALC App (uses GPS/Phone)</Form.Label>
+              <Form.Label className='form-title' >RSL App (uses GPS/Phone)</Form.Label>
               <Form.Check className='form-title' 
                 type="radio"
                 label="Yes"
