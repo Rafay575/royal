@@ -65,7 +65,7 @@ const FooterOne = () => {
                   <div className='details'>
                     <h6>CONTACT US:</h6>
                     <p>contact@royalstarlogistics.us</p>
-                    <p>772-501-2777</p>
+                    <p>+1 (319) 576 3111</p>
                   </div>
                 </div>
               </div>
@@ -89,7 +89,7 @@ const FooterOne = () => {
             <div className='col-xl-4 col-md-6'>
               <div className='widget widget_about'>
                 <div className='thumb'>
-                  <img src='assets/img/logo1.svg' alt='Transpro' style={{ height: "100px" }} />
+                  <img src='assets/img/logo1.svg' alt='Transpro' style={{ height: "150px" }} />
                 </div>
                 <div className='details'>
                   <p>

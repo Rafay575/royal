@@ -61,8 +61,12 @@ const CARBTruckBusCompliance = ({incPage}) => {
                 />
                 {errors.carbCompliant && <span className="error-text">Compliance selection is required</span>}
               </Col>
-              <Col md={6} className="example-certificate">
-                <img src="assets/img/about/abc.jpg" alt="Example Certificate" style={{ maxWidth: '200px' }} />
+              <Col md={6} className="example-">
+              <div>
+                
+              <img src="/assets/img/banner/a122.png" alt="Transpro" style={{ maxHeight: "150px" }} />
+
+              </div>
               </Col>
             </Row>
           </div>

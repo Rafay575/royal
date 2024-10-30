@@ -37,7 +37,7 @@ const NavbarOne = () => {
               <div className="navbar-contact-icon">
                 
                 <FaPhoneAlt className="navbar-phone-icon" />
-                <span className="navbar-contact-number">772 501 2777</span>
+                <span className="navbar-contact-number">+1 (319) 576 3111</span>
               </div>
 
               <div className="navbar-contact-info">
@@ -67,7 +67,7 @@ const NavbarOne = () => {
           <div className="navbar-unique-container">
             <div className="navbar-unique-logo">
               <Link to="/">
-              <img src='assets/img/logo1.svg' alt='Transpro' style={{ height: "75px" }} />
+              <img src='assets/img/logo1.svg' alt='Transpro' style={{ height: "100px" }} />
               </Link>
             </div>
             <button

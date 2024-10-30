@@ -1,7 +1,4 @@
-.banner-section {
-   
-   
-  }
+
   
   .banner-container {
     color: white;
@@ -20,7 +17,7 @@
     font-size: 1.25rem; /* Smoother font for text */
     margin-bottom: 40px; /* Space before button */
     line-height: 1.6;
-    max-width: 90%; /* Limit width for text readability */
+    max-width: 95%; /* Limit width for text readability */
   }
   
   .banner-button {

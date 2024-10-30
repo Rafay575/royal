@@ -17,7 +17,7 @@ function ShipperTop() {
                     <Col md={8} xs={12}>
                         <h1 className="text-white  banner-title">Reliable freight solutions</h1>
                         <p className=" text-white banner-text">
-                        Royal Star Logistics offers reliable, personalized freight solutions with vetted carriers. Contact us at 772 501 2777 or email contact@royalstarlogistics.us for seamless shipping.
+                        Royal Star Logistics offers reliable, personalized freight solutions with vetted carriers. Contact us at +1 (319) 576 3111 or email contact@royalstarlogistics.us for seamless shipping.
                         </p>
                         <Link to={'/shipperform'}>
                             <button className="button-11" >
