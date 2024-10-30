@@ -128,7 +128,7 @@ const ContactInner = () => {
                       <FaPhoneAlt />
                     </div>
                     <div className='media-body'>
-                      <p>772 501 2777</p>
+                      <p>+1 (319) 576 3111</p>
                       {/* <p>+1 932-654-9874</p> */}
                     </div>
                   </div>

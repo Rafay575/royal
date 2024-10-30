@@ -99,6 +99,7 @@ const CarrierOperatingAreas = ({incPage}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const data = {
       reg_id,
       selectedZones,
@@ -127,8 +128,7 @@ const CarrierOperatingAreas = ({incPage}) => {
       <h5 className='d-flex justify-content-center mb-5'>Carrier Operating Areas</h5>
      
       <h6 className='mt-5 mb-3'>Origin Preferences</h6>
-      <Form>
-       
+      <Form>  
         <Form.Group>
           <Form.Label className='form-title' ><strong>Preferred Zones: (Please select at least one)</strong></Form.Label>
           <Row>
@@ -298,7 +298,7 @@ const CarrierOperatingAreas = ({incPage}) => {
         </Row>
         <div className='d-flex justify-content-end mt-5' style={{}}>
 
-        <button className=" button-11  mt-4" onClick={(e)=>handleSubmit(e)}>Submit</button>
+        <button className=" button-11  mt-4" onClick={(e)=>handleSubmit(e)}>Next</button>
         </div>
       </Form>
     </div>

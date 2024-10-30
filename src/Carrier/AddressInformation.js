@@ -39,8 +39,7 @@ const AddressInformation = ({ incPage, formData, setFormData,toggleMainLoading})
   // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
-    toggleMainLoading()
-    // Create FormData object for sending multipart form data
+        // Create FormData object for sending multipart form data
     const formDataToSend = new FormData();
     formDataToSend.append('reg_id', userId);
     formDataToSend.append('dotnum', formData.dotnum);
@@ -76,13 +75,13 @@ const AddressInformation = ({ incPage, formData, setFormData,toggleMainLoading})
           'Content-Type': 'multipart/form-data'
         }
       });
-       toggleMainLoading();
+       
       console.log('Form submitted successfully:', response.data);
 
       incPage();
     } catch (error) {
       console.error('Error submitting form:', error);
-      toggleMainLoading();
+      
     }
 
   };

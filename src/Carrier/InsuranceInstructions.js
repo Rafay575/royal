@@ -45,9 +45,9 @@ const InsuranceInstructions = ({ incPage }) => {
         <p className='form-title'><strong>The Certificate MUST show the following</strong></p>
         <p className='form-title'><strong>Certificate Holder</strong> must be shown as:</p>
         <p className='form-title'>
-       Royal Start Logistic RSL<br />
-          PO BOX 1369<br />
-          La Canada, CA 91012
+        Royal Star Logistics LLC <br />
+2314 1st PL SW <br />
+Vero Beach, FL 32962-3310, USA
         </p>
 
         <p className='form-title'><strong>Coverages:</strong> Certificate must include</p>

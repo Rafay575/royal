@@ -8,7 +8,7 @@ import axios from 'axios';
 const SupplierDiversityInformation = ({incPage}) => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const userId = useSelector((state) => state.user.id); // Get reg_id from Redux store
+  const userId = localStorage.getItem("___"); // Get reg_id from Redux store
 
   const onSubmit = async (data) => {
     try {

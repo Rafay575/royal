@@ -74,16 +74,18 @@ const CompanyAgreement = ({ formData1, formData2, incPage }) => {
             <p><strong>Zip:</strong> {formData1.zip}</p>
             <p><strong>Contact No:</strong> {formData2.corporatePhoneNumber}</p>
             <p><strong>US DOT Number:</strong> {formData1.dotnum}</p>
+            <p><strong>MC#: </strong>   {localStorage.getItem("rslmc")}</p>
             <p><strong>Email:</strong> {formData2.corporateEmail}</p>
           </Col>
           <Col className='' style={{textAlign:'right'}}>
-            <p><strong>Broker Name:</strong> Royal Star Logistics </p>
+            <p><strong>Broker Name:</strong> ROYAL STAR LOGISTICS LLC </p>
             <p><strong>Address:</strong> 2314 1st PL SW  </p>
             <p><strong>City:</strong> Vero Beach</p>
             <p><strong>State:</strong> Florida</p>
             <p><strong>Zip:</strong> 32962</p>
-            <p><strong>Contact No:</strong> (319)419-7999</p>
+            <p><strong>Contact No:</strong> (319)419-7999 , (772)501-2777</p>
             <p><strong>US DOT Number:</strong> 3970658</p>
+            <p><strong>MC#: </strong> 1647030</p>
             <p><strong>Email:</strong> contact@royalstarlogistics.us</p>
           </Col>
         </Row>
@@ -92,6 +94,17 @@ const CompanyAgreement = ({ formData1, formData2, incPage }) => {
         <p className='form-title'>
           This Broker-Carrier Agreement  is entered into this 11th day of September, 2024, by and between Royal Start Logistics, a Registered Broker under USDOT# 2212129 and MC-163523 ("BROKER"), and [Your Company Name], a Registered Motor Carrier under USDOT# and MC# [Your MC Number], to be referred to collectively as the “Parties”...
         </p>
+        <div className="text-center mb-5 " >
+        <a
+          href="/assets/Agreement.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="pdf-button py-2 px-4"
+          style={{border:"2px solid #fa4318"}}
+        >
+          View Full Agreement (PDF)
+        </a>
+      </div>
 
         {/* Agreement Acknowledgement Section */}
         <Form onSubmit={handleSubmit}>
