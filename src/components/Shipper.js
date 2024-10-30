@@ -18,7 +18,7 @@ const Shipper = () => {
             <Card.Body>
               <Card.Title className="service-title">Dry Van</Card.Title>
               <Card.Text>
-                With the best software tracking in the industry, we handle full truckload van freight from any part of the U.S. and can provide 48′ and 53′ trailers to satisfy the needs of our shippers. Every office in our network has a van division that can tailor a program to handle the needs of any customer at any time of day.
+              Our dry van service ensures safe, reliable transportation for non-perishable goods across the U.S. Our vast network of carriers guarantees flexible capacity and timely deliveries, making us a trusted choice for all general freight needs.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -29,7 +29,7 @@ const Shipper = () => {
             <Card.Body>
               <Card.Title className="service-title">Flatbed</Card.Title>
               <Card.Text>
-                Whether you need standard flatbed trailers or specialized equipment to handle over-dimensional/over-weight loads, the Royal Star Logistics flatbed division, located in Atlanta, GA, can handle the job at any time.
+              We specialize in flatbed transportation for oversized and heavy freight. Our experienced team handles everything from specialized loading to regulatory compliance, ensuring safe and efficient transport of construction materials, machinery, and more.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -42,7 +42,7 @@ const Shipper = () => {
             <Card.Body>
               <Card.Title className="service-title">Refrigerated Transportation</Card.Title>
               <Card.Text>
-                We are experts at understanding time, temperature, and equipment when moving produce throughout the U.S. and have an extensive carrier base to service your needs from loading to delivery. Our Four-X rating in the Blue Book is a testament to our commitment and integrity in this market, as well as our inclusion in the Platinum Performance Program established by TIA.
+              Our refrigerated transportation solutions maintain strict temperature control for perishable and sensitive goods. With our high-quality reefers, we ensure freshness from origin to destination, perfect for food, pharmaceuticals, and other temperature-sensitive shipments.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -53,7 +53,7 @@ const Shipper = () => {
             <Card.Body>
               <Card.Title className="service-title">LTL Freight</Card.Title>
               <Card.Text>
-                Our LTL freight management software gives you greater control over your less-than-truckload freight spend. You manage your preferred LTL carriers while taking advantage of our aggregate, negotiated contract pricing...
+              Our Less-than-Truckload (LTL) service offers cost-effective shipping for smaller loads. With optimized routes and flexible scheduling, we cater to businesses of all sizes, delivering efficiency and savings without sacrificing reliability.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -61,7 +61,7 @@ const Shipper = () => {
       
       </Row>
       <Row className='text-center'>
-        <Link to='/registration'>
+        <Link to='/shipperform'>
         <button className='button-11'>
           Get a rate Quote
         </button>

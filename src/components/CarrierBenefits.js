@@ -19,7 +19,7 @@ const CarrierBenefits = () => {
             <h4 className="benefit-title">Payment Terms</h4>
             <p className="benefit-description">
               Our payment terms are as follows: <br />
-              <strong>Direct to a Carrier</strong> – RSL payment 14 days after the approval date of paperwork.
+              <strong>Direct to a Carrier</strong> – RSL payment 14 to 21 days after the approval date of paperwork.
         
             </p>
           </Col>
