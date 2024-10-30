@@ -65,7 +65,7 @@ const FeatureOne = () => {
             <div className="col-lg-6 align-self-center">
               <div className="section-title-1">
                 <p className="content left-line">
-                  Royal Star Company provides exceptional service throughout our
+                  Royal Star Logistics provides exceptional service throughout our
                   nationwide network of offices to meet the needs of shippers
                   and growers. We are capable of handling your most challenging
                   loads.

@@ -6,7 +6,7 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter';  // Importing r
 const ContactOne = () => {
   // Using the useTypewriter hook to handle the typing effect
   const [text] = useTypewriter({
-    words: ['CALL FOR FREE CONSULTATION!!!'],
+    words: ['CALL FOR FREE CONSULTATION!'],
     loop: true,          // Infinite loop
     delaySpeed: 2000,    // Delay between loops
     typeSpeed: 100,      // Speed of typing
@@ -17,7 +17,7 @@ const ContactOne = () => {
     <>
       {/*contact-area start*/}
       <div className="container">
-        <img src='assets/img/banner/bg.png' alt='Transpro' height={360}/>
+        <img src='assets/img/banner/23.jpg' alt='Transpro' height={360}/>
         <div className=''>
           <div className='row justify-content-end'>
             <div className='col-xl-6 col-lg-7'>

@@ -10,7 +10,7 @@ const CarrierBenefits = () => {
         <div className="text-center mb-5">
           <h2 className="carrier-title">Carrier Benefits</h2>
           <p className="carrier-subtitle">
-            Royal Star Logistics appreciates working with a wide variety of carriers whether dry vans, reefers, or flatbeds/overdimensional.
+            Royal Star Logistics appreciates working with a wide variety of carriers whether dry vans, reefers, or flatbeds.
           </p>
         </div>
         <Row className="text-center">
@@ -19,7 +19,7 @@ const CarrierBenefits = () => {
             <h4 className="benefit-title">Payment Terms</h4>
             <p className="benefit-description">
               Our payment terms are as follows: <br />
-              <strong>Direct to a Carrier</strong> – ALC payment 14 days after the approval date of paperwork.
+              <strong>Direct to a Carrier</strong> – RSL payment 14 days after the approval date of paperwork.
         
             </p>
           </Col>
@@ -27,7 +27,7 @@ const CarrierBenefits = () => {
             <FaUniversity className="benefit-icon" /> {/* Direct Deposit Icon */}
             <h4 className="benefit-title">Direct Deposit</h4>
             <p className="benefit-description">
-              Get paid easier with Royal Star Logistics’s free direct deposit. All ALC contracted carriers are eligible to receive direct deposit.
+              Get paid easier with Royal Star Logistics’s free direct deposit. All RSL contracted carriers are eligible to receive direct deposit.
               
             </p>
           </Col>

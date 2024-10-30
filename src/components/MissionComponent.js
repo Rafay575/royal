@@ -39,7 +39,7 @@ const MissionComponent = () => {
           <div className='w-100 text-end'>
 
             <img
-              src="./assets/img/about/ruck (5).png"
+              src="./assets/img/banner/abc.jpg"
               alt="Mission"
               className="img-fluid mission-image"
             />
@@ -77,7 +77,7 @@ const MissionComponent = () => {
 
         .mission-image {
           width: 100%;
-          max-width: 350px;
+          max-width: 500px;
           border-radius: 10px;
         }
 

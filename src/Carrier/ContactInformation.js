@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { useSelector } from 'react-redux'; 
+import { baseUrl } from '../api/url';
 
-const ContactInformation = ({ incPage,formData, setFormData }) => {
+const ContactInformation = ({ incPage,formData, setFormData,toggleMainLoading }) => {
   const userId = useSelector((state) => state.user.id);
 
   const [errors, setErrors] = useState({});
@@ -18,10 +19,10 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.corporateFullName) newErrors.corporateFullName = 'Full Name is required';
-    if (!formData.corporateTitle) newErrors.corporateTitle = 'Title is required';
-    if (!formData.corporatePhoneNumber) newErrors.corporatePhoneNumber = 'Phone Number is required';
-    if (!formData.corporateEmail) newErrors.corporateEmail = 'Email is required';
+      if (!formData.corporateFullName) newErrors.corporateFullName = 'Full Name is required';
+      if (!formData.corporateTitle) newErrors.corporateTitle = 'Title is required';
+      if (!formData.corporatePhoneNumber) newErrors.corporatePhoneNumber = 'Phone Number is required';
+      if (!formData.corporateEmail) newErrors.corporateEmail = 'Email is required';
 
     return newErrors;
   };
@@ -36,10 +37,13 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
           ...formData,
           reg_id: userId, // Add reg_id here
         };
-        const response = await axios.post('http://localhost:5000/api/contact-carrier/submit', formDataWithRegId);
+        const response = await axios.post(`${baseUrl}/api/contact-carrier/submit`, formDataWithRegId);
         console.log('Form data submitted successfully:', response.data);
+        toggleMainLoading();
+
         incPage();
       } catch (error) {
+        toggleMainLoading();
         console.error('Error submitting form data:', error);
       }
     } else {
@@ -49,20 +53,16 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
   return (
     <>
-      <h1 className="form-title text-center">Contact Information</h1>
-      <div className="contact-form-container">
-        <p className="form-description">
-          Please provide the contact details for different departments.
-        </p>
-
-        <Form onSubmit={handleSubmit}>
+      <h5 className="mt-5 text-center">Contact Information</h5>
+      <div className="p-5">
+        <Form onSubmit={handleSubmit} >
           {/* Corporate Contact Section */}
-          <h4>Corporate Contact</h4>
-          <p>This person has legal authority to accept the terms of the Carrier Agreement.</p>
+          <h6 className='mb-3'>Corporate Contact</h6>
+          <p className='form-title'>This person has legal authority to accept the terms of the Carrier Agreement.</p>
           <Row className="mb-3">
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Full Name</Form.Label>
+                <Form.Label className='form-title' >Full Name</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="First & Last Name"
@@ -78,7 +78,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Title</Form.Label>
+                <Form.Label className='form-title' >Title</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter title"
@@ -96,7 +96,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
           <Row className="mb-3">
             <Col md={4}>
               <Form.Group>
-                <Form.Label>Phone Number</Form.Label>
+                <Form.Label className='form-title' >Phone Number</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Phone Number"
@@ -112,7 +112,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
             <Col md={4}>
               <Form.Group>
-                <Form.Label>Extension</Form.Label>
+                <Form.Label className='form-title' >Extension</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Ext"
@@ -125,7 +125,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
             <Col md={4}>
               <Form.Group>
-                <Form.Label>Email</Form.Label>
+                <Form.Label className='form-title' >Email</Form.Label>
                 <Form.Control
                   type="email"
                   placeholder="Email"
@@ -143,7 +143,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
           <Row className="mb-3">
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Cell Phone</Form.Label>
+                <Form.Label className='form-title' >Cell Phone</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Cell Phone"
@@ -156,7 +156,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Fax</Form.Label>
+                <Form.Label className='form-title' >Fax</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Fax"
@@ -169,11 +169,11 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
           </Row>
 
           {/* Accounting Section */}
-          <h4>Accounting</h4>
+          <h6 className='mb-3 mt-5'>Accounting</h6>
           <Row className="mb-3">
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Full Name</Form.Label>
+                <Form.Label className='form-title' >Full Name</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="First & Last Name"
@@ -189,7 +189,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Title</Form.Label>
+                <Form.Label className='form-title' >Title</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter title"
@@ -207,7 +207,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
           <Row className="mb-3">
             <Col md={4}>
               <Form.Group>
-                <Form.Label>Phone Number</Form.Label>
+                <Form.Label className='form-title' >Phone Number</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Phone Number"
@@ -223,7 +223,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
             <Col md={4}>
               <Form.Group>
-                <Form.Label>Extension</Form.Label>
+                <Form.Label className='form-title' >Extension</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Ext"
@@ -236,7 +236,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
             <Col md={4}>
               <Form.Group>
-                <Form.Label>Email</Form.Label>
+                <Form.Label className='form-title' >Email</Form.Label>
                 <Form.Control
                   type="email"
                   placeholder="Email"
@@ -254,7 +254,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
           <Row className="mb-3">
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Cell Phone</Form.Label>
+                <Form.Label className='form-title' >Cell Phone</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Cell Phone"
@@ -267,7 +267,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Fax</Form.Label>
+                <Form.Label className='form-title' >Fax</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Fax"
@@ -280,11 +280,11 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
           </Row>
 
           {/* Dispatch Section */}
-          <h4>Dispatch</h4>
+          <h6 className='mb-3 mt-5'>Dispatch</h6>
           <Row className="mb-3">
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Full Name</Form.Label>
+                <Form.Label className='form-title' >Full Name</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="First & Last Name"
@@ -300,7 +300,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Title</Form.Label>
+                <Form.Label className='form-title' >Title</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter title"
@@ -318,7 +318,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
           <Row className="mb-3">
             <Col md={4}>
               <Form.Group>
-                <Form.Label>Phone Number</Form.Label>
+                <Form.Label className='form-title' >Phone Number</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Phone Number"
@@ -334,7 +334,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
             <Col md={4}>
               <Form.Group>
-                <Form.Label>Extension</Form.Label>
+                <Form.Label className='form-title' >Extension</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Ext"
@@ -347,7 +347,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
             <Col md={4}>
               <Form.Group>
-                <Form.Label>Email</Form.Label>
+                <Form.Label className='form-title' >Email</Form.Label>
                 <Form.Control
                   type="email"
                   placeholder="Email"
@@ -365,7 +365,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
           <Row className="mb-3">
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Cell Phone</Form.Label>
+                <Form.Label className='form-title' >Cell Phone</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Cell Phone"
@@ -378,7 +378,7 @@ const ContactInformation = ({ incPage,formData, setFormData }) => {
 
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Fax</Form.Label>
+                <Form.Label className='form-title' >Fax</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Fax"

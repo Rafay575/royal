@@ -32,29 +32,29 @@ const InsuranceInstructions = ({ incPage }) => {
 
   return (
     <>
-      <h1 className="text-center form-title">Carrier Registration - Insurance Instructions</h1>
-    <div className="insurance-instructions-container">
-      <p className="form-description">
+      <h5 className="text-center mt-5">Carrier Registration - Insurance Instructions</h5>
+    <div className="p-5">
+      <h6 className="mb-3">
         Please review the Insurance Requirements Below
-      </p>
-      <p className="form-details">
+      </h6>
+      <p className="form-title">
         Please note a carrier will not be certified until a valid certificate is received. The insurance requirements are shown below. Certificates must be sent directly from the carrier's insurance agent.
       </p>
 
-      <div className="insurance-requirements">
-        <p><strong>The Certificate MUST show the following</strong></p>
-        <p><strong>Certificate Holder</strong> must be shown as:</p>
-        <p>
-          Allen Lund Company LLC<br />
+      <div className="">
+        <p className='form-title'><strong>The Certificate MUST show the following</strong></p>
+        <p className='form-title'><strong>Certificate Holder</strong> must be shown as:</p>
+        <p className='form-title'>
+       Royal Start Logistic RSL<br />
           PO BOX 1369<br />
           La Canada, CA 91012
         </p>
 
-        <p><strong>Coverages:</strong> Certificate must include</p>
+        <p className='form-title'><strong>Coverages:</strong> Certificate must include</p>
         <ul>
-          <li><strong>Cargo</strong><br />Minimum Cargo Limit: $100,000</li>
-          <li><strong>Commercial Automobile Liability</strong><br />Minimum combined Single Limit: $1,000,000</li>
-          <li><strong>General Liability</strong><br />Minimum Each Occurrence: $1,000,000<br />Minimum General Aggregate: $2,000,000</li>
+          <li className='form-title'><strong>Cargo</strong><br />Minimum Cargo Limit: $100,000</li>
+          <li className='form-title'><strong>Commercial Automobile Liability</strong><br />Minimum combined Single Limit: $1,000,000</li>
+          <li className='form-title'><strong>General Liability</strong><br />Minimum Each Occurrence: $1,000,000<br />Minimum General Aggregate: $2,000,000</li>
         </ul>
       </div>
 
@@ -62,7 +62,7 @@ const InsuranceInstructions = ({ incPage }) => {
         <Row className="mb-3">
           <Col md={12}>
             <Form.Group controlId="formFile" className="mb-3">
-              <Form.Label>Please Upload a current copy of valid Insurance</Form.Label>
+              <Form.Label className='form-title'>Please Upload a current copy of valid Insurance</Form.Label>
               <Form.Control
                 type="file"
                 {...register('insuranceFile', { required: true })}

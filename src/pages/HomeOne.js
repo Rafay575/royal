@@ -1,5 +1,8 @@
 import React, { Fragment, Suspense } from "react";
 import Preloader from "../elements/Preloader";
+import NavbarTwo from "../components/NavbarTwo";
+import NavbarThree from "../components/NavbarThree";
+import NavbarFour from "../components/NavbarFour";
 const BannerOne = React.lazy(() => import("../components/BannerOne"));
 const AboutOne = React.lazy(() => import("../components/AboutOne"));
 const BlogOne = React.lazy(() => import("../components/BlogOne"));
@@ -23,52 +26,18 @@ const HomeOne = () => {
     <div style={{background:'#E8E6CA'}}>
       <Fragment>
         <Suspense fallback={<Preloader />}>
-        
+      
           <NavbarOne />
-
-          {/* Banner One */}
           <BannerOne />
-
-          {/* Feature One */}
           <FeatureOne />
-
-          {/* About One */}
           <AboutOne />
-
-        
-
-          {/* Why Choose Us One */}
           <WhyChooseUsOne />
-
-          {/* Counter One */}
-
           <CounterOne />
-
-          {/* <TeamOne /> */}
-
-          <div
-            className='call-to-contact-area pd-top-240'
-          
-          >
+          <div className='call-to-contact-area pd-top-240'     >
             <ContactOne />
           </div>
-
-          {/* Testimonial One */}
-          <TestimonialOne />
-
-          {/* Portfolio One */}
-          {/* <PortfolioOne /> */}
-
-          {/* Blog One
-          <BlogOne /> */}
-
-          {/* Partner One */}
-          {/* <PartnerOne /> */}
-
-          {/* Footer One */}
+          <TestimonialOne />       
           <FooterOne />
-
-          {/* Footer Bottom One */}
           <FooterBottomOne />
         </Suspense>
       </Fragment>

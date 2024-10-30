@@ -30,6 +30,7 @@ const LoginPage = () => {
       dispatch(setUserId(id));
       // Store the token in localStorage or state management
       localStorage.setItem('authToken', token);
+      localStorage.setItem('___', id);
 
       setLoading(false); // Stop loading
       setSuccess('Login successful! Redirecting...');

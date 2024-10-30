@@ -12,13 +12,13 @@ function Carrier() {
     }
   return (
     <section className="blog-details-area pd-top-120 pd-bottom-120 "  style={{ backgroundImage: 'url("assets/img/banner/bg.png")'  }}>
-    <Container fluid className="banner-container  container pd-top-120">
+    <Container fluid className="banner-container  container ">
       <Row className="align-items-center">
         <Col md={8} xs={12}>
           <h1 className="text-white  banner-title">Ready to Haul Some Freight?</h1>
           <p className=" text-white banner-text">
-            Royal Star Company is available to assist you in becoming an approved
-            Royal Star Company contract freight carrier. Whether you are an
+            Royal Star Logistics is available to assist you in becoming an approved
+            Royal Star Logistics contract freight carrier. Whether you are an
             independent owner-operator, mid-size, or larger fleet, we are ready
             to work with you.
           </p>
@@ -36,5 +36,5 @@ function Carrier() {
 }
 
 export default Carrier
- // Custom CSS
+
 

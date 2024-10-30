@@ -57,9 +57,9 @@ const CompanyAgreement = ({ formData1, formData2, incPage }) => {
 
   return (
     <>
-      <h5 className="mt-4 mb-5 form-title text-center " style={{ fontWeight: 500 }}>Company Agreement</h5>
+      <h5 className="mt-5  text-center " >Company Agreement</h5>
 
-      <div className="company-agreement-container">
+      <div className="p-5">
         <Row className='my-4'>
           <Col>
             <p className='text-center'><strong>Agreement Date:</strong> {formatDateTime(time)}</p>
@@ -76,7 +76,7 @@ const CompanyAgreement = ({ formData1, formData2, incPage }) => {
             <p><strong>US DOT Number:</strong> {formData1.dotnum}</p>
             <p><strong>Email:</strong> {formData2.corporateEmail}</p>
           </Col>
-          <Col className='text-left'>
+          <Col className='' style={{textAlign:'right'}}>
             <p><strong>Broker Name:</strong> Royal Star Logistics </p>
             <p><strong>Address:</strong> 2314 1st PL SW  </p>
             <p><strong>City:</strong> Vero Beach</p>
@@ -88,9 +88,9 @@ const CompanyAgreement = ({ formData1, formData2, incPage }) => {
           </Col>
         </Row>
 
-        <h4>Broker - Carrier Agreement</h4>
-        <p>
-          This Broker-Carrier Agreement ("Agreement") is entered into this 11th day of September, 2024, by and between Allen Lund Company, LLC, a Registered Property Broker under USDOT# 2212129 and MC-163523 ("BROKER"), and [Your Company Name], a Registered Motor Carrier under USDOT# and MC# [Your MC Number], to be referred to collectively as the “Parties”...
+        <h6 className='mb-3 mt-5'>Broker - Carrier Agreement</h6>
+        <p className='form-title'>
+          This Broker-Carrier Agreement  is entered into this 11th day of September, 2024, by and between Royal Start Logistics, a Registered Broker under USDOT# 2212129 and MC-163523 ("BROKER"), and [Your Company Name], a Registered Motor Carrier under USDOT# and MC# [Your MC Number], to be referred to collectively as the “Parties”...
         </p>
 
         {/* Agreement Acknowledgement Section */}
@@ -101,6 +101,7 @@ const CompanyAgreement = ({ formData1, formData2, incPage }) => {
               label="I agree to the terms and conditions of this agreement and acknowledge that this agreement is legally binding."
               checked={isAgreed}
               onChange={handleAgreementChange}
+              className='form-title'
             />
           </Form.Group>
 

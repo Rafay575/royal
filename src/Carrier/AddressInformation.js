@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Row, Col } from 'react-bootstrap';
+import { Form, Row, Col, Spinner } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios'; 
 import { baseUrl } from '../api/url'; 
-import { useSelector } from 'react-redux'; 
+// import { useSelector } from 'react-redux'; 
 
-const AddressInformation = ({ incPage, formData, setFormData }) => {
+const AddressInformation = ({ incPage, formData, setFormData,toggleMainLoading}) => {
   const location = useLocation();
   const searchResult = location.state || {}; 
-  const userId = useSelector((state) => state.user.id);
+  const userId = localStorage.getItem("___")
   useEffect(() => {
     if (searchResult) {
       setFormData(prevData => ({
@@ -39,7 +39,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
   // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    toggleMainLoading()
     // Create FormData object for sending multipart form data
     const formDataToSend = new FormData();
     formDataToSend.append('reg_id', userId);
@@ -66,38 +66,43 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
     formDataToSend.append('w9Name', formData.w9Name);
     formDataToSend.append('federalId', formData.federalId);
 
-    // Append file only if it's present
     if (formData.w9File) {
-      formDataToSend.append('w9File', formData.w9File); // Append the file to FormData
+      formDataToSend.append('w9File', formData.w9File);
     }
 
     try {
-      // Post form data to backend API
       const response = await axios.post(`${baseUrl}/api/submit-form`, formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
+       toggleMainLoading();
       console.log('Form submitted successfully:', response.data);
-      incPage(); // Call the increment page function if submission is successful
+
+      incPage();
     } catch (error) {
       console.error('Error submitting form:', error);
+      toggleMainLoading();
     }
+
   };
   return (
     <>
-      <h1 className="form-title text-center">Address Information</h1>
-      <div className="address-form-container">
-        <p className="form-description">
-          You must complete the fields listed below. If you have any issues, please contact us for assistance.
-        </p>
-
-        <Form onSubmit={handleSubmit}>
+    
+      <h5 className=" text-center mt-5">Address Information</h5>
+      <div className="">
+    </div>
+       
+        <Form onSubmit={handleSubmit} className='px-5 py-5'>
           {/* Form fields setup as before */}
           <Row className="mb-3">
+            <div>
+
+          <h6 className='mb-3'>Company Information</h6>
+            </div>
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Company Name</Form.Label>
+                <Form.Label className='form-title' >Company Name</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter Company Name"
@@ -114,7 +119,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
 
             <Col md={6}>
               <Form.Group>
-                <Form.Label>DBA</Form.Label>
+                <Form.Label className='form-title' >DBA</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter DBA"
@@ -130,7 +135,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
           <Row className="mb-3">
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Address</Form.Label>
+                <Form.Label className='form-title' >Address</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter Address"
@@ -147,7 +152,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
 
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Suite/Office</Form.Label>
+                <Form.Label className='form-title' >Suite/Office</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter Suite/Office"
@@ -162,7 +167,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
           <Row className="mb-3">
             <Col md={4}>
               <Form.Group>
-                <Form.Label>City</Form.Label>
+                <Form.Label className='form-title' >City</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter City"
@@ -179,7 +184,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
 
             <Col md={4}>
               <Form.Group>
-                <Form.Label>State/Province</Form.Label>
+                <Form.Label className='form-title' >State/Province</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter State"
@@ -196,7 +201,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
 
             <Col md={4}>
               <Form.Group>
-                <Form.Label>Zip Code</Form.Label>
+                <Form.Label className='form-title' >Zip Code</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter Zip Code"
@@ -215,7 +220,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
           <Row className="mb-3">
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Country</Form.Label>
+                <Form.Label className='form-title' >Country</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter Country"
@@ -232,7 +237,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
 
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Pay To Is Factoring Company</Form.Label>
+                <Form.Label className='form-title' >Pay To Is Factoring Company</Form.Label>
                 <Form.Control
                   as="select"
                   name="factoringCompany"
@@ -258,19 +263,20 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
               name="sameAddress"
               checked={formData.sameAddress}
               onChange={handleChange}
+              className='form-title'
             />
           </Form.Group>
           {/* Additional details for each field replicated here as previously described */}
 
           {/* Factoring Company Information Section */}
-          <div className="factoring-section mt-5">
-            <h4>Factoring Company Information</h4>
-            <p>If you are factoring, fill in Pay To Information.</p>
+          <div className=" mt-5">
+            <h6 className='mb-3'>Factoring Company Information</h6>
+            <p className='form-title'>If you are factoring, fill in Pay To Information.</p>
 
             <Row className="mb-3">
               <Col md={6}>
                 <Form.Group>
-                  <Form.Label>Pay To Company Name</Form.Label>
+                  <Form.Label className='form-title' >Pay To Company Name</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter Pay To Company Name"
@@ -283,7 +289,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
 
               <Col md={6}>
                 <Form.Group>
-                  <Form.Label>Pay To Address</Form.Label>
+                  <Form.Label className='form-title' >Pay To Address</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter Pay To Address"
@@ -298,7 +304,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
             <Row className="mb-3">
               <Col md={6}>
                 <Form.Group>
-                  <Form.Label>Pay To Address 2</Form.Label>
+                  <Form.Label className='form-title' >Pay To Address 2</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter Pay To Address 2"
@@ -311,7 +317,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
 
               <Col md={6}>
                 <Form.Group>
-                  <Form.Label>Pay To City</Form.Label>
+                  <Form.Label className='form-title' >Pay To City</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter Pay To City"
@@ -326,7 +332,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
             <Row className="mb-3">
               <Col md={4}>
                 <Form.Group>
-                  <Form.Label>Pay To State</Form.Label>
+                  <Form.Label className='form-title' >Pay To State</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter Pay To State"
@@ -339,7 +345,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
 
               <Col md={4}>
                 <Form.Group>
-                  <Form.Label>Pay To Zip</Form.Label>
+                  <Form.Label className='form-title' >Pay To Zip</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter Zip Code"
@@ -352,7 +358,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
 
               <Col md={4}>
                 <Form.Group>
-                  <Form.Label>Pay To Country</Form.Label>
+                  <Form.Label className='form-title' >Pay To Country</Form.Label>
                   <Form.Control
                     as="select"
                     name="payToCountry"
@@ -368,7 +374,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
             <Row className="mb-3">
               <Col md={6}>
                 <Form.Group>
-                  <Form.Label>Pay To Email</Form.Label>
+                  <Form.Label className='form-title' >Pay To Email</Form.Label>
                   <Form.Control
                     type="email"
                     placeholder="Enter Pay To Email"
@@ -381,7 +387,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
 
               <Col md={6}>
                 <Form.Group>
-                  <Form.Label>DUNS Number</Form.Label>
+                  <Form.Label className='form-title' >DUNS Number</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter DUNS Number"
@@ -395,14 +401,14 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
           </div>
 
           {/* W-9 Identification Number and Certification Section */}
-          <div className="w9-section mt-5">
-            <h4>W-9 Identification Number and Certification</h4>
-            <p>Please fill out the information below, then upload a copy of your W-9.</p>
+          <div className=" mt-5">
+            <h6 className='mb-3'>W-9 Identification Number and Certification</h6>
+            <p className='form-title'>Please fill out the information below, then upload a copy of your W-9.</p>
 
             <Row className="mb-3">
               <Col md={6}>
                 <Form.Group>
-                  <Form.Label>Name (as shown on your income tax return)</Form.Label>
+                  <Form.Label className='form-title' >Name (as shown on your income tax return)</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter Name"
@@ -415,7 +421,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
 
               <Col md={6}>
                 <Form.Group>
-                  <Form.Label>Federal Id Number</Form.Label>
+                  <Form.Label className='form-title' >Federal Id Number</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter Federal Id Number"
@@ -428,7 +434,7 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
             </Row>
 
             <Form.Group controlId="formFile" className="mb-3">
-              <Form.Label>Upload W-9 Document</Form.Label>
+              <Form.Label className='form-title' >Upload W-9 Document</Form.Label>
               <Form.Control
                 type="file"
                 name="w9File"
@@ -444,7 +450,6 @@ const AddressInformation = ({ incPage, formData, setFormData }) => {
             </button>
           </div>
         </Form>
-      </div>
     </>
   );
 };

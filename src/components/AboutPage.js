@@ -39,7 +39,7 @@ const AboutPage = () => {
           <Col md={10}>
           
             <p className="text-center" style={{ fontSize: '18px', lineHeight: '1.6' }}>
-              At Royal Star Logistics, we’ve been a cornerstone of transportation for over two decades. Our journey began with a simple mission: to provide reliable, efficient movement of freight to shippers across the United States. Today, we proudly operate a diverse fleet of trucks in every state, ensuring that your freight is handled with the utmost care, from origin to destination.
+              At Royal Star Logistics, we’ve been a cornerstone of transportation for more then a decade. Our journey began with a simple mission: to provide reliable, efficient movement of freight to shippers across the United States. Today, we proudly operate a diverse fleet of trucks in every state, ensuring that your freight is handled with the utmost care, from origin to destination.
             </p>
           </Col>
         </Row>
@@ -51,12 +51,12 @@ const AboutPage = () => {
               Our Story
             </h2>
             <p style={{ fontSize: '16px', lineHeight: '1.6' }}>
-              Founded in 2008, we started as a small operation with a big vision. We recognized the growing need for a logistics partner who could do more than just move goods. We wanted to offer a service that was personal, trustworthy, and above all, dependable. Over the years, we’ve been known for our dedication to customer satisfaction and our ability to adapt to the ever-changing demands of the logistics industry.
+              Founded in 2022, we started as a small operation with a big vision. We recognized the growing need for a logistics partner who could do more than just move goods. We wanted to offer a service that was personal, trustworthy, and above all, dependable. Over the years, we’ve been known for our dedication to customer satisfaction and our ability to adapt to the ever-changing demands of the logistics industry.
             </p>
           </Col>
           <Col md={6}>
             {/* Replace this with an image or illustration */}
-            <img src="./assets/img/about/a5.jpg" alt="Our Fleet" className="img-fluid" style={{ borderRadius: '10px' }} />
+            <img src="./assets/img/banner/ab.jpg" alt="Our Fleet" className="img-fluid" style={{ borderRadius: '10px' }} />
           </Col>
         </Row>
       </Container>

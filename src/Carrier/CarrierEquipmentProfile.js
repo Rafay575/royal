@@ -29,7 +29,7 @@ const CarrierEquipmentProfile = ({incPage}) => {
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const [selectedOptions, setSelectedOptions] = useState([]);
   const watchOther = watch('Other', false);
-  const reg_id = useSelector((state) => state.user.id);
+  const reg_id = localStorage.getItem("___");
   const handleCheckboxChange = (option) => {
     setSelectedOptions(prevState =>
       prevState.includes(option)
@@ -74,40 +74,42 @@ const CarrierEquipmentProfile = ({incPage}) => {
   };
   return (
     <>
-      <h1 className="text-center form-title">Allen Lund Company - Carrier Equipment Profile</h1>
-      <div className="carrier-equipment-form-container">
+      <h5 className="text-center mt-5 "> Carrier Equipment Profile</h5>
+      <div className="p-5">
 
         <Form onSubmit={handleSubmit(onSubmit)}>
           {/* Company Profile */}
-          <h4 className="section-title">Company Profile</h4>
+          <h6 className="">Company Profile</h6>
           <Row className="mb-4">
             <Col md={3}>
               <Form.Group>
-                <Form.Label>Company Drivers</Form.Label>
+                <Form.Label className='form-title' >Company Drivers</Form.Label>
                 <Form.Control type="text" {...register('companyDrivers')} size="sm" />
               </Form.Group>
             </Col>
             <Col md={3}>
               <Form.Group>
-                <Form.Label>Teams</Form.Label>
+                <Form.Label className='form-title' >Teams</Form.Label>
                 <Form.Control type="text" {...register('teams')} size="sm" />
               </Form.Group>
             </Col>
             <Col md={3}>
               <Form.Group>
-                <Form.Label>Owner Operators</Form.Label>
+                <Form.Label className='form-title' >Owner Operators</Form.Label>
                 <Form.Control type="text" {...register('ownerOperators')} size="sm" />
               </Form.Group>
             </Col>
             <Col md={3}>
               <Form.Group>
                 <Form.Check
+                className='form-title'
                   type="checkbox"
                   label="Has Mexico Interchange"
                   {...register('hasMexicoInterchange')}
                 />
                 <Form.Check
                   type="checkbox"
+                  className='form-title'
                   label="Has Canadian Authority"
                   {...register('hasCanadianAuthority')}
                 />
@@ -116,52 +118,52 @@ const CarrierEquipmentProfile = ({incPage}) => {
           </Row>
 
           {/* Modes Section */}
-          <h4 className="section-title">Modes (Check all that apply & must select at least one)</h4>
+          <h6 className="mb-3 mt-5">Modes (Check all that apply & must select at least one)</h6>
           <Row className="mb-4">
             <Col md={3}>
               <Form.Group>
-                <Form.Check label="Dry LTL" {...register('dryLtl')} />
-                <Form.Check label="Dry Van" {...register('dryVan')} />
-                <Form.Check label="Flatbed" {...register('flatbed')} />
-                <Form.Check label="Refrigerated" {...register('refrigerated')} />
-                <Form.Check label="Refrigerated LTL" {...register('refrigeratedLtl')} />
+                <Form.Check className='form-title' label="Dry LTL" {...register('dryLtl')} />
+                <Form.Check className='form-title' label="Dry Van" {...register('dryVan')} />
+                <Form.Check className='form-title' label="Flatbed" {...register('flatbed')} />
+                <Form.Check className='form-title' label="Refrigerated" {...register('refrigerated')} />
+                <Form.Check className='form-title' label="Refrigerated LTL" {...register('refrigeratedLtl')} />
               </Form.Group>
             </Col>
             <Col md={3}>
               <Form.Group>
-                <Form.Label>48 Foot Vans</Form.Label>
+                <Form.Label className='form-title' >48 Foot Vans</Form.Label>
                 <Form.Control type="text" {...register('FootVans48')} size="sm" />
               </Form.Group>
               <Form.Group>
-                <Form.Label>53 Foot Vans</Form.Label>
+                <Form.Label className='form-title' >53 Foot Vans</Form.Label>
                 <Form.Control type="text" {...register('FootVans53')} size="sm" />
               </Form.Group>
 
             </Col>
             <Col md={3}>
               <Form.Group>
-                <Form.Label>48 Foot Reefers</Form.Label>
+                <Form.Label className='form-title' >48 Foot Reefers</Form.Label>
                 <Form.Control type="text" {...register('FootReefers48')} size="sm" />
               </Form.Group>
               <Form.Group>
-                <Form.Label>53 Foot Reefers</Form.Label>
+                <Form.Label className='form-title' >53 Foot Reefers</Form.Label>
                 <Form.Control type="text" {...register('FootReefers53')} size="sm" />
               </Form.Group>
             </Col>
             <Col md={3}>
               <Form.Group>
-                <Form.Label>48 Foot Beds</Form.Label>
+                <Form.Label className='form-title' >48 Foot Beds</Form.Label>
                 <Form.Control type="text" {...register('Footbeds48')} size="sm" />
               </Form.Group>
               <Form.Group>
-                <Form.Label>53 Foot Beds</Form.Label>
+                <Form.Label className='form-title' >53 Foot Beds</Form.Label>
                 <Form.Control type="text" {...register('Footbeds53')} size="sm" />
               </Form.Group>
             </Col>
           </Row>
 
           {/* Special Equipment Section */}
-          <h4 className="section-title">Special Equipment (Check all that apply & must select at least one)</h4>
+          <h6 className="mb-3 mt-5">Special Equipment (Check all that apply & must select at least one)</h6>
           <Row className="mb-4">
             {specialEquipmentOptions.map((option, index) => (
               <Col xs={12} md={4} key={index} className="mb-2">
@@ -169,6 +171,7 @@ const CarrierEquipmentProfile = ({incPage}) => {
                   type="checkbox"
                   label={option}
                   value={option}
+                  className='form-title'
                   checked={selectedOptions.includes(option)}
                   onChange={() => handleCheckboxChange(option)}
                 />
@@ -177,56 +180,56 @@ const CarrierEquipmentProfile = ({incPage}) => {
           </Row>
 
           {/* Tractor and Equipment Counts */}
-          <h4 className="section-title">Tractor and Equipment Counts</h4>
+          <h6 className="mb-3 mt-5">Tractor and Equipment Counts</h6>
           <Row className="mb-4">
             <Col md={6}>
               <Form.Group>
-                <Form.Label>Tractor / Power Units</Form.Label>
+                <Form.Label className='form-title' >Tractor / Power Units</Form.Label>
                 <Form.Control type="text" {...register('tractorPowerUnits')} size="sm" />
               </Form.Group>
             </Col>
           </Row>
-          <h4 className="section-title">Standard Carrier Alpha Code</h4>
+          <h6 className="mb-3 mt-5">Standard Carrier Alpha Code</h6>
           <Row className="mb-4">
 
             <Col md={6}>
               <Form.Group>
-                <Form.Label>SCAC Code</Form.Label>
+                <Form.Label className='form-title' >SCAC Code</Form.Label>
                 <Form.Control type="text" {...register('scacCode')} size="sm" />
               </Form.Group>
             </Col>
           </Row>
 
           {/* Commodities List Section */}
-          <h4 className="section-title">Commodities List (Check all that apply & must select at least one)</h4>
+          <h6 className="mb-3 mt-5">Commodities List (Check all that apply & must select at least one)</h6>
           <Row className="mb-4">
             <Col md={12}>
               <Form.Group>
                 <Row>
                   <Col md={4}>
-                    <Form.Check label="Agriculture" {...register('agriculture')} />
-                    <Form.Check label="Alcohol" {...register('alcohol')} />
-                    <Form.Check label="Automotive" {...register('automotive')} />
-                    <Form.Check label="Beer and Wine" {...register('beerAndWine')} />
-                    <Form.Check label="Chemicals" {...register('chemicals')} />
-                    <Form.Check label="Electronics" {...register('electronics')} />
+                    <Form.Check className='form-title' label="Agriculture" {...register('agriculture')} />
+                    <Form.Check className='form-title' label="Alcohol" {...register('alcohol')} />
+                    <Form.Check className='form-title' label="Automotive" {...register('automotive')} />
+                    <Form.Check className='form-title' label="Beer and Wine" {...register('beerAndWine')} />
+                    <Form.Check className='form-title' label="Chemicals" {...register('chemicals')} />
+                    <Form.Check className='form-title' label="Electronics" {...register('electronics')} />
                   </Col>
                   <Col md={4}>
-                    <Form.Check label="Food" {...register('food')} />
-                    <Form.Check label="Household Goods" {...register('householdGoods')} />
-                    <Form.Check label="Ice Cream" {...register('iceCream')} />
-                    <Form.Check label="Machinery" {...register('machinery')} />
-                    <Form.Check label="Metals" {...register('metals')} />
-                    <Form.Check label="Pharmaceutical" {...register('pharmaceutical')} />
+                    <Form.Check className='form-title' label="Food" {...register('food')} />
+                    <Form.Check className='form-title' label="Household Goods" {...register('householdGoods')} />
+                    <Form.Check className='form-title' label="Ice Cream" {...register('iceCream')} />
+                    <Form.Check className='form-title' label="Machinery" {...register('machinery')} />
+                    <Form.Check className='form-title' label="Metals" {...register('metals')} />
+                    <Form.Check className='form-title' label="Pharmaceutical" {...register('pharmaceutical')} />
                   </Col>
 
                   <Col md={4}>
-                    <Form.Check label="ManufacturedProducts" {...register('ManufacturedProducts')} />
-                    <Form.Check label="Plastics Goods" {...register('PlasticsGoods')} />
-                    <Form.Check label="Petroleum Products" {...register('PetroleumProducts')} />
-                    <Form.Check label="Textiles" {...register('Textiles')} />
-                    <Form.Check label="Wood Products" {...register('WoodProducts')} />
-                    <Form.Check label="Other" {...register('Other')} />
+                    <Form.Check className='form-title' label="ManufacturedProducts" {...register('ManufacturedProducts')} />
+                    <Form.Check className='form-title' label="Plastics Goods" {...register('PlasticsGoods')} />
+                    <Form.Check className='form-title' label="Petroleum Products" {...register('PetroleumProducts')} />
+                    <Form.Check className='form-title' label="Textiles" {...register('Textiles')} />
+                    <Form.Check className='form-title' label="Wood Products" {...register('WoodProducts')} />
+                    <Form.Check className='form-title' label="Other" {...register('Other')} />
                     {watchOther && (
                       <Form.Group style={{ maxWidth: "50%" }}>
                         <Form.Control
@@ -246,37 +249,39 @@ const CarrierEquipmentProfile = ({incPage}) => {
           </Row>
 
           {/* Certifications Section */}
-          <h4 className="section-title">Certifications</h4>
+          <h6 className="mb-3 mt-5">Certifications</h6>
           <Row className="mb-4">
             <Col md={6}>
               <Form.Group>
-                <Form.Check label="SmartWay" type="radio" name="smartWay" value="yes" {...register('smartWay')} />
-                <Form.Check label="FAST" type="radio" name="fast" value="yes" {...register('fast')} />
-                <Form.Check label="CARB" type="radio" name="carb" value="yes" {...register('carb')} />
-                <Form.Check label="Safety Permit (HM 232)" type="radio" name="safetyPermit" value="yes" {...register('safetyPermit')} />
+                <Form.Check className='form-title' label="SmartWay" type="radio" name="smartWay" value="yes" {...register('smartWay')} />
+                <Form.Check className='form-title' label="FAST" type="radio" name="fast" value="yes" {...register('fast')} />
+                <Form.Check className='form-title' label="CARB" type="radio" name="carb" value="yes" {...register('carb')} />
+                <Form.Check className='form-title' label="Safety Permit (HM 232)" type="radio" name="safetyPermit" value="yes" {...register('safetyPermit')} />
               </Form.Group>
             </Col>
             <Col md={6}>
               <Form.Group>
-                <Form.Check label="C-TPAT" type="radio" name="cTpat" value="yes" {...register('cTpat')} />
-                <Form.Check label="TWIC" type="radio" name="twic" value="yes" {...register('twic')} />
-                <Form.Check label="HazMat Certification" type="radio" name="hazmatCertification" value="yes" {...register('hazmatCertification')} />
+                <Form.Check className='form-title' label="C-TPAT" type="radio" name="cTpat" value="yes" {...register('cTpat')} />
+                <Form.Check className='form-title' label="TWIC" type="radio" name="twic" value="yes" {...register('twic')} />
+                <Form.Check className='form-title' label="HazMat Certification" type="radio" name="hazmatCertification" value="yes" {...register('hazmatCertification')} />
               </Form.Group>
             </Col>
           </Row>
-          <h4 className="section-title">Drop Trailer</h4>
-          <p>Do you have the equipment and ability to drop trailers?</p>
+          <h6 className="mb-3 mt-5">Drop Trailer</h6>
+          <p className='form-title'>Do you have the equipment and ability to drop trailers?</p>
           <Form.Group>
             <Form.Check
               type="radio"
               label="Yes"
               value="yes"
+              className='form-title'
               {...register('agree', { required: true })}
             />
             <Form.Check
               type="radio"
               label="No"
               value="no"
+              className='form-title'
               {...register('agree', { required: true })}
             />
             {errors.agree && <span className="error-text">This field is required</span>}

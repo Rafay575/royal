@@ -28,17 +28,17 @@ const SupplierDiversityInformation = ({incPage}) => {
 
   return (
     <>
-      <h1 className="text-center form-title">Supplier Diversity Information</h1>
-    <div className="supplier-diversity-form-container">
+      <h5 className="text-center mt-5">Supplier Diversity Information</h5>
+    <div className="p-5">
 
       <Form onSubmit={handleSubmit(onSubmit)}>
         {/* Supplier Diversity Dropdown */}
-        <h6>
+        <h6 className=' mb-3'>
 
             Supplier Diversity (Minority, Woman-Owned (M/WBE), Small Business (SBE), or Disadvantaged Small Business (DSBE) Enterprise)
         </h6>
         <Form.Group controlId="supplierDiversity" className="mb-3">
-          <Form.Label>
+          <Form.Label className='form-title'>
             Is your company an M/WBE, SBE, or DSBE enterprise? (check all that apply)
           </Form.Label>
           <Form.Select {...register('supplierDiversity', { required: true })}>
@@ -69,24 +69,7 @@ const SupplierDiversityInformation = ({incPage}) => {
           max-width: 900px;
           margin: 0 auto;
         }
-        .form-title {
-          font-size: 1.5rem;
-          font-weight: 500;
-          margin-bottom: 20px;
-        }
-        .error-text {
-          color: red;
-          font-size: 0.875rem;
-        }
-        .form-actions {
-          display: flex;
-          justify-content: flex-end;
-        }
-        @media (max-width: 768px) {
-          .form-actions {
-            justify-content: center;
-          }
-        }
+      
       `}</style>
     </div>
 

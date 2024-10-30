@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import './ShipperPage.css';
+import { Link } from 'react-router-dom';
 
 const Shipper = () => {
   return (
@@ -28,7 +29,7 @@ const Shipper = () => {
             <Card.Body>
               <Card.Title className="service-title">Flatbed</Card.Title>
               <Card.Text>
-                Whether you need standard flatbed trailers or specialized equipment to handle over-dimensional/over-weight loads, the Allen Lund Company flatbed division, located in Atlanta, GA, can handle the job at any time.
+                Whether you need standard flatbed trailers or specialized equipment to handle over-dimensional/over-weight loads, the Royal Star Logistics flatbed division, located in Atlanta, GA, can handle the job at any time.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -57,9 +58,14 @@ const Shipper = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col className='text-center'>
-              <Button  className="btn btn-base">Learn More</Button>
-        </Col>
+      
+      </Row>
+      <Row className='text-center'>
+        <Link to='/registration'>
+        <button className='button-11'>
+          Get a rate Quote
+        </button>
+        </Link>
       </Row>
     </Container>
   );

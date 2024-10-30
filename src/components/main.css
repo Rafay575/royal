@@ -1,3 +1,29 @@
 .gradient {
-    background: #244855 
+  background: #244855;
+}
+
+/* Original styles for larger screens */
+.contact-inner-unique-part-2 {
+  background: #244855;
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 60px;
+}
+
+.contact-inner-unique-part-1 {
+  background: #fff;
+  border-top: 5px solid rgb(230, 72, 51);
+  border-bottom: 5px solid rgb(230, 72, 51);
+  border-left: 5px solid rgb(230, 72, 51);
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+}
+
+/* Override styles for small screens */
+@media (max-width: 768px) {
+  .contact-inner-unique-part-2,
+  .contact-inner-unique-part-1 {
+   
+    border: none;
+    border-radius: 0;
   }
+}

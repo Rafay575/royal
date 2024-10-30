@@ -15,14 +15,8 @@ const BlogDetails = () => {
     <div style={{background:'#E8E6CA'}}>
       <Fragment>
         <Suspense fallback={<Preloader />}>
-          {/* Search Popup */}
-          <SearchPopup />
-
-          {/* Navbar One */}
+         
           <NavbarOne />
-
-          {/* Breadcrumb */}
-          {/* <Breadcrumb title={"CARRIER"}  /> */}
 
           <Carrier />
           <CarrierBenefits />

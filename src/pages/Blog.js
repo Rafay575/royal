@@ -2,6 +2,7 @@ import React, { Fragment, Suspense } from "react";
 import Preloader from "../elements/Preloader";
 import LogisticsPage from "../components/LogisticsPage";
 import CarrierResourcesSection from "../components/CarrierResourcesSection";
+import ShipperTop from "../components/ShipperTop";
 // import Shipper from "./Shipper";
 const BlogView = React.lazy(() => import("../components/BlogView"));
 
@@ -19,16 +20,12 @@ const Blog = () => {
     <div style={{background:'#E8E6CA'}}>
       <Fragment>
         <Suspense fallback={<Preloader />}>
-          {/* Search Popup */}
-          <SearchPopup />
-
-          {/* Navbar One */}
+         
           <NavbarOne />
 
-          {/* Breadcrumb */}
-          <Breadcrumb title={"SHIPPER"}  />
+         <ShipperTop />
 
-          <CarrierResourcesSection />
+          {/* <CarrierResourcesSection /> */}
           <LogisticsPage />
           <Shipper />
 

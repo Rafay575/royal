@@ -33,7 +33,7 @@ const Tools = () => {
               <Card.Body>
                 <Card.Title className="text-white tool-title">Track Active Loads</Card.Title>
                 <Card.Text className='text-white'>
-                  Our website allows carriers to manage and track their ALC loads from the time they are tendered to the time of delivery.
+                  Our website allows carriers to manage and track their RSL loads from the time they are tendered to the time of delivery.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -47,7 +47,7 @@ const Tools = () => {
               <Card.Body>
                 <Card.Title className="text-white tool-title">Update Profile</Card.Title>
                 <Card.Text className='text-white'>
-                  Carriers can view their contact information, posted equipment, preferred lanes, and track and update loads via the ALC platform.
+                  Carriers can view their contact information, posted equipment, preferred lanes, and track and update loads via the RSL platform.
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -61,7 +61,7 @@ const Tools = () => {
               <Card.Body>
                 <Card.Title className="text-white tool-title">Upload Documents</Card.Title>
                 <Card.Text className='text-white'>
-                  Use the ALC Carrier Mobile App to upload PDFs of load documents, speeding up the payment process.
+                  Use the RSL Carrier Web App to upload PDFs of load documents, speeding up the payment process.
                 </Card.Text>
               </Card.Body>
             </Card>

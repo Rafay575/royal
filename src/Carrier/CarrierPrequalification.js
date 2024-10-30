@@ -12,7 +12,7 @@ const CarrierPrequalification = () => {
     mcNumber: '',
     dotNumber: '',
   });
-  const userId = useSelector((state) => state.user.id);
+  const userId = localStorage.getItem("___");
   const [searchResult, setSearchResult] = useState(null);
   const [loading, setLoading] = useState(false); // Loading state for the spinner
   const navigate = useNavigate();
@@ -149,22 +149,7 @@ const CarrierPrequalification = () => {
           </Row>
         </Form>
 
-        {searchResult && (
-          <div className="mt-4">
-            <h5>Carrier Found</h5>
-            <p><strong>Allowed To Operate:</strong> {searchResult.allowedToOperate || 'N/A'}</p>
-            <p><strong>DOT #:</strong> {searchResult.dotNumber || 'N/A'}</p>
-            <p><strong>MC #:</strong> {searchResult.mcNumber || 'N/A'}</p>
-            <p><strong>Legal Name:</strong> {searchResult.legalName || 'N/A'}</p>
-            <p><strong>DBA Name:</strong> {searchResult.dbaName || 'N/A'}</p>
-            <p><strong>Street:</strong> {searchResult.phyStreet || 'N/A'}</p>
-            <p><strong>City:</strong> {searchResult.phyCity || 'N/A'}</p>
-            <p><strong>State:</strong> {searchResult.phyState || 'N/A'}</p>
-            <p><strong>Zip Code:</strong> {searchResult.phyZipcode || 'N/A'}</p>
-            <p><strong>Country:</strong> {searchResult.phyCountry || 'N/A'}</p>
-            <p><strong>Phone:</strong> {searchResult.telephone || 'N/A'}</p>
-          </div>
-        )}
+    
       </Container>
     </>
   );

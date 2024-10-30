@@ -19,13 +19,13 @@
     margin: 0 auto;
   }
   .form-control{
-    font-size:12px !important
+    font-size:10px !important
   }
   .error-text{
     font-size:12px !important
   }
   .form-title {
-    font-size: 1.5rem;
+    font-size: 12px;
     font-weight: 500;
     margin-bottom: 20px;
   }
@@ -34,10 +34,7 @@
     color: #6c757d;
     margin-bottom: 20px;
   }
-  .w9-section h4, .factoring-section h4 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-  }
+ 
   .form-actions {
     display: flex;
     justify-content: flex-end;

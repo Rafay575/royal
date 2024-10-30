@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import { baseUrl } from '../api/url';
 
 const CARBTruckBusCompliance = ({incPage}) => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -17,7 +18,7 @@ const CARBTruckBusCompliance = ({incPage}) => {
     formData.append('reg_id', userId)
 
     console.log(userId)
-    axios.post('http://localhost:5000/api/compliance', formData)
+    axios.post(`${baseUrl}/api/compliance`, formData)
       .then((response) => {
         console.log(response.data);
         incPage();  // Move to the next page
@@ -34,13 +35,13 @@ const CARBTruckBusCompliance = ({incPage}) => {
 
   return (
     <>
-      <h1 className="text-center form-title">CARB Truck and Bus Compliance</h1>
-      <div className="carb-compliance-form-container">
+      <h5 className="text-center mt-5">CARB Truck and Bus Compliance</h5>
+      <div className="p-5">
 
         <Form onSubmit={handleSubmit(onSubmit)}>
           {/* Compliance Question */}
-          <div className="compliance-question">
-            <p><strong>Truck and Bus Regulation</strong></p>
+          <div className="form-title">
+            <h6 className='mb-3'>Truck and Bus Regulation</h6>
             <p>Are you California Air Resources Board (CARB) Truck and Bus Regulation compliant?</p>
             <p>To declare that you are Truck and Bus compliant, you must have a Certificate of Reported Compliance (see example image) which you will be asked to upload here. CARB Truck and Bus is NOT the same as CARB TRU (Transport Refrigeration Unit) and Drayage regulations.</p>
             
@@ -65,7 +66,7 @@ const CARBTruckBusCompliance = ({incPage}) => {
               </Col>
             </Row>
           </div>
-          <div className="compliance-links mb-4">
+          <div className="form-title mb-4">
             <p><strong>Learn more link:</strong></p>
             <ul>
               <li><a href="https://www.arb.ca.gov/msprog/onrdiesel/ordiese.htm" target="_blank" rel="noopener noreferrer">https://www.arb.ca.gov/msprog/onrdiesel/ordiese.htm</a></li>
@@ -76,13 +77,13 @@ const CARBTruckBusCompliance = ({incPage}) => {
           {/* Conditional Dropdown */}
           {watchCarbCompliant==='No' && (
             <div className="mb-3" >
-              <Form.Label>Our records will indicate that your company is not compliant with the CARB Truck and Bus regulation.
+              <Form.Label className='form-title'>Our records will indicate that your company is not compliant with the CARB Truck and Bus regulation.
               Please indicate your reason below:</Form.Label>
               <Col md={6}>
-              <Form.Select {...register('planningToComply')} >
-                <option value="">Select...</option>
-                <option value="yes">I do not operate in California.</option>
-                <option value="no">I operate in California, but am not currently CARB Truck and Bus compliant.</option>
+              <Form.Select {...register('planningToComply')} className='form-title' >
+                <option className='form-title' value="">Select...</option>
+                <option className='form-title' value="yes">I do not operate in California.</option>
+                <option className='form-title' value="no">I operate in California, but am not currently CARB Truck and Bus compliant.</option>
               </Form.Select>
             </Col>
             </div>
@@ -90,19 +91,20 @@ const CARBTruckBusCompliance = ({incPage}) => {
 
           {/* Conditional Additional Form */}
           {watchCarbCompliant==='Yes' && (
-            <div className="carb-certificate-form-container">
+            <div className="">
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Form.Group className="mb-3">
-                <Form.Label>Certificate Issued To (Company Name):</Form.Label>
+                <Form.Label className='form-title'>Certificate Issued To (Company Name):</Form.Label>
                 <Form.Control
                   type="text"
+                  className='form-title'
                   {...register('certificateIssuedTo', { required: true })}
                 />
                 {errors.certificateIssuedTo && <span className="error-text">This field is required</span>}
               </Form.Group>
       
               <Form.Group className="mb-3">
-                <Form.Label>Number of Vehicles Reported:</Form.Label>
+                <Form.Label className='form-title'>Number of Vehicles Reported:</Form.Label>
                 <Form.Control
                   type="number"
                   {...register('vehiclesReported', { required: true })}
@@ -111,7 +113,7 @@ const CARBTruckBusCompliance = ({incPage}) => {
               </Form.Group>
       
               <Form.Group className="mb-3">
-                <Form.Label>Certificate Valid Until:</Form.Label>
+                <Form.Label className='form-title'>Certificate Valid Until:</Form.Label>
                 <Form.Control
                   type="date"
                   {...register('certificateValidUntil', { required: true })}
@@ -120,7 +122,7 @@ const CARBTruckBusCompliance = ({incPage}) => {
               </Form.Group>
       
               <Form.Group className="mb-3">
-                <Form.Label>TRUCRS ID (Truck and Bus Fleet Identification #):</Form.Label>
+                <Form.Label className='form-title'> TRUCRS ID (Truck and Bus Fleet Identification #):</Form.Label>
                 <Form.Control
                   type="text"
                   {...register('trucrsId', { required: true })}
@@ -129,7 +131,7 @@ const CARBTruckBusCompliance = ({incPage}) => {
               </Form.Group>
       
               <Form.Group className="mb-3">
-                <Form.Label>Compliance Type:</Form.Label>
+                <Form.Label className='form-title'>Compliance Type:</Form.Label>
                 <Form.Select {...register('complianceType', { required: true })}>
                   <option value="">-- Please Select --</option>
                   <option value="enginemodelyearschedule">Engine Model Year Schedule</option>
@@ -139,7 +141,7 @@ const CARBTruckBusCompliance = ({incPage}) => {
               </Form.Group>
       
               <Form.Group className="mb-3">
-                <Form.Label>Upload a copy of your current Certificate of Reported Compliance from CARB:</Form.Label>
+                <Form.Label className='form-title'>Upload a copy of your current Certificate of Reported Compliance from CARB:</Form.Label>
                 <Form.Control
                   type="file"
                   {...register('certificateFile', { required: true })}
